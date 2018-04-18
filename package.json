@@ -1,0 +1,62 @@
+{
+  "name": "postcss-jsx",
+  "version": "0.0.1",
+  "description": "PostCSS syntax for parsing CSS in JS literals",
+  "main": "lib/index.js",
+  "scripts": {
+    "report-coverage": "codecov",
+    "pretest": "eslint lib test",
+    "test": "nyc mocha --no-timeouts"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "all": true,
+    "cache": true,
+    "check-coverage": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gucong3000/postcss-jsx.git"
+  },
+  "keywords": [
+    "postcss",
+    "syntax",
+    "react",
+    "css-in-js",
+    "css"
+  ],
+  "author": "gucong3000",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gucong3000/postcss-jsx/issues"
+  },
+  "homepage": "https://github.com/gucong3000/postcss-jsx#readme",
+  "peerDependencies": {
+    "postcss": ">=5.0.0",
+    "postcss-syntax": "*"
+  },
+  "dependencies": {
+    "@babel/generator": "^7.0.0-beta.46",
+    "@babel/traverse": "^7.0.0-beta.46",
+    "@babel/types": "^7.0.0-beta.46",
+    "babylon": "^7.0.0-beta.46"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "codecov": "^3.0.1",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "mocha": "^5.1.1",
+    "nyc": "^11.7.1",
+    "postcss": "^6.0.21",
+    "postcss-safe-parser": "^3.0.1",
+    "postcss-syntax": "github:gucong3000/postcss-syntax#HEAD"
+  }
+}

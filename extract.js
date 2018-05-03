@@ -2,6 +2,7 @@
 const traverse = require("@babel/traverse").default;
 const t = require("@babel/types").default;
 const parse = require("babylon").parse;
+const getTemplate = require("./get-template");
 
 const isTopLevelExpression = path =>
 	path.isObjectExpression() && !path.findParent(p => p.isObjectExpression());
@@ -64,15 +65,15 @@ function getOptions (opts, attribute) {
 	};
 }
 
-function literalParser (source, opts) {
+function literalParser (source, opts, styles) {
 	let ast;
 	try {
 		ast = parse(source, getOptions(opts));
 	} catch (ex) {
 		if (opts.from && /\.(?:m?[jt]sx?|es\d*|pac)(\?.*|$)/i.test(opts.from)) {
-			return [];
+			return styles || [];
 		}
-		return;
+		return styles;
 	}
 
 	let glamorousImport;
@@ -133,30 +134,34 @@ function literalParser (source, opts) {
 
 	objects = objects.map(path => {
 		const objectSyntax = require("./object-syntax");
-		const root = objectSyntax.parse(path.node, source, opts);
-		const startIndex = root.first.raws.node.start;
-		const endIndex = root.last.raws.node.end;
+		const endNode = path.node;
+		const syntax = objectSyntax(endNode);
+		let startNode = endNode;
+		if (startNode.leadingComments && startNode.leadingComments.length) {
+			startNode = startNode.leadingComments[0];
+		}
 		return {
-			root,
-			startIndex,
-			endIndex,
-			syntax: objectSyntax,
+			startIndex: startNode.start,
+			endIndex: endNode.end,
+			skipConvert: true,
+			content: source,
+			syntax,
 			lang: "object-literal",
 		};
 	});
 
-	let styledSyntax;
+	let templateSyntax;
 
-	function getStyledSyntax () {
-		if (!styledSyntax) {
-			const getSyntax = require("postcss-syntax/lib/get-syntax");
+	function getTemplateSyntax () {
+		if (!templateSyntax) {
+			const getSyntax = require("postcss-syntax/get-syntax");
 			const cssSyntax = getSyntax("css", opts);
-			styledSyntax = {
-				parse: require(cssSyntax.parse.name === "safeParse" ? "./template-safe-parse" : "./template-parse"),
+			templateSyntax = {
+				parse: require("postcss-styled/template-" + (cssSyntax.parse.name === "safeParse" ? "safe-parse" : "parse")),
 				stringify: cssSyntax.stringify,
 			};
 		}
-		return styledSyntax;
+		return templateSyntax;
 	}
 
 	tpls = tpls.filter(path => (
@@ -165,20 +170,20 @@ function literalParser (source, opts) {
 		))
 	)).map(path => {
 		const quasis = path.node.quasis;
-		const startIndex = quasis[0].start;
-		const strSource = source.slice(startIndex, quasis[quasis.length - 1].end);
+		const value = getTemplate(path.node, source);
 
-		if (!strSource.trim()) {
+		if (value.length === 1 && !value[0].trim()) {
 			return;
 		}
 
 		const style = {
-			startIndex: startIndex,
-			content: strSource,
+			startIndex: quasis[0].start,
+			endIndex: quasis[quasis.length - 1].end,
+			content: value.join(""),
 			ignoreErrors: true,
 		};
-		if (/(^|\s|\{|\}|;|:)\$\{/m.test(strSource)) {
-			style.syntax = getStyledSyntax();
+		if (value.length > 1) {
+			style.syntax = getTemplateSyntax();
 			style.lang = "template-literal";
 		} else {
 			style.lang = "css";
@@ -186,7 +191,7 @@ function literalParser (source, opts) {
 		return style;
 	}).filter(Boolean);
 
-	return objects.concat(tpls);
+	return (styles || []).concat(objects).concat(tpls);
 };
 
 module.exports = literalParser;

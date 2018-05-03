@@ -18,11 +18,14 @@ const Component1 = glm.a(
     // unkown pseudo class selector
     ':focused': {
       backgroundColor: 'red',
-      ["background" + "Color"]: 'red',
     },
-    [1+1]: {
-      backgroundColor: 'red',
-    },
+    "@fontFace": {
+		"fontFamily": 'diyfont',
+	},
+	"@page:first": {
+		margin: "300px"
+	},
+	"@charset": "utf-8"
   },
   // end
   ({ primary }) => ({
@@ -43,6 +46,7 @@ const Component2 = glm(Component1, {
 
 const Component3 = glm.div({
   padding: '8px 12px',
+  ...Component2
 });
 
 export default () => (

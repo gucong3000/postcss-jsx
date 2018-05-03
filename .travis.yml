@@ -4,7 +4,9 @@ language: node_js
 
 node_js:
   - stable
-  - 4
+
+script:
+  - nyc mocha --no-timeouts
 
 after_script:
-  - npm run report-coverage
+  - codecov

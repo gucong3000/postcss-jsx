@@ -5,5 +5,8 @@ language: node_js
 node_js:
   - stable
 
+before_install:
+  - curl -s https://raw.githubusercontent.com/gucong3000/postcss-syntaxes/HEAD/deps.js | node
+
 after_script:
   - codecov

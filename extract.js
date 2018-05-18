@@ -3,6 +3,7 @@ const traverse = require("@babel/traverse").default;
 const t = require("@babel/types").default;
 const parse = require("babylon").parse;
 const getTemplate = require("./get-template");
+const loadSyntax = require("postcss-syntax/load-syntax");
 
 const isTopLevelExpression = path =>
 	path.isObjectExpression() && !path.findParent(p => p.isObjectExpression());
@@ -150,20 +151,6 @@ function literalParser (source, opts, styles) {
 		};
 	});
 
-	let templateSyntax;
-
-	function getTemplateSyntax () {
-		if (!templateSyntax) {
-			const getSyntax = require("postcss-syntax/get-syntax");
-			const cssSyntax = getSyntax("css", opts);
-			templateSyntax = {
-				parse: require("postcss-styled/template-" + (cssSyntax.parse.name === "safeParse" ? "safe-parse" : "parse")),
-				stringify: cssSyntax.stringify,
-			};
-		}
-		return templateSyntax;
-	}
-
 	tpls = tpls.filter(path => (
 		objects.every(style => (
 			path.node.start > style.endIndex || path.node.end < style.startIndex
@@ -183,7 +170,7 @@ function literalParser (source, opts, styles) {
 			ignoreErrors: true,
 		};
 		if (value.length > 1) {
-			style.syntax = getTemplateSyntax();
+			style.syntax = loadSyntax(opts, "postcss-styled");
 			style.lang = "template-literal";
 		} else {
 			style.lang = "css";

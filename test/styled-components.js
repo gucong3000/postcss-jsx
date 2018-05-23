@@ -54,7 +54,10 @@ describe("styled-components", () => {
 	});
 
 	it("illegal template literal", () => {
-		const code = "`$\n{display: block}\n${g} {}`";
+		const code = [
+			"const styled = require(\"styled-components\");",
+			"styled.div`$\n{display: block}\n${g} {}`",
+		].join("\n");
 		const root = syntax.parse(code, {
 			from: "illegal_template_literal.js",
 		});
@@ -67,8 +70,26 @@ describe("styled-components", () => {
 		expect(root.last.last).have.property("selector", "${g}");
 	});
 
+	it("styled.img", () => {
+		const code = [
+			"const styled = require(\"styled-components\");",
+			"const Image1 = styled.img.attrs({ src: 'url' })`",
+			"  bad-selector {",
+			"    color: red;",
+			"  }",
+			"`;",
+		].join("\n");
+		const root = syntax.parse(code, {
+			from: "styled.img.js",
+		});
+		expect(root.toString()).to.equal(code);
+	});
+
 	it("skip CSS syntax error", () => {
-		const code = "`a{`";
+		const code = [
+			"const styled = require(\"styled-components\");",
+			"styled.div`a{`;",
+		].join("\n");
 		const root = syntax.parse(code, {
 			from: "css_syntax_error.js",
 		});
@@ -76,14 +97,32 @@ describe("styled-components", () => {
 		expect(root.nodes).to.have.lengthOf(0);
 	});
 
+	it("skip empty template literal", () => {
+		const code = [
+			"const styled = require(\"styled-components\");",
+			"styled.div``;",
+		].join("\n");
+		const root = syntax.parse(code, {
+			from: "empty_template_literal.js",
+		});
+		expect(root.toString()).to.equal(code);
+		expect(root.nodes).to.have.lengthOf(0);
+	});
+
 	it("fix CSS syntax error", () => {
-		const code = "`a{`";
+		const code = [
+			"const styled = require(\"styled-components\");",
+			"styled.div`a{`;",
+		].join("\n");
 		const root = syntax({
 			css: "safe-parser",
 		}).parse(code, {
 			from: "postcss-safe-parser.js",
 		});
-		expect(root.toString()).to.equal("`a{}`");
+		expect(root.toString()).to.equal([
+			"const styled = require(\"styled-components\");",
+			"styled.div`a{}`;",
+		].join("\n"));
 		expect(root.nodes).to.have.lengthOf(1);
 		expect(root.first.nodes).to.have.lengthOf(1);
 		expect(root.first.first).have.property("type", "rule");
@@ -91,13 +130,19 @@ describe("styled-components", () => {
 	});
 
 	it("fix styled syntax error", () => {
-		const code = "`${ a } {`";
+		const code = [
+			"const styled = require(\"styled-components\");",
+			"styled.div`${ a } {`",
+		].join("\n");
 		const root = syntax({
 			css: "safe-parser",
 		}).parse(code, {
 			from: "styled-safe-parse.js",
 		});
-		expect(root.toString()).to.equal("`${ a } {}`");
+		expect(root.toString()).to.equal([
+			"const styled = require(\"styled-components\");",
+			"styled.div`${ a } {}`",
+		].join("\n"));
 		expect(root.nodes).to.have.lengthOf(1);
 		expect(root.first.nodes).to.have.lengthOf(1);
 		expect(root.first.first).have.property("type", "rule");

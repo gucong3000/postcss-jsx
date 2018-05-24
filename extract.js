@@ -1,6 +1,6 @@
 "use strict";
 const traverse = require("@babel/traverse").default;
-const t = require("@babel/types").default;
+const types = require("@babel/types");
 const parse = require("babylon").parse;
 const getTemplate = require("./get-template");
 const loadSyntax = require("postcss-syntax/load-syntax");
@@ -13,6 +13,11 @@ const isCssAttribute = path =>
 	path.findParent(
 		p => p.isJSXAttribute() && p.node.name && p.node.name.name === "css"
 	);
+
+const isStyleTemplateExpression = (path, references) => (
+	path.isTaggedTemplateExpression() &&
+	isStyleModule(path.node.tag, references)
+);
 
 const extractDeclarations = (path) => {
 	let declarations = [];
@@ -28,6 +33,75 @@ const extractDeclarations = (path) => {
 	});
 
 	return declarations;
+};
+
+const isStyleModule = (node, references) => {
+	const identifierNames = [];
+	do {
+		if (node.name) {
+			identifierNames.push(node.name);
+		} else if (node.property && node.property.name) {
+			identifierNames.push(node.property.name);
+		}
+		node = node.object || node.callee;
+	} while (node);
+
+	const identifierName = identifierNames.pop();
+	if (identifierName) {
+		let nameSpace = references[identifierName];
+		if (nameSpace) {
+			if (nameSpace[0] in supports) {
+				return supports[nameSpace[0]];
+			} else if (nameSpace[0] in partialSupports) {
+				nameSpace = nameSpace.concat(identifierNames.reverse());
+				return partialSupports[nameSpace.shift()].every((element, i) => (
+					element === nameSpace[i]
+				));
+			}
+		}
+	}
+	return false;
+};
+
+const partialSupports = {
+	// https://github.com/Khan/aphrodite
+	aphrodite: [
+		"StyleSheet",
+	],
+
+	// https://github.com/necolas/react-native-web
+	"react-native": [
+		"StyleSheet",
+	],
+};
+
+const supports = {
+
+	// https://github.com/tkh44/emotion
+	emotion: true,
+	"react-emotion": true,
+	"preact-emotion": true,
+
+	// https://github.com/threepointone/glamor
+	glamor: true,
+
+	// https://github.com/paypal/glamorous
+	glamorous: true,
+
+	// https://github.com/js-next/react-style
+	"react-style": true,
+
+	// https://github.com/casesandberg/reactcss
+	reactcss: true,
+
+	// https://github.com/styled-components/styled-components
+	"styled-components": true,
+
+	// https://github.com/rtsao/styletron
+	"styletron-react": true,
+
+	// https://github.com/typestyle/typestyle
+	typestyle: true,
 };
 
 function getSourceType (filename) {
@@ -61,7 +135,7 @@ function getOptions (opts, attribute) {
 
 	return {
 		sourceFilename: filename,
-		sourceType: getSourceType(filename) || "module",
+		sourceType: getSourceType(filename) || "unambiguous",
 		plugins,
 	};
 }
@@ -71,69 +145,73 @@ function literalParser (source, opts, styles) {
 	try {
 		ast = parse(source, getOptions(opts));
 	} catch (ex) {
-		if (opts.from && /\.(?:m?[jt]sx?|es\d*|pac)(\?.*|$)/i.test(opts.from)) {
-			return styles || [];
-		}
-		return styles;
+		return styles || [];
 	}
 
-	let glamorousImport;
-	let objects = [];
-	let tpls = [];
+	const references = {};
+	let objLiteral = [];
+	let tplLiteral = [];
 
+	function enter (path) {
+		if (path.isImportDeclaration()) {
+			const moduleId = path.node.source.value;
+			if ((moduleId in supports) || (moduleId in partialSupports)) {
+				path.node.specifiers.forEach(specifier => {
+					const localName = specifier.local.name;
+					references[localName] = [
+						moduleId,
+					];
+					if (specifier.imported) {
+						references[localName].push(specifier.imported.name);
+					}
+				});
+			}
+		} else if (isCssAttribute(path)) {
+			objLiteral.push(path);
+		} else if (isStyleTemplateExpression(path, references)) {
+			tplLiteral.push(path.get("quasi"));
+		} else if (path.isCallExpression()) {
+			const callee = path.node.callee;
+			if (callee.type === "Identifier" && callee.name === "require") {
+				const args = path.get("arguments");
+				if (args && args.length && args[0].isStringLiteral()) {
+					const moduleId = args[0].container[0].value;
+					if ((moduleId in supports) || (moduleId in partialSupports)) {
+						references[path.parent.id.name] = [moduleId];
+					}
+				}
+			} else if (isStyleModule(callee, references)) {
+				path.get("arguments").forEach((arg) => {
+					if (arg.isObjectExpression()) {
+						objLiteral.push(arg);
+					} else if (arg.isFunction()) {
+						if (arg.get("body").isObjectExpression()) {
+							objLiteral = objLiteral.concat(arg.get("body"));
+						} else {
+							const rule = Object.assign(
+								{},
+								types.objectExpression(extractDeclarations(arg.get("body"))),
+								{ loc: path.node.loc }
+							);
+							path.replaceWith(rule);
+							objLiteral = objLiteral.concat(path);
+						}
+					}
+				});
+			}
+		}
+	}
 	traverse(ast, {
 		enter (path) {
-			if (path.isTemplateLiteral()) {
-				tpls.push(path);
-				return;
-			}
-			if (isCssAttribute(path)) {
-				objects = objects.concat([path]);
-			}
-
-			if (path.isImportDeclaration()) {
-				if (path.node.source.value === "glamorous") {
-					glamorousImport = path
-						.get("specifiers")
-						.filter(specifier => specifier.isImportDefaultSpecifier())[0];
-				}
-			}
-
-			if (path.isCallExpression()) {
-				let importName;
-
-				if (glamorousImport) {
-					importName = glamorousImport.node.local.name;
-				}
-
-				if (
-					(path.node.callee.object &&
-					(path.node.callee.object.name === importName || path.node.callee.object.name === "styled")) ||
-					(path.node.callee.callee && (path.node.callee.callee.name === importName || path.node.callee.callee.name === "styled"))
-				) {
-					path.get("arguments").forEach((arg) => {
-						if (arg.isObjectExpression()) {
-							objects = objects.concat([arg]);
-						} else if (arg.isFunction()) {
-							if (arg.get("body").isObjectExpression()) {
-								objects = objects.concat(arg.get("body"));
-							} else {
-								const rule = Object.assign(
-									{},
-									t.objectExpression(extractDeclarations(arg.get("body"))),
-									{ loc: path.node.loc }
-								);
-								path.replaceWith(rule);
-								objects = objects.concat(path);
-							}
-						}
-					});
-				}
+			try {
+				enter(path);
+			} catch (ex) {
+				console.error(ex);
 			}
 		},
 	});
 
-	objects = objects.map(path => {
+	objLiteral = objLiteral.map(path => {
 		const objectSyntax = require("./object-syntax");
 		const endNode = path.node;
 		const syntax = objectSyntax(endNode);
@@ -151,8 +229,8 @@ function literalParser (source, opts, styles) {
 		};
 	});
 
-	tpls = tpls.filter(path => (
-		objects.every(style => (
+	tplLiteral = tplLiteral.filter(path => (
+		objLiteral.every(style => (
 			path.node.start > style.endIndex || path.node.end < style.startIndex
 		))
 	)).map(path => {
@@ -178,7 +256,7 @@ function literalParser (source, opts, styles) {
 		return style;
 	}).filter(Boolean);
 
-	return (styles || []).concat(objects).concat(tpls);
+	return (styles || []).concat(objLiteral).concat(tplLiteral);
 };
 
 module.exports = literalParser;

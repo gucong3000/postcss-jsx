@@ -9,6 +9,12 @@ const JSON5 = require("json5");
 const objectStringify = require("../object-stringify");
 
 describe("CSS in JS", () => {
+	it("basic js", () => {
+		const document = syntax.parse("x().y(z => {});", {
+			from: "/fixtures/basic.js",
+		});
+		expect(document.nodes).to.lengthOf(0);
+	});
 	it("glamorous", () => {
 		const code = `
 			import glm from 'glamorous';

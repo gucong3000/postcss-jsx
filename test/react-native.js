@@ -4,8 +4,8 @@ const syntax = require("../");
 const fs = require("fs");
 
 describe("javascript tests", () => {
-	it("glamorous", () => {
-		const filename = require.resolve("./fixtures/glamorous.jsx");
+	it("react-native", () => {
+		const filename = require.resolve("./fixtures/react-native.mjs");
 		let code = fs.readFileSync(filename);
 
 		const document = syntax.parse(code, {
@@ -15,7 +15,13 @@ describe("javascript tests", () => {
 		code = code.toString();
 
 		expect(document.toString(syntax)).to.equal(code);
-		expect(document.nodes).to.lengthOf(5);
+		expect(document.nodes).to.lengthOf(1);
+		expect(document.first.nodes).to.lengthOf(1);
+		expect(document.first.first.nodes).to.lengthOf(2);
+		expect(document.first.first.first).to.haveOwnProperty("type", "rule");
+		expect(document.first.first.first).to.haveOwnProperty("selector", "box");
+		expect(document.first.first.last).to.haveOwnProperty("type", "rule");
+		expect(document.first.first.last).to.haveOwnProperty("selector", "text");
 
 		document.nodes.forEach(root => {
 			expect(root.source).to.haveOwnProperty("input");

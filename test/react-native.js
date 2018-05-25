@@ -3,8 +3,8 @@ const expect = require("chai").expect;
 const syntax = require("../");
 const fs = require("fs");
 
-describe("javascript tests", () => {
-	it("react-native", () => {
+describe("react-native", () => {
+	it("StyleSheet", () => {
 		const filename = require.resolve("./fixtures/react-native.mjs");
 		let code = fs.readFileSync(filename);
 

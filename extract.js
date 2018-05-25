@@ -5,20 +5,6 @@ const parse = require("@babel/parser").parse;
 const getTemplate = require("./get-template");
 const loadSyntax = require("postcss-syntax/load-syntax");
 
-const isTopLevelExpression = path =>
-	path.isObjectExpression() && !path.findParent(p => p.isObjectExpression());
-
-const isCssAttribute = path =>
-	isTopLevelExpression(path) &&
-	path.findParent(
-		p => p.isJSXAttribute() && p.node.name && p.node.name.name === "css"
-	);
-
-const isStyleTemplateExpression = (path, references) => (
-	path.isTaggedTemplateExpression() &&
-	isStyleModule(path.node.tag, references)
-);
-
 const extractDeclarations = (path) => {
 	let declarations = [];
 
@@ -36,42 +22,41 @@ const extractDeclarations = (path) => {
 };
 
 const isStyleModule = (node, references) => {
-	const identifierNames = [];
-	do {
-		if (node.name) {
-			identifierNames.push(node.name);
-		} else if (node.property && node.property.name) {
-			identifierNames.push(node.property.name);
-		}
-		node = node.object || node.callee;
-	} while (node);
+	if (node) {
+		const nameSpace = [];
+		do {
+			if (node.name) {
+				nameSpace.unshift(node.name);
+			} else if (node.property && node.property.name) {
+				nameSpace.unshift(node.property.name);
+			}
 
-	const identifierName = identifierNames.pop();
-	if (identifierName) {
-		let nameSpace = references[identifierName];
-		if (nameSpace) {
-			if (nameSpace[0] in supports) {
-				return supports[nameSpace[0]];
-			} else if (nameSpace[0] in partialSupports) {
-				nameSpace = nameSpace.concat(identifierNames.reverse());
-				return partialSupports[nameSpace.shift()].every((element, i) => (
-					element === nameSpace[i]
-				));
+			node = node.object || node.callee;
+		} while (node);
+
+		if (nameSpace.length && references[nameSpace[0]]) {
+			nameSpace.unshift.apply(nameSpace, references[nameSpace.shift()]);
+			const modeId = nameSpace[0];
+			const prefix = partSport[modeId];
+			if ((prefix && prefix.every((name, i) => name === nameSpace[i + 1])) || supports[modeId]) {
+				return nameSpace;
 			}
 		}
 	}
 	return false;
 };
 
-const partialSupports = {
+const partSport = {
 	// https://github.com/Khan/aphrodite
 	aphrodite: [
 		"StyleSheet",
+		"create",
 	],
 
 	// https://github.com/necolas/react-native-web
 	"react-native": [
 		"StyleSheet",
+		"create",
 	],
 };
 
@@ -149,13 +134,30 @@ function literalParser (source, opts, styles) {
 	}
 
 	const references = {};
+	const objs = {};
 	let objLiteral = [];
 	let tplLiteral = [];
+
+	function getObjectExpression (path) {
+		let objectExpression;
+		if (path) {
+			if (path.isObjectExpression()) {
+				objectExpression = path;
+			} else if (path.isIdentifier()) {
+				const identifierName = path.node.name;
+				if (objs[identifierName]) {
+					objectExpression = objs[identifierName];
+					delete objs[identifierName];
+				}
+			}
+		}
+		return objectExpression;
+	}
 
 	function enter (path) {
 		if (path.isImportDeclaration()) {
 			const moduleId = path.node.source.value;
-			if ((moduleId in supports) || (moduleId in partialSupports)) {
+			if ((moduleId in supports) || (moduleId in partSport)) {
 				path.node.specifiers.forEach(specifier => {
 					const localName = specifier.local.name;
 					references[localName] = [
@@ -166,36 +168,58 @@ function literalParser (source, opts, styles) {
 					}
 				});
 			}
-		} else if (isCssAttribute(path)) {
-			objLiteral.push(path);
-		} else if (isStyleTemplateExpression(path, references)) {
-			tplLiteral.push(path.get("quasi"));
+		} else if (path.isJSXAttribute()) {
+			const attrName = path.node.name.name;
+			if (attrName === "css") {
+				const element = path.findParent(p => p.isJSXOpeningElement());
+				if (!element || !isStyleModule(element.node.name, references)) {
+					return;
+				}
+			} else if (attrName !== "style") {
+				return;
+			}
+
+			if ((path = getObjectExpression(path.get("value.expression")))) {
+				objLiteral.push(path);
+			}
+		} else if (path.isObjectExpression()) {
+			if (
+				path.parentPath.isVariableDeclarator() &&
+				path.parent.id.type === "Identifier"
+			) {
+				objs[path.parent.id.name] = path;
+			}
+		} else if (path.isTemplateLiteral()) {
+			if (path.parentPath.isTaggedTemplateExpression() && isStyleModule(path.parent.tag, references)) {
+				tplLiteral.push(path);
+			}
 		} else if (path.isCallExpression()) {
 			const callee = path.node.callee;
 			if (callee.type === "Identifier" && callee.name === "require") {
 				const args = path.get("arguments");
 				if (args && args.length && args[0].isStringLiteral()) {
 					const moduleId = args[0].container[0].value;
-					if ((moduleId in supports) || (moduleId in partialSupports)) {
+					if ((moduleId in supports) || (moduleId in partSport)) {
 						references[path.parent.id.name] = [moduleId];
 					}
 				}
 			} else if (isStyleModule(callee, references)) {
 				path.get("arguments").forEach((arg) => {
-					if (arg.isObjectExpression()) {
-						objLiteral.push(arg);
-					} else if (arg.isFunction()) {
-						if (arg.get("body").isObjectExpression()) {
-							objLiteral = objLiteral.concat(arg.get("body"));
+					if (arg.isFunction()) {
+						arg = arg.get("body");
+						if (arg.isObjectExpression()) {
+							objLiteral.push(arg);
 						} else {
 							const rule = Object.assign(
 								{},
-								types.objectExpression(extractDeclarations(arg.get("body"))),
+								types.objectExpression(extractDeclarations(arg)),
 								{ loc: path.node.loc }
 							);
 							path.replaceWith(rule);
-							objLiteral = objLiteral.concat(path);
+							objLiteral.push(path);
 						}
+					} else if ((arg = getObjectExpression(arg))) {
+						objLiteral.push(arg);
 					}
 				});
 			}

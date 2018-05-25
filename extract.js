@@ -1,7 +1,7 @@
 "use strict";
 const traverse = require("@babel/traverse").default;
 const types = require("@babel/types");
-const parse = require("babylon").parse;
+const parse = require("@babel/parser").parse;
 const getTemplate = require("./get-template");
 const loadSyntax = require("postcss-syntax/load-syntax");
 

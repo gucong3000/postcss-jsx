@@ -11,7 +11,18 @@ PostCSS JSX Syntax
 	title="Philosopher’s stone, logo of PostCSS"
 	src="http://postcss.github.io/postcss/logo.svg">
 
-[PostCSS](https://github.com/postcss/postcss) syntax for parsing [CSS in JS](https://github.com/MicheleBertoli/css-in-js) literals
+[PostCSS](https://github.com/postcss/postcss) syntax for parsing [CSS in JS](https://github.com/MicheleBertoli/css-in-js) literals:
+
+  - [emotion](https://github.com/tkh44/emotion)
+  - [aphrodite](https://github.com/Khan/aphrodite)
+  - [glamor](https://github.com/threepointone/glamor)
+  - [glamorous](https://github.com/paypal/glamorous)
+  - [react-native](https://github.com/necolas/react-native-web)
+  - [react-style](https://github.com/js-next/react-style)
+  - [reactcss](https://github.com/casesandberg/reactcss)
+  - [styled-components](https://github.com/styled-components/styled-components)
+  - [styletron-react](https://github.com/rtsao/styletron)
+  - [typestyle](https://github.com/typestyle/typestyle)
 
 ## Getting Started
 

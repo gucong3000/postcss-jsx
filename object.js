@@ -2,22 +2,22 @@
 const Container = require("postcss/lib/container");
 
 /**
- * Represents a JS obj
+ * Represents a JS Object Literal
  *
  * @extends Container
  *
  * @example
  * const root = postcss.parse('{}');
  * const obj = root.first;
- * obj.type       //=> 'obj'
- * obj.toString() //=> 'a{}'
+ * obj.type       //=> 'object'
+ * obj.toString() //=> '{}'
  */
-class Obj extends Container {
+class ObjectLiteral extends Container {
 	constructor (defaults) {
 		super(defaults);
-		this.type = "obj";
+		this.type = "object";
 		if (!this.nodes) this.nodes = [];
 	}
 }
 
-module.exports = Obj;
+module.exports = ObjectLiteral;

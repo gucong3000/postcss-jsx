@@ -3,7 +3,7 @@ const Stringifier = require("postcss/lib/stringifier");
 const camelCase = require("./camel-case");
 
 class ObjectStringifier extends Stringifier {
-	obj (node, semicolon) {
+	object (node, semicolon) {
 		this.builder("{", node, "start");
 
 		let after;

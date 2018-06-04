@@ -1,8 +1,8 @@
 "use strict";
 const getTemplate = require("./get-template");
+const ObjectLiteral = require("./object");
 const camelCase = require("./camel-case");
 const Literal = require("./literal");
-const Obj = require("./obj");
 const postcss = require("postcss");
 
 function forEach (arr, callback) {
@@ -69,7 +69,7 @@ class objectParser {
 			},
 		});
 		root.raws.node = node;
-		const obj = new Obj({
+		const obj = new ObjectLiteral({
 			raws: {
 				node,
 			},

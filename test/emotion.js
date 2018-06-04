@@ -14,10 +14,11 @@ describe("javascript tests", () => {
 
 		code = code.toString();
 
-		expect(document.toString(syntax)).to.equal(code);
+		expect(document.toString()).to.equal(code);
 		expect(document.nodes).to.lengthOf(4);
 
 		document.nodes.forEach(root => {
+			expect(root.last.toString()).to.be.a("string");
 			expect(root.source).to.haveOwnProperty("input");
 
 			expect(code).to.includes(root.source.input.css);

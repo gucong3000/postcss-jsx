@@ -62,7 +62,7 @@ const partSport = {
 
 const supports = {
 
-	// https://github.com/tkh44/emotion
+	// https://github.com/emotion-js/emotion
 	emotion: true,
 	"react-emotion": true,
 	"preact-emotion": true,

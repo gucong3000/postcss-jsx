@@ -1,6 +1,6 @@
 {
   "name": "postcss-jsx",
-  "version": "0.27.0",
+  "version": "0.27.1",
   "description": "PostCSS syntax for parsing CSS in JS literals",
   "repository": {
     "type": "git",

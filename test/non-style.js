@@ -12,6 +12,7 @@ describe("non-style js files", () => {
 			const document = syntax.parse(code, {
 				from: file,
 			});
+			expect(document.source).to.haveOwnProperty("lang", "jsx");
 			expect(document.toString(), code.toString());
 		});
 	});

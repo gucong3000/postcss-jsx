@@ -149,4 +149,20 @@ describe("CSS in JS", () => {
 			});
 		});
 	});
+
+	it("incomplete code", () => {
+		const filename = "fixtures/incomplete- react-native.mjs";
+		const code = [
+			`StyleSheet.create({
+				box: { padding: 10 },
+				text: { fontWeight: "bold" },
+			});`,
+			"styled.div`a{display: block}`",
+		].join("\n");
+
+		const document = syntax.parse(code, {
+			from: filename,
+		});
+		expect(document.nodes).to.have.lengthOf(2);
+	});
 });

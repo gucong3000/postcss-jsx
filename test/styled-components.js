@@ -8,18 +8,19 @@ describe("styled-components", () => {
 		const file = require.resolve("./fixtures/styled");
 		let code = fs.readFileSync(file);
 
-		const root = syntax.parse(code, {
+		const document = syntax.parse(code, {
 			from: file,
 		});
 
 		code = code.toString();
-		expect(root.toString(), code);
+		expect(document.toString(), code);
+		expect(document.source).to.haveOwnProperty("lang", "jsx");
 
-		expect(root.nodes).to.have.lengthOf(1);
-		expect(root.first.nodes).to.have.lengthOf(8);
+		expect(document.nodes).to.have.lengthOf(1);
+		expect(document.first.nodes).to.have.lengthOf(8);
 
 		const lines = code.match(/^.+$/gm).slice(3).map(line => (line.replace(/^\s*(.+?);?\s*$/, "$1")));
-		root.first.nodes.forEach((decl, i) => {
+		document.first.nodes.forEach((decl, i) => {
 			if (i) {
 				expect(decl).to.have.property("type", "decl");
 			} else {
@@ -37,20 +38,22 @@ describe("styled-components", () => {
 			"}",
 			"",
 		].join("\n");
-		const root = syntax.parse(code, {
+		const document = syntax.parse(code, {
 			from: "empty_template_literal.js",
 		});
-		expect(root.toString()).to.equal(code);
-		expect(root.nodes).to.have.lengthOf(0);
+		expect(document.toString()).to.equal(code);
+		expect(document.source).to.haveOwnProperty("lang", "jsx");
+		expect(document.nodes).to.have.lengthOf(0);
 	});
 
 	it("skip javascript syntax error", () => {
 		const code = "\\`";
-		const root = syntax.parse(code, {
+		const document = syntax.parse(code, {
 			from: "syntax_error.js",
 		});
-		expect(root.toString()).to.equal(code);
-		expect(root.nodes).to.have.lengthOf(0);
+		expect(document.toString()).to.equal(code);
+		expect(document.source).to.haveOwnProperty("lang", "jsx");
+		expect(document.nodes).to.have.lengthOf(0);
 	});
 
 	it("illegal template literal", () => {
@@ -58,16 +61,17 @@ describe("styled-components", () => {
 			"const styled = require(\"styled-components\");",
 			"styled.div`$\n{display: block}\n${g} {}`",
 		].join("\n");
-		const root = syntax.parse(code, {
+		const document = syntax.parse(code, {
 			from: "illegal_template_literal.js",
 		});
-		expect(root.toString()).to.equal(code);
-		expect(root.nodes).to.have.lengthOf(1);
-		expect(root.first.nodes).to.have.lengthOf(2);
-		expect(root.first.first).have.property("type", "rule");
-		expect(root.first.first).have.property("selector", "$");
-		expect(root.last.last).have.property("type", "rule");
-		expect(root.last.last).have.property("selector", "${g}");
+		expect(document.toString()).to.equal(code);
+		expect(document.source).to.haveOwnProperty("lang", "jsx");
+		expect(document.nodes).to.have.lengthOf(1);
+		expect(document.first.nodes).to.have.lengthOf(2);
+		expect(document.first.first).have.property("type", "rule");
+		expect(document.first.first).have.property("selector", "$");
+		expect(document.last.last).have.property("type", "rule");
+		expect(document.last.last).have.property("selector", "${g}");
 	});
 
 	it("styled.img", () => {
@@ -85,16 +89,17 @@ describe("styled-components", () => {
 		expect(root.toString()).to.equal(code);
 	});
 
-	it("skip CSS syntax error", () => {
+	it("throw CSS syntax error", () => {
 		const code = [
 			"const styled = require(\"styled-components\");",
 			"styled.div`a{`;",
 		].join("\n");
-		const root = syntax.parse(code, {
-			from: "css_syntax_error.js",
-		});
-		expect(root.toString()).to.equal(code);
-		expect(root.nodes).to.have.lengthOf(0);
+
+		expect(() => {
+			syntax.parse(code, {
+				from: "css_syntax_error.js",
+			});
+		}).to.throw("css_syntax_error.js:2:12: Unclosed block");
 	});
 
 	it("skip empty template literal", () => {
@@ -114,19 +119,20 @@ describe("styled-components", () => {
 			"const styled = require(\"styled-components\");",
 			"styled.div`a{`;",
 		].join("\n");
-		const root = syntax({
+		const document = syntax({
 			css: "safe-parser",
 		}).parse(code, {
 			from: "postcss-safe-parser.js",
 		});
-		expect(root.toString()).to.equal([
+		expect(document.toString()).to.equal([
 			"const styled = require(\"styled-components\");",
 			"styled.div`a{}`;",
 		].join("\n"));
-		expect(root.nodes).to.have.lengthOf(1);
-		expect(root.first.nodes).to.have.lengthOf(1);
-		expect(root.first.first).have.property("type", "rule");
-		expect(root.first.first).have.property("selector", "a");
+		expect(document.source).to.haveOwnProperty("lang", "jsx");
+		expect(document.nodes).to.have.lengthOf(1);
+		expect(document.first.nodes).to.have.lengthOf(1);
+		expect(document.first.first).have.property("type", "rule");
+		expect(document.first.first).have.property("selector", "a");
 	});
 
 	it("fix styled syntax error", () => {
@@ -134,18 +140,33 @@ describe("styled-components", () => {
 			"const styled = require(\"styled-components\");",
 			"styled.div`${ a } {`",
 		].join("\n");
-		const root = syntax({
+		const document = syntax({
 			css: "safe-parser",
 		}).parse(code, {
 			from: "styled-safe-parse.js",
 		});
-		expect(root.toString()).to.equal([
+		expect(document.toString()).to.equal([
 			"const styled = require(\"styled-components\");",
 			"styled.div`${ a } {}`",
 		].join("\n"));
-		expect(root.nodes).to.have.lengthOf(1);
-		expect(root.first.nodes).to.have.lengthOf(1);
-		expect(root.first.first).have.property("type", "rule");
-		expect(root.first.first).have.property("selector", "${ a }");
+		expect(document.source).to.haveOwnProperty("lang", "jsx");
+		expect(document.nodes).to.have.lengthOf(1);
+		expect(document.first.nodes).to.have.lengthOf(1);
+		expect(document.first.first).have.property("type", "rule");
+		expect(document.first.first).have.property("selector", "${ a }");
+	});
+
+	it("template literal in prop", () => {
+		const code = [
+			"const styled = require(\"styled-components\");",
+			"styled.div`margin-${/* sc-custom 'left' */ rtlSwitch}: 12.5px;`",
+		].join("\n");
+		const document = syntax.parse(code, {
+			from: "template_literal_in_prop.js",
+		});
+		expect(document.toString()).to.equal(code);
+		expect(document.source).to.haveOwnProperty("lang", "jsx");
+		expect(document.nodes).to.have.lengthOf(1);
+		expect(document.first.first).to.haveOwnProperty("prop", "margin-${/* sc-custom 'left' */ rtlSwitch}");
 	});
 });

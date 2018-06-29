@@ -22,25 +22,27 @@ const extractDeclarations = (path) => {
 };
 
 const isStyleModule = (node, references) => {
-	if (node) {
-		const nameSpace = [];
-		do {
-			if (node.name) {
-				nameSpace.unshift(node.name);
-			} else if (node.property && node.property.name) {
-				nameSpace.unshift(node.property.name);
-			}
+	const nameSpace = [];
+	do {
+		if (node.name) {
+			nameSpace.unshift(node.name);
+		} else if (node.property && node.property.name) {
+			nameSpace.unshift(node.property.name);
+		}
 
-			node = node.object || node.callee;
-		} while (node);
+		node = node.object || node.callee;
+	} while (node);
 
-		if (nameSpace.length && references[nameSpace[0]]) {
+	if (nameSpace.length) {
+		if (references[nameSpace[0]]) {
 			nameSpace.unshift.apply(nameSpace, references[nameSpace.shift()]);
 			const modeId = nameSpace[0];
 			const prefix = partSport[modeId];
 			if ((prefix && prefix.every((name, i) => name === nameSpace[i + 1])) || supports[modeId]) {
 				return nameSpace;
 			}
+		} else if (/^(?:styled|StyleSheet)$/.test(nameSpace[0])) {
+			return nameSpace;
 		}
 	}
 	return false;
@@ -140,15 +142,13 @@ function literalParser (source, opts, styles) {
 
 	function getObjectExpression (path) {
 		let objectExpression;
-		if (path) {
-			if (path.isObjectExpression()) {
-				objectExpression = path;
-			} else if (path.isIdentifier()) {
-				const identifierName = path.node.name;
-				if (objs[identifierName]) {
-					objectExpression = objs[identifierName];
-					delete objs[identifierName];
-				}
+		if (path.isObjectExpression()) {
+			objectExpression = path;
+		} else if (path.isIdentifier()) {
+			const identifierName = path.node.name;
+			if (objs[identifierName]) {
+				objectExpression = objs[identifierName];
+				delete objs[identifierName];
 			}
 		}
 		return objectExpression;
@@ -200,7 +200,16 @@ function literalParser (source, opts, styles) {
 				if (args && args.length && args[0].isStringLiteral()) {
 					const moduleId = args[0].container[0].value;
 					if ((moduleId in supports) || (moduleId in partSport)) {
-						references[path.parent.id.name] = [moduleId];
+						const nameSpace = [moduleId];
+						do {
+							if (path.parent.id) {
+								references[path.parent.id.name] = nameSpace;
+								break;
+							} else if (path.parent.property) {
+								nameSpace.push(path.parent.property.name);
+							}
+							path = path.parentPath;
+						} while (path);
 					}
 				}
 			} else if (isStyleModule(callee, references)) {
@@ -269,7 +278,6 @@ function literalParser (source, opts, styles) {
 			startIndex: quasis[0].start,
 			endIndex: quasis[quasis.length - 1].end,
 			content: value.join(""),
-			ignoreErrors: true,
 		};
 		if (value.length > 1) {
 			style.syntax = loadSyntax(opts, "postcss-styled");

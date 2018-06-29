@@ -61,7 +61,7 @@ class objectParser {
 	constructor (input) {
 		this.input = input;
 	}
-	parse (node, source) {
+	parse (node) {
 		const root = postcss.root({
 			source: {
 				input: this.input,

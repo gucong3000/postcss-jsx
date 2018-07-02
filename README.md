@@ -68,6 +68,6 @@ const Component1 = glm.a({
 
 See: [postcss-syntax](https://github.com/gucong3000/postcss-syntax)
 
-### Style Transformations
+## Style Transformations
 
 The main use case of this plugin is to apply PostCSS transformations to CSS code in template literals & styles as object literals.

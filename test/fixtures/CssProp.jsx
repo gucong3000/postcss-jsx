@@ -21,4 +21,8 @@ const App = props => (
 	</div>
 );
 
-export default App;
+export default {
+	React,
+	Div,
+	App,
+};

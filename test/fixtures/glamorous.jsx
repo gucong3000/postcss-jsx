@@ -1,4 +1,3 @@
-import React from "react";
 import glm from "glamorous";
 
 const minWidth = 700;
@@ -7,8 +6,8 @@ const Component1 = glm.a(
 	/* start */
 	{
 		// stylelint-disable-next-line
-		"unknownProperty": "1.8em", // must not trigger any warnings
-		unknownProperty: "1.8em", // must not trigger any warnings
+		"unknownProperty1": "1.8em", // must not trigger any warnings
+		unknownProperty2: "1.8em", // must not trigger any warnings
 		[`unknownPropertyaa${a}`]: "1.8em", // must not trigger any warnings
 		["unknownProperty" + 1 + "a"]: "1.8em", // must not trigger any warnings
 		display: "inline-block",
@@ -49,10 +48,8 @@ const Component3 = glm.div({
 	...Component2,
 });
 
-export default () => (
-	<div>
-		<Component1 />
-		<Component2 />
-		<Component3 />
-	</div>
-);
+export default {
+	Component1,
+	Component2,
+	Component3,
+};

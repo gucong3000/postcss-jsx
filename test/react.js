@@ -15,6 +15,6 @@ describe("react", () => {
 		code = code.toString();
 
 		expect(document.toString(syntax)).to.equal(code);
-		expect(document.nodes).to.lengthOf(1);
+		expect(document.nodes).to.lengthOf(3);
 	});
 });

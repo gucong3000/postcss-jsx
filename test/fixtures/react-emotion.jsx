@@ -1,3 +1,5 @@
+/* global render */
+
 import styled, { css } from "react-emotion";
 const SomeComponent = styled("div")`
   display: flex;
@@ -23,3 +25,8 @@ const myStyle = css`
   color: rebeccapurple;
 `;
 app.classList.add(myStyle);
+
+export default {
+	SomeComponent,
+	AnotherComponent,
+};

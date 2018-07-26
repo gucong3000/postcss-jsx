@@ -33,7 +33,7 @@ describe("styled-components", () => {
 	it("empty template literal", () => {
 		const code = [
 			"function test() {",
-			"  console.log(`debug`)",
+			"  alert`debug`",
 			"  return ``;",
 			"}",
 			"",
@@ -168,5 +168,68 @@ describe("styled-components", () => {
 		expect(document.source).to.haveOwnProperty("lang", "jsx");
 		expect(document.nodes).to.have.lengthOf(1);
 		expect(document.first.first).to.haveOwnProperty("prop", "margin-${/* sc-custom 'left' */ rtlSwitch}");
+	});
+
+	it("lazy assignment", () => {
+		const code = [
+			"let myDiv;",
+			"myDiv = require(\"styled-components\").div;",
+			"myDiv`a{}`;",
+		].join("\n");
+		const document = syntax.parse(code, {
+			from: "lazy_assign.js",
+		});
+		expect(document.toString()).to.equal(code);
+		expect(document.source).to.haveOwnProperty("lang", "jsx");
+		expect(document.nodes).to.have.lengthOf(1);
+	});
+
+	it("lazy assignment without init", () => {
+		const code = [
+			"myDiv = require(\"styled-components\").div;",
+			"myDiv`a{}`;",
+		].join("\n");
+		const document = syntax.parse(code, {
+			from: "lazy_assign_no_init.js",
+		});
+		expect(document.toString()).to.equal(code);
+		expect(document.source).to.haveOwnProperty("lang", "jsx");
+		expect(document.nodes).to.have.lengthOf(1);
+	});
+
+	it("array destructuring assignment", () => {
+		const code = [
+			"const [",
+			"\tstyledDiv,",
+			"\t...c",
+			"] = require(\"styled-components\");",
+			"styledDiv`a{}`;",
+		].join("\n");
+		const document = syntax.parse(code, {
+			from: "arr_destructuring.js",
+		});
+		expect(document.toString()).to.equal(code);
+		expect(document.source).to.haveOwnProperty("lang", "jsx");
+		expect(document.nodes).to.have.lengthOf(1);
+	});
+
+	it("object destructuring assignment", () => {
+		const code = [
+			"const {",
+			"\t// commit",
+			"\t['div']: styledDiv,",
+			"\ta,",
+			"\t...styled",
+			"} = require(\"styled-components\");",
+			"styledDiv`a{}`;",
+			"styled.div`a{}`;",
+			"a`a{}`;",
+		].join("\n");
+		const document = syntax.parse(code, {
+			from: "obj_destructuring.js",
+		});
+		expect(document.toString()).to.equal(code);
+		expect(document.source).to.haveOwnProperty("lang", "jsx");
+		expect(document.nodes).to.have.lengthOf(3);
 	});
 });

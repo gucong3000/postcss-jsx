@@ -1,52 +1,9 @@
 "use strict";
 const traverse = require("@babel/traverse").default;
-const types = require("@babel/types");
+const t = require("@babel/types");
 const parse = require("@babel/parser").parse;
 const getTemplate = require("./get-template");
 const loadSyntax = require("postcss-syntax/load-syntax");
-
-const extractDeclarations = (path) => {
-	let declarations = [];
-
-	path.traverse({
-		ObjectExpression (p) {
-			if (!p.findParent(parent => parent.isObjectProperty())) {
-				p.node.properties.forEach((prop) => {
-					declarations = declarations.concat([prop]);
-				});
-			}
-		},
-	});
-
-	return declarations;
-};
-
-const isStyleModule = (node, references) => {
-	const nameSpace = [];
-	do {
-		if (node.name) {
-			nameSpace.unshift(node.name);
-		} else if (node.property && node.property.name) {
-			nameSpace.unshift(node.property.name);
-		}
-
-		node = node.object || node.callee;
-	} while (node);
-
-	if (nameSpace.length) {
-		if (references[nameSpace[0]]) {
-			nameSpace.unshift.apply(nameSpace, references[nameSpace.shift()]);
-			const modeId = nameSpace[0];
-			const prefix = partSport[modeId];
-			if ((prefix && prefix.every((name, i) => name === nameSpace[i + 1])) || supports[modeId]) {
-				return nameSpace;
-			}
-		} else if (/^(?:styled|StyleSheet)$/.test(nameSpace[0])) {
-			return nameSpace;
-		}
-	}
-	return false;
-};
 
 const partSport = {
 	// https://github.com/Khan/aphrodite
@@ -91,6 +48,20 @@ const supports = {
 	typestyle: true,
 };
 
+const plugins = [
+	"jsx",
+	"typescript",
+	"objectRestSpread",
+	"decorators",
+	"classProperties",
+	"exportExtensions",
+	"asyncGenerators",
+	"functionBind",
+	"functionSent",
+	"dynamicImport",
+	"optionalCatchBinding",
+];
+
 function getSourceType (filename) {
 	if (filename && /\.m[tj]sx?$/.test(filename)) {
 		return "module";
@@ -104,20 +75,7 @@ function getSourceType (filename) {
 	}
 }
 
-function getOptions (opts, attribute) {
-	const plugins = [
-		"jsx",
-		"typescript",
-		"objectRestSpread",
-		"decorators",
-		"classProperties",
-		"exportExtensions",
-		"asyncGenerators",
-		"functionBind",
-		"functionSent",
-		"dynamicImport",
-		"optionalCatchBinding",
-	];
+function getOptions (opts) {
 	const filename = opts.from && opts.from.replace(/\?.*$/, "");
 
 	return {
@@ -132,121 +90,196 @@ function literalParser (source, opts, styles) {
 	try {
 		ast = parse(source, getOptions(opts));
 	} catch (ex) {
+		// console.error(ex);
 		return styles || [];
 	}
 
-	const references = {};
-	const objs = {};
-	let objLiteral = [];
-	let tplLiteral = [];
+	const specifiers = new Map();
+	const variableDeclarator = new Map();
+	let objLiteral = new Set();
+	let tplLiteral = new Set();
+	const jobs = [];
 
-	function getObjectExpression (path) {
-		let objectExpression;
-		if (path.isObjectExpression()) {
-			objectExpression = path;
-		} else if (path.isIdentifier()) {
-			const identifierName = path.node.name;
-			if (objs[identifierName]) {
-				objectExpression = objs[identifierName];
-				delete objs[identifierName];
-			}
-		}
-		return objectExpression;
+	function addObjectJob (path) {
+		jobs.push(() => {
+			addObjectValue(path);
+		});
 	}
 
-	function enter (path) {
-		if (path.isImportDeclaration()) {
-			const moduleId = path.node.source.value;
-			if ((moduleId in supports) || (moduleId in partSport)) {
-				path.node.specifiers.forEach(specifier => {
-					const localName = specifier.local.name;
-					references[localName] = [
-						moduleId,
-					];
-					if (specifier.imported) {
-						references[localName].push(specifier.imported.name);
-					}
-				});
+	function addObjectValue (path) {
+		if (path.isIdentifier()) {
+			const identifier = path.scope.getBindingIdentifier(path.node.name);
+			if (identifier) {
+				path = variableDeclarator.get(identifier);
+				if (path) {
+					variableDeclarator.delete(identifier);
+					path.forEach(addObjectExpression);
+				}
 			}
-		} else if (path.isJSXAttribute()) {
+		} else {
+			addObjectExpression(path);
+		}
+	}
+
+	function addObjectExpression (path) {
+		if (path.isObjectExpression()) {
+			path.get("properties").forEach(prop => {
+				if (prop.isSpreadElement()) {
+					addObjectValue(prop.get("argument"));
+				}
+			});
+			objLiteral.add(path.node);
+			return path;
+		}
+	}
+
+	function setSpecifier (id, nameSpace) {
+		if (t.isIdentifier(id)) {
+			specifiers.set(id.name, nameSpace);
+			specifiers.set(id, nameSpace);
+		} else if (t.isObjectPattern(id)) {
+			id.properties.forEach(property => {
+				if (t.isObjectProperty(property)) {
+					const key = property.key;
+					nameSpace = nameSpace.concat(key.name || key.value);
+					id = property.value;
+				} else {
+					id = property.argument;
+				}
+				setSpecifier(id, nameSpace);
+			});
+		} else if (t.isArrayPattern(id)) {
+			id.elements.forEach((element, i) => {
+				setSpecifier(element, nameSpace.concat(String(i)));
+			});
+		}
+	}
+
+	function getNameSpace (path, nameSpace) {
+		let node = path.node;
+		if (path.isIdentifier() || path.isJSXIdentifier()) {
+			node = path.scope.getBindingIdentifier(node.name) || node;
+			const specifier = specifiers.get(node) || specifiers.get(node.name);
+			if (specifier) {
+				nameSpace.unshift.apply(nameSpace, specifier);
+			} else {
+				nameSpace.unshift(node.name);
+			}
+		} else {
+			if (node.name) {
+				getNameSpace(path.get("name"), nameSpace);
+			} else if (node.property) {
+				getNameSpace(path.get("property"), nameSpace);
+			}
+			if (node.object) {
+				getNameSpace(path.get("object"), nameSpace);
+			} else if (node.callee) {
+				getNameSpace(path.get("callee"), nameSpace);
+			}
+		}
+
+		return nameSpace;
+	}
+
+	function isStylePath (path) {
+		const nameSpace = getNameSpace(path, []).filter(Boolean);
+		if (nameSpace.length) {
+			if (/^(?:styled|StyleSheet)$/.test(nameSpace[0]) || supports[nameSpace[0]]) {
+				return nameSpace;
+			}
+
+			const prefix = partSport[nameSpace.shift()];
+
+			if (prefix && nameSpace.length >= prefix.length && prefix.every((name, i) => name === nameSpace[i])) {
+				return nameSpace;
+			}
+		}
+
+		return false;
+	}
+
+	const visitor = {
+		ImportDeclaration: (path) => {
+			const moduleId = path.node.source.value;
+			path.node.specifiers.forEach(specifier => {
+				const nameSpace = [moduleId];
+				if (specifier.imported) {
+					nameSpace.push(specifier.imported.name);
+				}
+				setSpecifier(specifier.local, nameSpace);
+			});
+		},
+		JSXAttribute: (path) => {
 			const attrName = path.node.name.name;
 			if (attrName === "css") {
-				const element = path.findParent(p => p.isJSXOpeningElement());
-				if (!element || !isStyleModule(element.node.name, references)) {
+				const elePath = path.findParent(p => p.isJSXOpeningElement());
+				if (!isStylePath(elePath)) {
 					return;
 				}
 			} else if (attrName !== "style") {
 				return;
 			}
 
-			if ((path = getObjectExpression(path.get("value.expression")))) {
-				objLiteral.push(path);
-			}
-		} else if (path.isObjectExpression()) {
-			if (
-				path.parentPath.isVariableDeclarator() &&
-				path.parent.id.type === "Identifier"
-			) {
-				objs[path.parent.id.name] = path;
-			}
-		} else if (path.isTemplateLiteral()) {
-			if (path.parentPath.isTaggedTemplateExpression() && isStyleModule(path.parent.tag, references)) {
-				tplLiteral.push(path);
-			}
-		} else if (path.isCallExpression()) {
-			const callee = path.node.callee;
-			if (callee.type === "Identifier" && callee.name === "require") {
-				const args = path.get("arguments");
-				if (args && args.length && args[0].isStringLiteral()) {
-					const moduleId = args[0].container[0].value;
-					if ((moduleId in supports) || (moduleId in partSport)) {
-						const nameSpace = [moduleId];
-						do {
-							if (path.parent.id) {
-								references[path.parent.id.name] = nameSpace;
-								break;
-							} else if (path.parent.property) {
-								nameSpace.push(path.parent.property.name);
-							}
-							path = path.parentPath;
-						} while (path);
-					}
+			addObjectJob(path.get("value.expression"));
+		},
+		VariableDeclarator: (path) => {
+			variableDeclarator.set(path.node.id, path.node.init ? [path.get("init")] : []);
+		},
+		AssignmentExpression: (path) => {
+			if (t.isIdentifier(path.node.left) && t.isObjectExpression(path.node.right)) {
+				const identifier = path.scope.getBindingIdentifier(path.node.left.name);
+				const variable = variableDeclarator.get(identifier);
+				const valuePath = path.get("right");
+				if (variable) {
+					variable.push(valuePath);
+				} else {
+					variableDeclarator.set(identifier, [valuePath]);
 				}
-			} else if (isStyleModule(callee, references)) {
-				path.get("arguments").forEach((arg) => {
-					if (arg.isFunction()) {
-						arg = arg.get("body");
-						if (arg.isObjectExpression()) {
-							objLiteral.push(arg);
-						} else {
-							const rule = Object.assign(
-								{},
-								types.objectExpression(extractDeclarations(arg)),
-								{ loc: path.node.loc }
-							);
-							path.replaceWith(rule);
-							objLiteral.push(path);
-						}
-					} else if ((arg = getObjectExpression(arg))) {
-						objLiteral.push(arg);
-					}
-				});
-			}
-		}
-	}
-	traverse(ast, {
-		enter (path) {
-			try {
-				enter(path);
-			} catch (ex) {
-				console.error(ex);
 			}
 		},
-	});
+		CallExpression: (path) => {
+			const callee = path.node.callee;
+			if (t.isIdentifier(callee, { name: "require" }) && !path.scope.getBindingIdentifier(callee.name)) {
+				path.node.arguments.filter(t.isStringLiteral).forEach(arg => {
+					const moduleId = arg.value;
+					const nameSpace = [moduleId];
+					let currPath = path;
+					do {
+						let id = currPath.parent.id;
+						if (!id) {
+							id = currPath.parent.left;
+							if (id) {
+								id = path.scope.getBindingIdentifier(id.name) || id;
+							} else {
+								if (t.isIdentifier(currPath.parent.property)) {
+									nameSpace.push(currPath.parent.property.name);
+								}
+								currPath = currPath.parentPath;
+								continue;
+							}
+						};
+						setSpecifier(id, nameSpace);
+						break;
+					} while (currPath);
+				});
+			} else if (isStylePath(path.get("callee"))) {
+				path.get("arguments").forEach((arg) => {
+					addObjectJob(arg.isFunction() ? arg.get("body") : arg);
+				});
+			}
+		},
+		TaggedTemplateExpression: (path) => {
+			if (isStylePath(path.get("tag"))) {
+				tplLiteral.add(path.node.quasi);
+			}
+		},
+	};
 
-	objLiteral = objLiteral.map(path => {
+	traverse(ast, visitor);
+	jobs.forEach(job => job());
+
+	objLiteral = Array.from(objLiteral).map(endNode => {
 		const objectSyntax = require("./object-syntax");
-		const endNode = path.node;
 		const syntax = objectSyntax(endNode);
 		let startNode = endNode;
 		if (startNode.leadingComments && startNode.leadingComments.length) {
@@ -262,13 +295,13 @@ function literalParser (source, opts, styles) {
 		};
 	});
 
-	tplLiteral = tplLiteral.filter(path => (
+	tplLiteral = Array.from(tplLiteral).filter(node => (
 		objLiteral.every(style => (
-			path.node.start > style.endIndex || path.node.end < style.startIndex
+			node.start > style.endIndex || node.end < style.startIndex
 		))
-	)).map(path => {
-		const quasis = path.node.quasis;
-		const value = getTemplate(path.node, source);
+	)).map(node => {
+		const quasis = node.quasis;
+		const value = getTemplate(node, source);
 
 		if (value.length === 1 && !value[0].trim()) {
 			return;

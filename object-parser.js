@@ -2,15 +2,12 @@
 const getTemplate = require("./get-template");
 const ObjectLiteral = require("./object");
 const camelCase = require("./camel-case");
+const unCamelCase = require("./un-camel-case");
 const Literal = require("./literal");
 const postcss = require("postcss");
 
 function forEach (arr, callback) {
 	arr && arr.forEach(callback);
-}
-
-function unCamelCase (str) {
-	return str.replace(/[A-Z]/g, (char) => "-" + char.toLowerCase()).replace(/(^|\b)ms-/, "$1-ms-");
 }
 
 const replaceProp = (fn) => (value) => (
@@ -199,11 +196,13 @@ class objectParser {
 		if (node.value.type === "ObjectExpression") {
 			let rule;
 			if (/^@(\S+)(\s*)(.*)$/.test(key.value)) {
+				const name = RegExp.$1;
+				const afterName = RegExp.$2;
 				const params = RegExp.$3;
 				const atRule = postcss.atRule({
-					name: unCamelCase(RegExp.$1),
+					name: unCamelCase(name),
 					raws: {
-						afterName: RegExp.$2,
+						afterName: afterName,
 					},
 					nodes: [],
 				});

@@ -1,9 +1,15 @@
 "use strict";
 function camelCase (str) {
-	if (str.startsWith("--")) {
-		return str;
-	}
-	return str.replace(/(^|\s|\W)-(ms-)/g, "$1$2").replace(/-+(\w)/g, (s, char) => s.length > 2 ? s : char.toUpperCase());
+	return str.replace(/[\w-]+/g, (s) => (
+		/^-?([a-z]+(?:-[a-z]+)+)$/.test(s)
+			? RegExp.$1.replace(
+				/-\w/g,
+				s => (
+					s[1].toUpperCase()
+				)
+			)
+			: s
+	));
 }
 
 module.exports = camelCase;

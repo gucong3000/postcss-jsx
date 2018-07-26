@@ -16,7 +16,7 @@ class ObjectLiteral extends Container {
 	constructor (defaults) {
 		super(defaults);
 		this.type = "object";
-		if (!this.nodes) this.nodes = [];
+		this.nodes = [];
 	}
 }
 

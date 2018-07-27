@@ -27,7 +27,7 @@ describe("CSS in JS", () => {
 		const out = `
 			import glm from 'glamorous';
 			const Component1 = glm.a({
-				"::WebkitInputPlaceholder": {
+				"::webkitInputPlaceholder": {
 					color: "gray",
 				},
 				"::placeholder": {
@@ -137,6 +137,7 @@ describe("CSS in JS", () => {
 			});
 		`);
 	});
+
 	describe("objectify for css", () => {
 		cases.each((name, css) => {
 			if (name === "bom.css") return;

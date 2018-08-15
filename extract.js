@@ -289,17 +289,21 @@ function literalParser (source, opts, styles) {
 
 	objLiteral = Array.from(objLiteral).map(endNode => {
 		const objectSyntax = require("./object-syntax");
-		const syntax = objectSyntax(endNode);
 		let startNode = endNode;
 		if (startNode.leadingComments && startNode.leadingComments.length) {
 			startNode = startNode.leadingComments[0];
 		}
+		let startIndex = startNode.start;
+		const before = source.slice(startNode.start - startNode.loc.start.column, startNode.start);
+		if (/^\s+$/.test(before)) {
+			startIndex -= before.length;
+		}
 		return {
-			startIndex: startNode.start,
+			startIndex,
 			endIndex: endNode.end,
 			skipConvert: true,
 			content: source,
-			syntax,
+			syntax: objectSyntax(endNode),
 			lang: "object-literal",
 		};
 	});

@@ -1,7 +1,10 @@
 "use strict";
-const traverse = require("@babel/traverse").default;
-const t = require("@babel/types");
-const parse = require("@babel/parser").parse;
+const {
+	parse,
+	types,
+	traverse,
+	loadOptions,
+} = require("@babel/core");
 const getTemplate = require("./get-template");
 const loadSyntax = require("postcss-syntax/load-syntax");
 
@@ -67,7 +70,7 @@ function getSourceType (filename) {
 		return "module";
 	}
 	try {
-		return require("@babel/core").loadOptions({
+		return loadOptions({
 			filename,
 		}).sourceType;
 	} catch (ex) {
@@ -82,13 +85,19 @@ function getOptions (opts) {
 		sourceFilename: filename,
 		sourceType: getSourceType(filename) || "unambiguous",
 		plugins,
+		allowImportExportEverywhere: true,
+		allowAwaitOutsideFunction: true,
+		allowReturnOutsideFunction: true,
+		allowSuperOutsideMethod: true,
 	};
 }
 
 function literalParser (source, opts, styles) {
 	let ast;
 	try {
-		ast = parse(source, getOptions(opts));
+		ast = parse(source, {
+			parserOpts: getOptions(opts),
+		});
 	} catch (ex) {
 		// console.error(ex);
 		return styles || [];
@@ -134,12 +143,12 @@ function literalParser (source, opts, styles) {
 	}
 
 	function setSpecifier (id, nameSpace) {
-		if (t.isIdentifier(id)) {
+		if (types.isIdentifier(id)) {
 			specifiers.set(id.name, nameSpace);
 			specifiers.set(id, nameSpace);
-		} else if (t.isObjectPattern(id)) {
+		} else if (types.isObjectPattern(id)) {
 			id.properties.forEach(property => {
-				if (t.isObjectProperty(property)) {
+				if (types.isObjectProperty(property)) {
 					const key = property.key;
 					nameSpace = nameSpace.concat(key.name || key.value);
 					id = property.value;
@@ -148,7 +157,7 @@ function literalParser (source, opts, styles) {
 				}
 				setSpecifier(id, nameSpace);
 			});
-		} else if (t.isArrayPattern(id)) {
+		} else if (types.isArrayPattern(id)) {
 			id.elements.forEach((element, i) => {
 				setSpecifier(element, nameSpace.concat(String(i)));
 			});
@@ -226,7 +235,7 @@ function literalParser (source, opts, styles) {
 			variableDeclarator.set(path.node.id, path.node.init ? [path.get("init")] : []);
 		},
 		AssignmentExpression: (path) => {
-			if (t.isIdentifier(path.node.left) && t.isObjectExpression(path.node.right)) {
+			if (types.isIdentifier(path.node.left) && types.isObjectExpression(path.node.right)) {
 				const identifier = path.scope.getBindingIdentifier(path.node.left.name);
 				const variable = variableDeclarator.get(identifier);
 				const valuePath = path.get("right");
@@ -239,8 +248,8 @@ function literalParser (source, opts, styles) {
 		},
 		CallExpression: (path) => {
 			const callee = path.node.callee;
-			if (t.isIdentifier(callee, { name: "require" }) && !path.scope.getBindingIdentifier(callee.name)) {
-				path.node.arguments.filter(t.isStringLiteral).forEach(arg => {
+			if (types.isIdentifier(callee, { name: "require" }) && !path.scope.getBindingIdentifier(callee.name)) {
+				path.node.arguments.filter(types.isStringLiteral).forEach(arg => {
 					const moduleId = arg.value;
 					const nameSpace = [moduleId];
 					let currPath = path;
@@ -251,7 +260,7 @@ function literalParser (source, opts, styles) {
 							if (id) {
 								id = path.scope.getBindingIdentifier(id.name) || id;
 							} else {
-								if (t.isIdentifier(currPath.parent.property)) {
+								if (types.isIdentifier(currPath.parent.property)) {
 									nameSpace.push(currPath.parent.property.name);
 								}
 								currPath = currPath.parentPath;

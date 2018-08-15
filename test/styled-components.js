@@ -56,6 +56,16 @@ describe("styled-components", () => {
 		expect(document.nodes).to.have.lengthOf(0);
 	});
 
+	it("skip @babel/traverse error", () => {
+		const code = "let a;let a";
+		const document = syntax.parse(code, {
+			from: "traverse_error.js",
+		});
+		expect(document.toString()).to.equal(code);
+		expect(document.source).to.haveOwnProperty("lang", "jsx");
+		expect(document.nodes).to.have.lengthOf(0);
+	});
+
 	it("illegal template literal", () => {
 		const code = [
 			"const styled = require(\"styled-components\");",

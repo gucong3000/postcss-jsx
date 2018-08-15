@@ -79,9 +79,21 @@ class objectParser {
 		const startNode = root.first.raws.node;
 		const endNode = root.last.raws.node;
 
-		root.source.start = startNode.loc.start;
+		const start = {
+			line: startNode.loc.start.line,
+		};
 
-		root.source.input.css = root.source.input.css.slice(startNode.start, endNode.end);
+		let before = root.source.input.css.slice(startNode.start - startNode.loc.start.column, startNode.start);
+		if (/^\s+$/.test(before)) {
+			start.column = 1;
+		} else {
+			before = "";
+			start.column = startNode.loc.start.column;
+		}
+
+		root.first.raws.before = before;
+		root.source.input.css = before + root.source.input.css.slice(startNode.start, endNode.end);
+		root.source.start = start;
 
 		this.root = root;
 	}

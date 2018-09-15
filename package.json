@@ -38,10 +38,11 @@
     "check-coverage": true
   },
   "scripts": {
-    "test": "nyc mocha --no-timeouts"
+    "test": "nyc mocha --no-timeouts",
+    "debug": "mocha  --inspect --debug-brk --no-timeouts"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0-rc.1"
+    "@babel/core": "^7.0.0"
   },
   "optionalDependencies": {
     "postcss-styled": ">=0.33.0"

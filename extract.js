@@ -55,7 +55,7 @@ const plugins = [
 	"jsx",
 	"typescript",
 	"objectRestSpread",
-	"decorators",
+	["decorators", { "decoratorsBeforeExport": true }],
 	"classProperties",
 	"exportExtensions",
 	"asyncGenerators",

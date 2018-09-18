@@ -1,6 +1,6 @@
 {
   "name": "postcss-jsx",
-  "version": "0.33.0",
+  "version": "0.34.0",
   "description": "PostCSS syntax for parsing CSS in JS literals",
   "repository": {
     "type": "git",
@@ -46,11 +46,11 @@
     "@babel/core": "^7.0.0"
   },
   "optionalDependencies": {
-    "postcss-styled": ">=0.33.0"
+    "postcss-styled": ">=0.34.0"
   },
   "peerDependencies": {
     "postcss": ">=5.0.0",
-    "postcss-syntax": ">=0.33.0"
+    "postcss-syntax": ">=0.34.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.1.5",
@@ -62,6 +62,6 @@
     "postcss": "^7.0.2",
     "postcss-parser-tests": "^6.3.0",
     "postcss-safe-parser": "^4.0.1",
-    "postcss-syntax": ">=0.33.0"
+    "postcss-syntax": ">=0.34.0"
   }
 }

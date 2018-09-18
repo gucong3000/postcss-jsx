@@ -5,16 +5,19 @@ const camelCase = require("../camel-case");
 const unCamelCase = require("../un-camel-case");
 
 const data = {
+	borderTopLeftRadius: "border-top-left-radius",
+	backgroundImage: "background-image",
 	xwebkitAnimation: "-xwebkit-animation",
 	webkitAnimation: "-webkit-animation",
 	epubAnimation: "-epub-animation",
 	mozAnimation: "-moz-animation",
 	msAnimation: "-ms-animation",
-	oAnimation: "-o-animation",
-	xAnimation: "-x-animation",
+	OAnimation: "-o-animation",
+	XAnimation: "-x-animation",
 	webkitApp: "-webkit-app",
-	borderTopLeftRadius: "border-top-left-radius",
-	backgroundImage: "background-image",
+	onChange: "on-change",
+	OnChange: "-on-change",
+	zIndex: "z-index",
 	"::selection": "::selection",
 	"::mozSelection": "::-moz-selection",
 	"::mozSelection,::selection": "::-moz-selection,::selection",
@@ -50,12 +53,6 @@ describe("camelCase", () => {
 });
 
 describe("unCamelCase", () => {
-	it("onChange => on-change", () => {
-		expect(unCamelCase("onChange")).to.equal("on-change");
-	});
-	it("OnChange => -on-change", () => {
-		expect(unCamelCase("OnChange")).to.equal("-on-change");
-	});
 	testCases.forEach(testCase => {
 		it(`${testCase.camel} => ${testCase.unCamel}`, () => {
 			expect(unCamelCase(testCase.camel)).to.equal(testCase.unCamel);

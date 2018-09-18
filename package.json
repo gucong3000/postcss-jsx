@@ -38,8 +38,9 @@
     "check-coverage": true
   },
   "scripts": {
-    "test": "nyc mocha --no-timeouts",
-    "debug": "mocha  --inspect --debug-brk --no-timeouts"
+    "mocha": "mocha --no-timeouts",
+    "test": "nyc npm run mocha",
+    "debug": "npm run mocha -- --inspect-brk"
   },
   "dependencies": {
     "@babel/core": "^7.0.0"
@@ -52,12 +53,12 @@
     "postcss-syntax": ">=0.33.0"
   },
   "devDependencies": {
-    "autoprefixer": "^9.1.1",
+    "autoprefixer": "^9.1.5",
     "chai": "^4.1.2",
-    "codecov": "^3.0.4",
-    "json5": "^1.0.1",
+    "codecov": "^3.1.0",
+    "json5": "^2.0.1",
     "mocha": "^5.2.0",
-    "nyc": "^12.0.2",
+    "nyc": "^13.0.1",
     "postcss": "^7.0.2",
     "postcss-parser-tests": "^6.3.0",
     "postcss-safe-parser": "^4.0.1",

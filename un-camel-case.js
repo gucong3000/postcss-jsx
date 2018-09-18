@@ -1,13 +1,13 @@
 "use strict";
 function unCamelCase (str) {
 	return str.replace(/[\w-]+/g, (s) => (
-		/^[a-z]*(?:[A-Z][a-z]+)+$/.test(s)
+		/^[A-Z]?[a-z]*(?:[A-Z][a-z]+)+$/.test(s)
 			? s.replace(
 				/[A-Z]/g,
 				s => "-" + s.toLowerCase()
 			).replace(
-				/^(\w|ms|moz|khtml|epub|\w*webkit)-/,
-				"-$1-"
+				/^(o|ms|moz|khtml|epub|(\w+-?)*webkit)(?=-)/i,
+				"-$1"
 			)
 			: s
 	));

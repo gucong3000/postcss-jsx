@@ -43,7 +43,7 @@
     "debug": "npm run mocha -- --inspect-brk"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0"
+    "@babel/core": "^7.1.2"
   },
   "optionalDependencies": {
     "postcss-styled": ">=0.34.0"
@@ -54,12 +54,12 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.1.5",
-    "chai": "^4.1.2",
+    "chai": "^4.2.0",
     "codecov": "^3.1.0",
-    "json5": "^2.0.1",
+    "json5": "^2.1.0",
     "mocha": "^5.2.0",
     "nyc": "^13.0.1",
-    "postcss": "^7.0.2",
+    "postcss": "^7.0.5",
     "postcss-parser-tests": "^6.3.0",
     "postcss-safe-parser": "^4.0.1",
     "postcss-syntax": ">=0.34.0"

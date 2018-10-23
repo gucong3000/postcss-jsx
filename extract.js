@@ -23,6 +23,8 @@ const partSport = {
 };
 
 const supports = {
+	// https://github.com/4Catalyzer/astroturf
+	astroturf: true,
 
 	// https://github.com/emotion-js/emotion
 	emotion: true,
@@ -193,7 +195,7 @@ function literalParser (source, opts, styles) {
 	function isStylePath (path) {
 		const nameSpace = getNameSpace(path, []).filter(Boolean);
 		if (nameSpace.length) {
-			if (/^(?:styled|StyleSheet)$/.test(nameSpace[0]) || supports[nameSpace[0]]) {
+			if (/^(?:css|Styled?)(?:Sheets?)?$/i.test(nameSpace[0]) || supports[nameSpace[0]]) {
 				return nameSpace;
 			}
 

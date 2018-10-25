@@ -37,6 +37,9 @@ const supports = {
 	// https://github.com/paypal/glamorous
 	glamorous: true,
 
+	// https://github.com/bashmish/lit-css
+	"lit-css": true,
+
 	// https://github.com/js-next/react-style
 	"react-style": true,
 

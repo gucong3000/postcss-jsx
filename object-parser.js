@@ -172,8 +172,7 @@ class objectParser {
 				break;
 			}
 			case "TemplateLiteral": {
-				rawValue = source.slice(node.quasis[0].start, node.quasis[node.quasis.length - 1].end);
-				cookedValue = getTemplate(node, source).join("");
+				rawValue = getTemplate(node, source);
 				break;
 			}
 			default: {

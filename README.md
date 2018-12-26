@@ -23,6 +23,7 @@ PostCSS JSX Syntax
 - [styled-components](https://github.com/styled-components/styled-components)
 - [styletron-react](https://github.com/rtsao/styletron)
 - [typestyle](https://github.com/typestyle/typestyle)
+- [lit-css](https://github.com/bashmish/lit-css)
 
 ## Getting Started
 

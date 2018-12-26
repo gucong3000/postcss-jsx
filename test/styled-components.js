@@ -112,7 +112,7 @@ describe("styled-components", () => {
 		}).to.throw("css_syntax_error.js:2:12: Unclosed block");
 	});
 
-	it("skip empty template literal", () => {
+	it("not skip empty template literal", () => {
 		const code = [
 			"const styled = require(\"styled-components\");",
 			"styled.div``;",
@@ -121,7 +121,7 @@ describe("styled-components", () => {
 			from: "empty_template_literal.js",
 		});
 		expect(root.toString()).to.equal(code);
-		expect(root.nodes).to.have.lengthOf(0);
+		expect(root.nodes).to.have.lengthOf(1);
 	});
 
 	it("fix CSS syntax error", () => {

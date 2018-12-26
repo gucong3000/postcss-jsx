@@ -308,7 +308,10 @@ function literalParser (source, opts, styles) {
 			endIndex: endNode.end,
 			skipConvert: true,
 			content: source,
-			syntax: objectSyntax(endNode),
+			opts: {
+				node: endNode,
+			},
+			syntax: objectSyntax,
 			lang: "object-literal",
 		};
 	});
@@ -321,18 +324,17 @@ function literalParser (source, opts, styles) {
 		const quasis = node.quasis;
 		const value = getTemplate(node, source);
 
-		if (value.length === 1 && !value[0].trim()) {
-			return;
-		}
-
 		const style = {
 			startIndex: quasis[0].start,
 			endIndex: quasis[quasis.length - 1].end,
-			content: value.join(""),
+			content: value,
 		};
-		if (value.length > 1) {
-			style.syntax = loadSyntax(opts, "postcss-styled");
+		if (node.expressions.length) {
+			style.syntax = loadSyntax(opts, __dirname);
 			style.lang = "template-literal";
+			style.opts = {
+				node: node,
+			};
 		} else {
 			style.lang = "css";
 		}

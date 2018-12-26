@@ -3,15 +3,15 @@
 const Node = require("postcss/lib/node");
 
 /**
- * Represents a JS obj
+ * Represents a JS literal
  *
  * @extends Container
  *
  * @example
  * const root = postcss.parse('{}');
- * const obj = root.first;
- * obj.type       //=> 'obj'
- * obj.toString() //=> 'a{}'
+ * const literal = root.first;
+ * literal.type       //=> 'literal'
+ * literal.toString() //=> 'a{}'
  */
 class Literal extends Node {
 	constructor (defaults) {

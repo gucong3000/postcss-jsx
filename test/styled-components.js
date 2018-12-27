@@ -13,7 +13,7 @@ describe("styled-components", () => {
 		});
 
 		code = code.toString();
-		expect(document.toString(), code);
+		expect(document.toString()).to.equal(code);
 		expect(document.source).to.haveOwnProperty("lang", "jsx");
 
 		expect(document.nodes).to.have.lengthOf(1);

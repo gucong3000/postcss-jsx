@@ -32,9 +32,18 @@ function templateTokenize (input) {
 			returned.push(token);
 		}
 		if (returned.length) {
-			const lastToken = returned[returned.length - 1];
+			let lastToken = returned[returned.length - 1];
 			if (token && token !== lastToken) {
-				back(token);
+				if (token[0] === returned[0][0]) {
+					returned.push(token);
+					lastToken = token;
+				} else {
+					back(token);
+				}
+			}
+			while (lastToken[0] === "space") {
+				back(returned.pop());
+				lastToken = returned[returned.length - 1];
 			}
 			token = [
 				returned[0][0],
@@ -45,7 +54,6 @@ function templateTokenize (input) {
 				lastToken[5] || lastToken[3],
 			];
 		}
-
 		return token;
 	}
 	return Object.assign({}, tokenizer, {

@@ -18,7 +18,7 @@ class ObjectStringifier extends Stringifier {
 		this.builder("}", node, "end");
 	}
 	literal (node, semicolon) {
-		this.builder(node.text + (semicolon ? "," : ""));
+		this.builder(node.text + (semicolon ? "," : ""), node);
 	}
 	decl (node, semicolon) {
 		let prop = this.rawValue(node, "prop");

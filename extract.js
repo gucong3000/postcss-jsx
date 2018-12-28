@@ -28,6 +28,8 @@ const supports = {
 
 	// https://github.com/emotion-js/emotion
 	emotion: true,
+	"@emotion/core": true,
+	"@emotion/styled": true,
 	"react-emotion": true,
 	"preact-emotion": true,
 
@@ -54,6 +56,10 @@ const supports = {
 
 	// https://github.com/typestyle/typestyle
 	typestyle: true,
+};
+
+const cssPropImpliesStyle = {
+	"@emotion/core": true
 };
 
 const plugins = [
@@ -113,6 +119,7 @@ function literalParser (source, opts, styles) {
 	let objLiteral = new Set();
 	let tplLiteral = new Set();
 	const jobs = [];
+	let cssPropIsStyle = false;
 
 	function addObjectJob (path) {
 		jobs.push(() => {
@@ -221,13 +228,16 @@ function literalParser (source, opts, styles) {
 					nameSpace.push(specifier.imported.name);
 				}
 				setSpecifier(specifier.local, nameSpace);
+				if (cssPropImpliesStyle[moduleId]) {
+					cssPropIsStyle = true;
+				}
 			});
 		},
 		JSXAttribute: (path) => {
 			const attrName = path.node.name.name;
 			if (attrName === "css") {
 				const elePath = path.findParent(p => p.isJSXOpeningElement());
-				if (!isStylePath(elePath)) {
+				if (!cssPropIsStyle && !isStylePath(elePath)) {
 					return;
 				}
 			} else if (attrName !== "style") {

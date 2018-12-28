@@ -1,0 +1,1214 @@
+{
+  "raws": {},
+  "type": "root",
+  "nodes": [
+    {
+      "raws": {},
+      "source": {
+        "input": {
+          "file": "glamorous.jsx"
+        },
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "inline": false,
+        "lang": "object-literal",
+        "syntax": {}
+      },
+      "type": "root",
+      "nodes": [
+        {
+          "raws": {
+            "left": " ",
+            "right": " ",
+            "inline": false,
+            "before": "\t"
+          },
+          "text": "start",
+          "type": "comment",
+          "source": {
+            "input": {
+              "file": "glamorous.jsx"
+            },
+            "start": {
+              "line": 6,
+              "column": 1
+            },
+            "end": {
+              "line": 6,
+              "column": 12
+            }
+          }
+        },
+        {
+          "raws": {
+            "after": "\n\t",
+            "semicolon": true,
+            "before": "\n\t"
+          },
+          "type": "object",
+          "nodes": [
+            {
+              "raws": {
+                "left": " ",
+                "right": "",
+                "inline": true,
+                "before": "\n\t\t"
+              },
+              "text": "stylelint-disable-next-line",
+              "type": "comment",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 8,
+                  "column": 2
+                },
+                "end": {
+                  "line": 8,
+                  "column": 32
+                }
+              }
+            },
+            {
+              "raws": {
+                "prop": {
+                  "prefix": "\"",
+                  "suffix": "\"",
+                  "raw": "unknownProperty1",
+                  "value": "unknownProperty1"
+                },
+                "value": {
+                  "prefix": "\"",
+                  "suffix": "\"",
+                  "raw": "1.8em",
+                  "value": "1.8em"
+                },
+                "between": ": ",
+                "before": "\n\t\t"
+              },
+              "prop": "unknownProperty1",
+              "value": "1.8em",
+              "type": "decl",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 9,
+                  "column": 2
+                },
+                "end": {
+                  "line": 9,
+                  "column": 29
+                }
+              }
+            },
+            {
+              "raws": {
+                "left": " ",
+                "right": "",
+                "inline": true,
+                "before": " "
+              },
+              "text": "must not trigger any warnings",
+              "type": "comment",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 9,
+                  "column": 31
+                },
+                "end": {
+                  "line": 9,
+                  "column": 63
+                }
+              }
+            },
+            {
+              "raws": {
+                "prop": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "unknownProperty2",
+                  "value": "unknownProperty2"
+                },
+                "value": {
+                  "prefix": "\"",
+                  "suffix": "\"",
+                  "raw": "1.8em",
+                  "value": "1.8em"
+                },
+                "between": ": ",
+                "before": "\n\t\t"
+              },
+              "prop": "unknownProperty2",
+              "value": "1.8em",
+              "type": "decl",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 10,
+                  "column": 2
+                },
+                "end": {
+                  "line": 10,
+                  "column": 27
+                }
+              }
+            },
+            {
+              "raws": {
+                "left": " ",
+                "right": "",
+                "inline": true,
+                "before": " "
+              },
+              "text": "must not trigger any warnings",
+              "type": "comment",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 10,
+                  "column": 29
+                },
+                "end": {
+                  "line": 10,
+                  "column": 61
+                }
+              }
+            },
+            {
+              "raws": {
+                "prop": {
+                  "prefix": "[`",
+                  "suffix": "`]",
+                  "raw": "unknownPropertyaa${a}",
+                  "value": "unknown-propertyaa${a}"
+                },
+                "value": {
+                  "prefix": "\"",
+                  "suffix": "\"",
+                  "raw": "1.8em",
+                  "value": "1.8em"
+                },
+                "between": ": ",
+                "before": "\n\t\t"
+              },
+              "prop": "unknown-propertyaa${a}",
+              "value": "1.8em",
+              "type": "decl",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 11,
+                  "column": 2
+                },
+                "end": {
+                  "line": 11,
+                  "column": 36
+                }
+              }
+            },
+            {
+              "raws": {
+                "left": " ",
+                "right": "",
+                "inline": true,
+                "before": " "
+              },
+              "text": "must not trigger any warnings",
+              "type": "comment",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 11,
+                  "column": 38
+                },
+                "end": {
+                  "line": 11,
+                  "column": 70
+                }
+              }
+            },
+            {
+              "raws": {
+                "prop": {
+                  "prefix": "[",
+                  "suffix": "]",
+                  "raw": "\"unknownProperty\" + 1 + \"a\"",
+                  "value": "\"unknown-property\" + 1 + \"a\""
+                },
+                "value": {
+                  "prefix": "\"",
+                  "suffix": "\"",
+                  "raw": "1.8em",
+                  "value": "1.8em"
+                },
+                "between": ": ",
+                "before": "\n\t\t"
+              },
+              "prop": "\"unknown-property\" + 1 + \"a\"",
+              "value": "1.8em",
+              "type": "decl",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 12,
+                  "column": 2
+                },
+                "end": {
+                  "line": 12,
+                  "column": 40
+                }
+              }
+            },
+            {
+              "raws": {
+                "left": " ",
+                "right": "",
+                "inline": true,
+                "before": " "
+              },
+              "text": "must not trigger any warnings",
+              "type": "comment",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 12,
+                  "column": 42
+                },
+                "end": {
+                  "line": 12,
+                  "column": 74
+                }
+              }
+            },
+            {
+              "raws": {
+                "prop": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "display",
+                  "value": "display"
+                },
+                "value": {
+                  "prefix": "\"",
+                  "suffix": "\"",
+                  "raw": "inline-block",
+                  "value": "inline-block"
+                },
+                "between": ": ",
+                "before": "\n\t\t"
+              },
+              "prop": "display",
+              "value": "inline-block",
+              "type": "decl",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 13,
+                  "column": 2
+                },
+                "end": {
+                  "line": 13,
+                  "column": 25
+                }
+              }
+            },
+            {
+              "raws": {
+                "afterName": " ",
+                "name": {
+                  "prefix": "[`@",
+                  "suffix": "",
+                  "raw": "media",
+                  "value": "media"
+                },
+                "params": {
+                  "prefix": "",
+                  "suffix": "`]",
+                  "raw": "(minWidth: ${minWidth}px)",
+                  "value": "(min-width: ${minWidth}px)"
+                },
+                "between": ": ",
+                "after": "\n\t\t",
+                "semicolon": true,
+                "before": "\n\t\t"
+              },
+              "name": "media",
+              "nodes": [
+                {
+                  "raws": {
+                    "prop": {
+                      "prefix": "",
+                      "suffix": "",
+                      "raw": "color",
+                      "value": "color"
+                    },
+                    "value": {
+                      "prefix": "\"",
+                      "suffix": "\"",
+                      "raw": "red",
+                      "value": "red"
+                    },
+                    "between": ": ",
+                    "before": "\n\t\t\t"
+                  },
+                  "prop": "color",
+                  "value": "red",
+                  "type": "decl",
+                  "source": {
+                    "input": {
+                      "file": "glamorous.jsx"
+                    },
+                    "start": {
+                      "line": 15,
+                      "column": 3
+                    },
+                    "end": {
+                      "line": 15,
+                      "column": 15
+                    }
+                  }
+                }
+              ],
+              "type": "atrule",
+              "params": "(min-width: ${minWidth}px)",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 14,
+                  "column": 2
+                },
+                "end": {
+                  "line": 16,
+                  "column": 3
+                }
+              }
+            },
+            {
+              "raws": {
+                "left": " ",
+                "right": "",
+                "inline": true,
+                "before": "\n\t\t"
+              },
+              "text": "unkown pseudo class selector",
+              "type": "comment",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 17,
+                  "column": 2
+                },
+                "end": {
+                  "line": 17,
+                  "column": 33
+                }
+              }
+            },
+            {
+              "raws": {
+                "selector": {
+                  "prefix": "\"",
+                  "suffix": "\"",
+                  "raw": ":focused",
+                  "value": ":focused"
+                },
+                "between": ": ",
+                "after": "\n\t\t",
+                "semicolon": true,
+                "before": "\n\t\t"
+              },
+              "selector": ":focused",
+              "type": "rule",
+              "nodes": [
+                {
+                  "raws": {
+                    "prop": {
+                      "prefix": "",
+                      "suffix": "",
+                      "raw": "backgroundColor",
+                      "value": "background-color"
+                    },
+                    "value": {
+                      "prefix": "\"",
+                      "suffix": "\"",
+                      "raw": "red",
+                      "value": "red"
+                    },
+                    "between": ": ",
+                    "before": "\n\t\t\t"
+                  },
+                  "prop": "background-color",
+                  "value": "red",
+                  "type": "decl",
+                  "source": {
+                    "input": {
+                      "file": "glamorous.jsx"
+                    },
+                    "start": {
+                      "line": 19,
+                      "column": 3
+                    },
+                    "end": {
+                      "line": 19,
+                      "column": 25
+                    }
+                  }
+                }
+              ],
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 18,
+                  "column": 2
+                },
+                "end": {
+                  "line": 20,
+                  "column": 3
+                }
+              }
+            },
+            {
+              "raws": {
+                "afterName": "",
+                "name": {
+                  "prefix": "\"@",
+                  "suffix": "\"",
+                  "raw": "fontFace",
+                  "value": "font-face"
+                },
+                "between": ": ",
+                "after": "\n\t\t",
+                "semicolon": true,
+                "before": "\n\t\t"
+              },
+              "name": "font-face",
+              "nodes": [
+                {
+                  "raws": {
+                    "prop": {
+                      "prefix": "\"",
+                      "suffix": "\"",
+                      "raw": "fontFamily",
+                      "value": "font-family"
+                    },
+                    "value": {
+                      "prefix": "\"",
+                      "suffix": "\"",
+                      "raw": "diyfont",
+                      "value": "diyfont"
+                    },
+                    "between": ": ",
+                    "before": "\n\t\t\t"
+                  },
+                  "prop": "font-family",
+                  "value": "diyfont",
+                  "type": "decl",
+                  "source": {
+                    "input": {
+                      "file": "glamorous.jsx"
+                    },
+                    "start": {
+                      "line": 22,
+                      "column": 3
+                    },
+                    "end": {
+                      "line": 22,
+                      "column": 26
+                    }
+                  }
+                }
+              ],
+              "type": "atrule",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 21,
+                  "column": 2
+                },
+                "end": {
+                  "line": 23,
+                  "column": 3
+                }
+              }
+            },
+            {
+              "raws": {
+                "afterName": "",
+                "name": {
+                  "prefix": "\"@",
+                  "suffix": "\"",
+                  "raw": "page:first",
+                  "value": "page:first"
+                },
+                "between": ": ",
+                "after": "\n\t\t",
+                "semicolon": true,
+                "before": "\n\t\t"
+              },
+              "name": "page:first",
+              "nodes": [
+                {
+                  "raws": {
+                    "prop": {
+                      "prefix": "",
+                      "suffix": "",
+                      "raw": "margin",
+                      "value": "margin"
+                    },
+                    "value": {
+                      "prefix": "\"",
+                      "suffix": "\"",
+                      "raw": "300px",
+                      "value": "300px"
+                    },
+                    "between": ": ",
+                    "before": "\n\t\t\t"
+                  },
+                  "prop": "margin",
+                  "value": "300px",
+                  "type": "decl",
+                  "source": {
+                    "input": {
+                      "file": "glamorous.jsx"
+                    },
+                    "start": {
+                      "line": 25,
+                      "column": 3
+                    },
+                    "end": {
+                      "line": 25,
+                      "column": 18
+                    }
+                  }
+                }
+              ],
+              "type": "atrule",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 24,
+                  "column": 2
+                },
+                "end": {
+                  "line": 26,
+                  "column": 3
+                }
+              }
+            },
+            {
+              "raws": {
+                "name": {
+                  "prefix": "\"",
+                  "suffix": "\"",
+                  "raw": "@charset",
+                  "value": "@charset"
+                },
+                "params": {
+                  "prefix": "\"",
+                  "suffix": "\"",
+                  "raw": "utf-8",
+                  "value": "utf-8"
+                },
+                "between": ": ",
+                "before": "\n\t\t"
+              },
+              "name": "@charset",
+              "params": "utf-8",
+              "type": "atrule",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 27,
+                  "column": 2
+                },
+                "end": {
+                  "line": 27,
+                  "column": 21
+                }
+              }
+            }
+          ],
+          "source": {
+            "input": {
+              "file": "glamorous.jsx"
+            },
+            "start": {
+              "line": 7,
+              "column": 1
+            },
+            "end": {
+              "line": 28,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "raws": {},
+      "source": {
+        "input": {
+          "file": "glamorous.jsx"
+        },
+        "start": {
+          "line": 30,
+          "column": 19
+        },
+        "inline": false,
+        "lang": "object-literal",
+        "syntax": {}
+      },
+      "type": "root",
+      "nodes": [
+        {
+          "raws": {
+            "after": "\n\t",
+            "semicolon": true,
+            "before": ""
+          },
+          "type": "object",
+          "nodes": [
+            {
+              "raws": {
+                "prop": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "unknownProperty",
+                  "value": "unknown-property"
+                },
+                "value": {
+                  "prefix": "\"",
+                  "suffix": "\"",
+                  "raw": "1.8em",
+                  "value": "1.8em"
+                },
+                "between": ": ",
+                "before": "\n\t\t"
+              },
+              "prop": "unknown-property",
+              "value": "1.8em",
+              "type": "decl",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 31,
+                  "column": 2
+                },
+                "end": {
+                  "line": 31,
+                  "column": 26
+                }
+              }
+            },
+            {
+              "raws": {
+                "left": " ",
+                "right": "",
+                "inline": true,
+                "before": " "
+              },
+              "text": "unknown prop",
+              "type": "comment",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 31,
+                  "column": 28
+                },
+                "end": {
+                  "line": 31,
+                  "column": 43
+                }
+              }
+            },
+            {
+              "raws": {
+                "before": "\n\t\t"
+              },
+              "text": "...minWidth.length",
+              "type": "literal",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 32,
+                  "column": 2
+                },
+                "end": {
+                  "line": 32,
+                  "column": 20
+                }
+              }
+            },
+            {
+              "raws": {
+                "prop": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "color",
+                  "value": "color"
+                },
+                "value": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "primary ? \"#fff\" : \"#DA233C\"",
+                  "value": "primary ? \"#fff\" : \"#DA233C\""
+                },
+                "between": ": ",
+                "before": "\n\t\t"
+              },
+              "prop": "color",
+              "value": "primary ? \"#fff\" : \"#DA233C\"",
+              "type": "decl",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 33,
+                  "column": 2
+                },
+                "end": {
+                  "line": 33,
+                  "column": 37
+                }
+              }
+            }
+          ],
+          "source": {
+            "input": {
+              "file": "glamorous.jsx"
+            },
+            "start": {
+              "line": 30,
+              "column": 19
+            },
+            "end": {
+              "line": 34,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "raws": {},
+      "source": {
+        "input": {
+          "file": "glamorous.jsx"
+        },
+        "start": {
+          "line": 37,
+          "column": 35
+        },
+        "inline": false,
+        "lang": "object-literal",
+        "syntax": {}
+      },
+      "type": "root",
+      "nodes": [
+        {
+          "raws": {
+            "after": "\n",
+            "semicolon": true,
+            "before": ""
+          },
+          "type": "object",
+          "nodes": [
+            {
+              "raws": {
+                "prop": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "displayName",
+                  "value": "display-name"
+                },
+                "value": {
+                  "prefix": "\"",
+                  "suffix": "\"",
+                  "raw": "Component2",
+                  "value": "Component2"
+                },
+                "between": ": ",
+                "before": "\n\t"
+              },
+              "prop": "display-name",
+              "value": "Component2",
+              "type": "decl",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 38,
+                  "column": 1
+                },
+                "end": {
+                  "line": 38,
+                  "column": 26
+                }
+              }
+            },
+            {
+              "raws": {
+                "prop": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "forwardProps",
+                  "value": "forward-props"
+                },
+                "value": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "[\"shouldRender\"]",
+                  "value": "[\"shouldRender\"]"
+                },
+                "between": ": ",
+                "before": "\n\t"
+              },
+              "prop": "forward-props",
+              "value": "[\"shouldRender\"]",
+              "type": "decl",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 39,
+                  "column": 1
+                },
+                "end": {
+                  "line": 39,
+                  "column": 31
+                }
+              }
+            },
+            {
+              "raws": {
+                "prop": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "rootEl",
+                  "value": "root-el"
+                },
+                "value": {
+                  "prefix": "\"",
+                  "suffix": "\"",
+                  "raw": "div",
+                  "value": "div"
+                },
+                "between": ": ",
+                "before": "\n\t"
+              },
+              "prop": "root-el",
+              "value": "div",
+              "type": "decl",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 40,
+                  "column": 1
+                },
+                "end": {
+                  "line": 40,
+                  "column": 14
+                }
+              }
+            }
+          ],
+          "source": {
+            "input": {
+              "file": "glamorous.jsx"
+            },
+            "start": {
+              "line": 37,
+              "column": 35
+            },
+            "end": {
+              "line": 41,
+              "column": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "raws": {},
+      "source": {
+        "input": {
+          "file": "glamorous.jsx"
+        },
+        "start": {
+          "line": 41,
+          "column": 13
+        },
+        "inline": false,
+        "lang": "object-literal",
+        "syntax": {}
+      },
+      "type": "root",
+      "nodes": [
+        {
+          "raws": {
+            "after": "\n",
+            "semicolon": true,
+            "before": ""
+          },
+          "type": "object",
+          "nodes": [
+            {
+              "raws": {
+                "prop": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "fontFamily",
+                  "value": "font-family"
+                },
+                "value": {
+                  "prefix": "\"",
+                  "suffix": "\"",
+                  "raw": "Arial, Arial, sans-serif",
+                  "value": "Arial, Arial, sans-serif"
+                },
+                "between": ": ",
+                "before": "\n\t"
+              },
+              "prop": "font-family",
+              "value": "Arial, Arial, sans-serif",
+              "type": "decl",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 42,
+                  "column": 1
+                },
+                "end": {
+                  "line": 42,
+                  "column": 39
+                }
+              }
+            },
+            {
+              "raws": {
+                "left": " ",
+                "right": "",
+                "inline": true,
+                "before": " "
+              },
+              "text": "duplicate font-family names",
+              "type": "comment",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 42,
+                  "column": 41
+                },
+                "end": {
+                  "line": 42,
+                  "column": 71
+                }
+              }
+            },
+            {
+              "raws": {
+                "prop": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "fontSize",
+                  "value": "font-size"
+                },
+                "value": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "props.big ? 36 : 24",
+                  "value": "props.big ? 36 : 24"
+                },
+                "between": ": ",
+                "before": "\n\t"
+              },
+              "prop": "font-size",
+              "value": "props.big ? 36 : 24",
+              "type": "decl",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 43,
+                  "column": 1
+                },
+                "end": {
+                  "line": 43,
+                  "column": 30
+                }
+              }
+            }
+          ],
+          "source": {
+            "input": {
+              "file": "glamorous.jsx"
+            },
+            "start": {
+              "line": 41,
+              "column": 13
+            },
+            "end": {
+              "line": 44,
+              "column": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "raws": {},
+      "source": {
+        "input": {
+          "file": "glamorous.jsx"
+        },
+        "start": {
+          "line": 46,
+          "column": 27
+        },
+        "inline": false,
+        "lang": "object-literal",
+        "syntax": {}
+      },
+      "type": "root",
+      "nodes": [
+        {
+          "raws": {
+            "after": "\n",
+            "semicolon": true,
+            "before": ""
+          },
+          "type": "object",
+          "nodes": [
+            {
+              "raws": {
+                "prop": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "padding",
+                  "value": "padding"
+                },
+                "value": {
+                  "prefix": "\"",
+                  "suffix": "\"",
+                  "raw": "8px 12px",
+                  "value": "8px 12px"
+                },
+                "between": ": ",
+                "before": "\n\t"
+              },
+              "prop": "padding",
+              "value": "8px 12px",
+              "type": "decl",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 47,
+                  "column": 1
+                },
+                "end": {
+                  "line": 47,
+                  "column": 20
+                }
+              }
+            },
+            {
+              "raws": {
+                "before": "\n\t"
+              },
+              "text": "...Component2",
+              "type": "literal",
+              "source": {
+                "input": {
+                  "file": "glamorous.jsx"
+                },
+                "start": {
+                  "line": 48,
+                  "column": 1
+                },
+                "end": {
+                  "line": 48,
+                  "column": 14
+                }
+              }
+            }
+          ],
+          "source": {
+            "input": {
+              "file": "glamorous.jsx"
+            },
+            "start": {
+              "line": 46,
+              "column": 27
+            },
+            "end": {
+              "line": 49,
+              "column": 1
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "input": {
+      "file": "glamorous.jsx"
+    },
+    "start": {
+      "line": 1,
+      "column": 1
+    },
+    "lang": "jsx"
+  }
+}

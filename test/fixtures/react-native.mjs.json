@@ -1,0 +1,187 @@
+{
+  "raws": {},
+  "type": "root",
+  "nodes": [
+    {
+      "raws": {},
+      "source": {
+        "input": {
+          "file": "react-native.mjs"
+        },
+        "start": {
+          "line": 14,
+          "column": 33
+        },
+        "inline": false,
+        "lang": "object-literal",
+        "syntax": {}
+      },
+      "type": "root",
+      "nodes": [
+        {
+          "raws": {
+            "after": "\n",
+            "semicolon": true,
+            "before": ""
+          },
+          "type": "object",
+          "nodes": [
+            {
+              "raws": {
+                "selector": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "box",
+                  "value": "box"
+                },
+                "between": ": ",
+                "after": " ",
+                "semicolon": false,
+                "before": "\n\t"
+              },
+              "selector": "box",
+              "type": "rule",
+              "nodes": [
+                {
+                  "raws": {
+                    "prop": {
+                      "prefix": "",
+                      "suffix": "",
+                      "raw": "padding",
+                      "value": "padding"
+                    },
+                    "value": {
+                      "prefix": "",
+                      "suffix": "",
+                      "raw": "10",
+                      "value": "10"
+                    },
+                    "between": ": ",
+                    "before": " "
+                  },
+                  "prop": "padding",
+                  "value": "10",
+                  "type": "decl",
+                  "source": {
+                    "input": {
+                      "file": "react-native.mjs"
+                    },
+                    "start": {
+                      "line": 15,
+                      "column": 8
+                    },
+                    "end": {
+                      "line": 15,
+                      "column": 19
+                    }
+                  }
+                }
+              ],
+              "source": {
+                "input": {
+                  "file": "react-native.mjs"
+                },
+                "start": {
+                  "line": 15,
+                  "column": 1
+                },
+                "end": {
+                  "line": 15,
+                  "column": 21
+                }
+              }
+            },
+            {
+              "raws": {
+                "selector": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "text",
+                  "value": "text"
+                },
+                "between": ": ",
+                "after": " ",
+                "semicolon": false,
+                "before": "\n\t"
+              },
+              "selector": "text",
+              "type": "rule",
+              "nodes": [
+                {
+                  "raws": {
+                    "prop": {
+                      "prefix": "",
+                      "suffix": "",
+                      "raw": "fontWeight",
+                      "value": "font-weight"
+                    },
+                    "value": {
+                      "prefix": "\"",
+                      "suffix": "\"",
+                      "raw": "bold",
+                      "value": "bold"
+                    },
+                    "between": ": ",
+                    "before": " "
+                  },
+                  "prop": "font-weight",
+                  "value": "bold",
+                  "type": "decl",
+                  "source": {
+                    "input": {
+                      "file": "react-native.mjs"
+                    },
+                    "start": {
+                      "line": 16,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 16,
+                      "column": 27
+                    }
+                  }
+                }
+              ],
+              "source": {
+                "input": {
+                  "file": "react-native.mjs"
+                },
+                "start": {
+                  "line": 16,
+                  "column": 1
+                },
+                "end": {
+                  "line": 16,
+                  "column": 29
+                }
+              }
+            }
+          ],
+          "source": {
+            "input": {
+              "file": "react-native.mjs"
+            },
+            "start": {
+              "line": 14,
+              "column": 33
+            },
+            "end": {
+              "line": 17,
+              "column": 1
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "input": {
+      "file": "react-native.mjs"
+    },
+    "start": {
+      "line": 1,
+      "column": 1
+    },
+    "lang": "jsx"
+  }
+}

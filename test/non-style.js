@@ -1,11 +1,11 @@
 "use strict";
 const spawnSync = require("child_process").spawnSync;
 const fs = require("fs");
-const files = spawnSync("git", ["ls-files"], { encoding: "utf8" }).stdout.match(/^.+$/gm).filter(file => file.endsWith(".js")).concat('test/fixtures/non-styled.jsx');
+const files = spawnSync("git", ["ls-files"], { encoding: "utf8" }).stdout.match(/^.+\.js$/gm);
 const syntax = require("../");
 const expect = require("chai").expect;
 
-describe("non-styled js|jsx files", () => {
+describe("not throw error for non-style js file", () => {
 	files.forEach(file => {
 		it(file, () => {
 			const code = fs.readFileSync(file);

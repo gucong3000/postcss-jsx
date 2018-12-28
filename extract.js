@@ -8,39 +8,39 @@ const {
 const getTemplate = require("./get-template");
 const loadSyntax = require("postcss-syntax/load-syntax");
 
-const partSport = {
-	// https://github.com/Khan/aphrodite
-	aphrodite: [
-		"StyleSheet",
-		"create",
-	],
-
-	// https://github.com/necolas/react-native-web
-	"react-native": [
-		"StyleSheet",
-		"create",
-	],
-};
-
 const supports = {
-	// https://github.com/4Catalyzer/astroturf
-	astroturf: true,
+	// https://github.com/Khan/aphrodite
+	// https://github.com/necolas/react-native-web
+	StyleSheet: true,
 
 	// https://github.com/emotion-js/emotion
+	// import styled from '@emotion/styled'
+	// https://github.com/threepointone/glamor
+	// import { styled } from 'glamor/styled'
+	// https://github.com/rtsao/styletron
+	// import { styled } from "styletron-react";
+	styled: true,
+
+	// https://github.com/typestyle/typestyle
+	// import { style } from "typestyle";
+	style: true,
+
+	// https://github.com/4Catalyzer/astroturf
+	// import { css } from 'astroturf';
+	// https://github.com/bashmish/lit-css
+	// import { css } from 'lit-css';
+	// https://github.com/threepointone/glamor
+	// import { css } from 'glamor'
+	css: true,
+
+	// https://github.com/emotion-js/emotion
+	// import styled from "react-emotion";
 	emotion: true,
-	"@emotion/core": true,
-	"@emotion/styled": true,
 	"react-emotion": true,
 	"preact-emotion": true,
 
-	// https://github.com/threepointone/glamor
-	glamor: true,
-
 	// https://github.com/paypal/glamorous
 	glamorous: true,
-
-	// https://github.com/bashmish/lit-css
-	"lit-css": true,
 
 	// https://github.com/js-next/react-style
 	"react-style": true,
@@ -52,14 +52,9 @@ const supports = {
 	"styled-components": true,
 
 	// https://github.com/rtsao/styletron
+	// import {styled} from "styletron-react";
+	// import {withStyle} from "styletron-react";
 	"styletron-react": true,
-
-	// https://github.com/typestyle/typestyle
-	typestyle: true,
-};
-
-const cssPropImpliesStyle = {
-	"@emotion/core": true
 };
 
 const plugins = [
@@ -119,7 +114,6 @@ function literalParser (source, opts, styles) {
 	let objLiteral = new Set();
 	let tplLiteral = new Set();
 	const jobs = [];
-	let cssPropIsStyle = false;
 
 	function addObjectJob (path) {
 		jobs.push(() => {
@@ -155,6 +149,11 @@ function literalParser (source, opts, styles) {
 	}
 
 	function setSpecifier (id, nameSpace) {
+		nameSpace.unshift.apply(
+			nameSpace,
+			nameSpace.shift().replace(/^\W+/, "").split(/[/\\]+/g)
+		);
+
 		if (types.isIdentifier(id)) {
 			specifiers.set(id.name, nameSpace);
 			specifiers.set(id, nameSpace);
@@ -187,36 +186,21 @@ function literalParser (source, opts, styles) {
 				nameSpace.unshift(node.name);
 			}
 		} else {
-			if (node.name) {
-				getNameSpace(path.get("name"), nameSpace);
-			} else if (node.property) {
-				getNameSpace(path.get("property"), nameSpace);
-			}
-			if (node.object) {
-				getNameSpace(path.get("object"), nameSpace);
-			} else if (node.callee) {
-				getNameSpace(path.get("callee"), nameSpace);
-			}
+			[
+				"name",
+				"property",
+				"object",
+				"callee",
+			].forEach(prop => {
+				node[prop] && getNameSpace(path.get(prop), nameSpace);
+			});
 		}
 
 		return nameSpace;
 	}
 
 	function isStylePath (path) {
-		const nameSpace = getNameSpace(path, []).filter(Boolean);
-		if (nameSpace.length) {
-			if (/^(?:css|Styled?)(?:Sheets?)?$/i.test(nameSpace[0]) || supports[nameSpace[0]]) {
-				return nameSpace;
-			}
-
-			const prefix = partSport[nameSpace.shift()];
-
-			if (prefix && nameSpace.length >= prefix.length && prefix.every((name, i) => name === nameSpace[i])) {
-				return nameSpace;
-			}
-		}
-
-		return false;
+		return getNameSpace(path, []).some(name => name && supports[name]);
 	}
 
 	const visitor = {
@@ -228,23 +212,12 @@ function literalParser (source, opts, styles) {
 					nameSpace.push(specifier.imported.name);
 				}
 				setSpecifier(specifier.local, nameSpace);
-				if (cssPropImpliesStyle[moduleId]) {
-					cssPropIsStyle = true;
-				}
 			});
 		},
 		JSXAttribute: (path) => {
-			const attrName = path.node.name.name;
-			if (attrName === "css") {
-				const elePath = path.findParent(p => p.isJSXOpeningElement());
-				if (!cssPropIsStyle && !isStylePath(elePath)) {
-					return;
-				}
-			} else if (attrName !== "style") {
-				return;
+			if (supports[path.node.name.name]) {
+				addObjectJob(path.get("value.expression"));
 			}
-
-			addObjectJob(path.get("value.expression"));
 		},
 		VariableDeclarator: (path) => {
 			variableDeclarator.set(path.node.id, path.node.init ? [path.get("init")] : []);
@@ -331,25 +304,26 @@ function literalParser (source, opts, styles) {
 			node.start > style.endIndex || node.end < style.startIndex
 		))
 	)).map(node => {
-		const quasis = node.quasis;
-		const value = getTemplate(node, source);
-
+		const quasis = node.quasis.map(node => ({
+			start: node.start,
+			end: node.end,
+		}));
 		const style = {
 			startIndex: quasis[0].start,
 			endIndex: quasis[quasis.length - 1].end,
-			content: value,
+			content: getTemplate(node, source),
 		};
 		if (node.expressions.length) {
 			style.syntax = loadSyntax(opts, __dirname);
 			style.lang = "template-literal";
 			style.opts = {
-				node: node,
+				quasis: quasis,
 			};
 		} else {
 			style.lang = "css";
 		}
 		return style;
-	}).filter(Boolean);
+	});
 
 	return (styles || []).concat(objLiteral).concat(tplLiteral);
 };

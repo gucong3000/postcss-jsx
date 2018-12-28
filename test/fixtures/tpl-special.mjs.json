@@ -1,0 +1,241 @@
+{
+  "raws": {},
+  "type": "root",
+  "nodes": [
+    {
+      "raws": {
+        "semicolon": false,
+        "after": "\n"
+      },
+      "type": "root",
+      "nodes": [
+        {
+          "raws": {
+            "before": "\n",
+            "between": " ",
+            "semicolon": true,
+            "after": "\n"
+          },
+          "type": "rule",
+          "nodes": [
+            {
+              "raws": {
+                "before": "\n  ",
+                "between": ": "
+              },
+              "type": "decl",
+              "source": {
+                "start": {
+                  "line": 7,
+                  "column": 3
+                },
+                "input": {
+                  "file": "tpl-special.mjs",
+                  "quasis": [
+                    {
+                      "start": 104,
+                      "end": 109
+                    },
+                    {
+                      "start": 115,
+                      "end": 143
+                    },
+                    {
+                      "start": 149,
+                      "end": 163
+                    },
+                    {
+                      "start": 169,
+                      "end": 199
+                    },
+                    {
+                      "start": 205,
+                      "end": 211
+                    }
+                  ]
+                },
+                "end": {
+                  "line": 7,
+                  "column": 32
+                }
+              },
+              "prop": "background-image",
+              "value": "url(${img})"
+            }
+          ],
+          "source": {
+            "start": {
+              "line": 6,
+              "column": 1
+            },
+            "input": {
+              "file": "tpl-special.mjs",
+              "quasis": [
+                {
+                  "start": 104,
+                  "end": 109
+                },
+                {
+                  "start": 115,
+                  "end": 143
+                },
+                {
+                  "start": 149,
+                  "end": 163
+                },
+                {
+                  "start": 169,
+                  "end": 199
+                },
+                {
+                  "start": 205,
+                  "end": 211
+                }
+              ]
+            },
+            "end": {
+              "line": 8,
+              "column": 1
+            }
+          },
+          "selector": "img[${img}]"
+        },
+        {
+          "raws": {
+            "before": "\n",
+            "between": " ",
+            "semicolon": true,
+            "after": "\n"
+          },
+          "type": "rule",
+          "nodes": [
+            {
+              "raws": {
+                "before": "\n  ",
+                "between": ": "
+              },
+              "type": "decl",
+              "source": {
+                "start": {
+                  "line": 10,
+                  "column": 3
+                },
+                "input": {
+                  "file": "tpl-special.mjs",
+                  "quasis": [
+                    {
+                      "start": 104,
+                      "end": 109
+                    },
+                    {
+                      "start": 115,
+                      "end": 143
+                    },
+                    {
+                      "start": 149,
+                      "end": 163
+                    },
+                    {
+                      "start": 169,
+                      "end": 199
+                    },
+                    {
+                      "start": 205,
+                      "end": 211
+                    }
+                  ]
+                },
+                "end": {
+                  "line": 10,
+                  "column": 34
+                }
+              },
+              "prop": "background-image",
+              "value": "url(\"${img}\")"
+            }
+          ],
+          "source": {
+            "start": {
+              "line": 9,
+              "column": 1
+            },
+            "input": {
+              "file": "tpl-special.mjs",
+              "quasis": [
+                {
+                  "start": 104,
+                  "end": 109
+                },
+                {
+                  "start": 115,
+                  "end": 143
+                },
+                {
+                  "start": 149,
+                  "end": 163
+                },
+                {
+                  "start": 169,
+                  "end": 199
+                },
+                {
+                  "start": 205,
+                  "end": 211
+                }
+              ]
+            },
+            "end": {
+              "line": 11,
+              "column": 1
+            }
+          },
+          "selector": "img[att=\"${img}\"]"
+        }
+      ],
+      "source": {
+        "input": {
+          "file": "tpl-special.mjs",
+          "quasis": [
+            {
+              "start": 104,
+              "end": 109
+            },
+            {
+              "start": 115,
+              "end": 143
+            },
+            {
+              "start": 149,
+              "end": 163
+            },
+            {
+              "start": 169,
+              "end": 199
+            },
+            {
+              "start": 205,
+              "end": 211
+            }
+          ]
+        },
+        "start": {
+          "line": 5,
+          "column": 31
+        },
+        "inline": false,
+        "lang": "template-literal",
+        "syntax": {}
+      }
+    }
+  ],
+  "source": {
+    "input": {
+      "file": "tpl-special.mjs"
+    },
+    "start": {
+      "line": 1,
+      "column": 1
+    },
+    "lang": "jsx"
+  }
+}

@@ -34,16 +34,4 @@ describe("javascript tests", () => {
 			});
 		});
 	});
-
-	it("css prop in jsx", () => {
-		const filename = require.resolve("./fixtures/CssProp.jsx");
-		const code = fs.readFileSync(filename, "utf8");
-
-		const document = syntax.parse(code, {
-			from: filename,
-		});
-
-		expect(document.toString(syntax)).to.equal(code);
-		expect(document.nodes).to.lengthOf(1);
-	});
 });

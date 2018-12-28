@@ -1,8 +1,7 @@
 /* global render */
 /** @jsx jsx */
-
-import { jsx, css } from '@emotion/core';
-import styled from '@emotion/styled';
+import { css } from "@emotion/core";
+import styled from "@emotion/styled";
 
 const SomeComponent = styled.div`
 	display: flex;
@@ -25,7 +24,7 @@ render(
 				Some text.
 			</span>
 			<span css={{
-				color: 'sarahgreen'
+				color: "sarahgreen",
 			}}>
 				Some other text.
 			</span>

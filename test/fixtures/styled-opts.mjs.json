@@ -1,0 +1,81 @@
+{
+	"raws": {},
+	"type": "root",
+	"nodes": [
+		{
+			"raws": {
+				"semicolon": true,
+				"after": "\n"
+			},
+			"type": "root",
+			"nodes": [
+				{
+					"raws": {
+						"before": "\n\t",
+						"between": ": "
+					},
+					"type": "decl",
+					"source": {
+						"start": {
+							"line": 5,
+							"column": 2
+						},
+						"input": {
+							"file": "styled-opts.mjs"
+						},
+						"end": {
+							"line": 5,
+							"column": 20
+						}
+					},
+					"prop": "position",
+					"value": "relative"
+				},
+				{
+					"raws": {
+						"before": "\n\t",
+						"between": ": "
+					},
+					"type": "decl",
+					"source": {
+						"start": {
+							"line": 6,
+							"column": 2
+						},
+						"input": {
+							"file": "styled-opts.mjs"
+						},
+						"end": {
+							"line": 6,
+							"column": 15
+						}
+					},
+					"prop": "display",
+					"value": "flex"
+				}
+			],
+			"source": {
+				"input": {
+					"file": "styled-opts.mjs"
+				},
+				"start": {
+					"line": 4,
+					"column": 50
+				},
+				"inline": false,
+				"lang": "css",
+				"syntax": {}
+			}
+		}
+	],
+	"source": {
+		"input": {
+			"file": "styled-opts.mjs"
+		},
+		"start": {
+			"line": 1,
+			"column": 1
+		},
+		"lang": "jsx"
+	}
+}

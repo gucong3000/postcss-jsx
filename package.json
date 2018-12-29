@@ -43,7 +43,7 @@
     "debug": "npm run mocha -- --inspect-brk"
   },
   "dependencies": {
-    "@babel/core": "^7.1.2"
+    "@babel/core": ">=7.1.0"
   },
   "peerDependencies": {
     "postcss": ">=5.0.0",

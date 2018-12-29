@@ -15,15 +15,23 @@ PostCSS JSX Syntax
 
 - [aphrodite](https://github.com/Khan/aphrodite)
 - [astroturf](https://github.com/4Catalyzer/astroturf)
+- [csjs](https://github.com/rtsao/csjs)
+- [css-light](https://github.com/streamich/css-light)
+- [cssobj](https://github.com/cssobj/cssobj)
+- [electron-css](https://github.com/azukaar/electron-css)
 - [emotion](https://github.com/emotion-js/emotion)
+- [freestyler](https://github.com/streamich/freestyler)
 - [glamor](https://github.com/threepointone/glamor)
 - [glamorous](https://github.com/paypal/glamorous)
+- [j2c](https://github.com/j2css/j2c)
+- [linaria](https://github.com/callstack/linaria)
 - [lit-css](https://github.com/bashmish/lit-css)
 - [react-native](https://github.com/necolas/react-native-web)
 - [react-style](https://github.com/js-next/react-style)
 - [reactcss](https://github.com/casesandberg/reactcss)
 - [styled-components](https://github.com/styled-components/styled-components)
 - [styletron-react](https://github.com/rtsao/styletron)
+- [styling](https://github.com/andreypopp/styling)
 - [typestyle](https://github.com/typestyle/typestyle)
 
 ## Getting Started
@@ -39,7 +47,7 @@ npm install postcss-syntax postcss-jsx --save-dev
 ```js
 const postcss = require('postcss');
 const stylelint = require('stylelint');
-const syntax = require('postcss-jsx');
+const syntax = require('postcss-syntax');
 postcss([stylelint({ fix: true })]).process(source, { syntax: syntax }).then(function (result) {
 	// An alias for the result.css property. Use it with syntaxes that generate non-CSS output.
 	result.content
@@ -67,6 +75,14 @@ const Component1 = glm.a({
 ```
 
 ## Advanced Use Cases
+
+Add support for more `css-in-js` package:
+```js
+const syntax = require('postcss-syntax')({
+	"i-css": (index, namespace) => namespace[index + 1] === "addStyles",
+	"styled-components": true,
+});
+```
 
 See: [postcss-syntax](https://github.com/gucong3000/postcss-syntax)
 

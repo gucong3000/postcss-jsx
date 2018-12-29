@@ -28,17 +28,18 @@ function clean (node) {
 
 describe("should support for each CSS in JS package", () => {
 	[
+		"emotion-10.jsx",
+		"glamorous.jsx",
 		"interpolation-content.mjs",
 		"jsx.jsx",
-		"emotion-10.jsx",
+		"lit-css.mjs",
 		"react-emotion.jsx",
 		"react-native.mjs",
-		"glamorous.jsx",
-		"lit-css.mjs",
 		"styled-components.js",
+		"styled-opts.mjs",
+		"tpl-decl.mjs",
 		"tpl-in-tpl.mjs",
 		"tpl-selector.mjs",
-		"tpl-decl.mjs",
 		"tpl-special.mjs",
 	].forEach(file => {
 		it(file, () => {

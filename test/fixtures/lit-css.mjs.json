@@ -1,280 +1,280 @@
 {
-  "raws": {},
-  "type": "root",
-  "nodes": [
-    {
-      "raws": {
-        "semicolon": false,
-        "after": "\n"
-      },
-      "type": "root",
-      "nodes": [
-        {
-          "raws": {
-            "before": "\n ",
-            "left": " ",
-            "right": " "
-          },
-          "type": "comment",
-          "source": {
-            "start": {
-              "line": 6,
-              "column": 2
-            },
-            "input": {
-              "file": "lit-css.mjs",
-              "quasis": [
-                {
-                  "start": 169,
-                  "end": 251
-                },
-                {
-                  "start": 269,
-                  "end": 270
-                },
-                {
-                  "start": 283,
-                  "end": 284
-                },
-                {
-                  "start": 302,
-                  "end": 303
-                }
-              ]
-            },
-            "end": {
-              "line": 6,
-              "column": 35
-            }
-          },
-          "text": "@define --table-border-color"
-        },
-        {
-          "raws": {
-            "before": "\n ",
-            "between": " ",
-            "semicolon": true,
-            "after": "\n "
-          },
-          "type": "rule",
-          "nodes": [
-            {
-              "raws": {
-                "before": "\n   ",
-                "between": ": "
-              },
-              "type": "decl",
-              "source": {
-                "start": {
-                  "line": 8,
-                  "column": 4
-                },
-                "input": {
-                  "file": "lit-css.mjs",
-                  "quasis": [
-                    {
-                      "start": 169,
-                      "end": 251
-                    },
-                    {
-                      "start": 269,
-                      "end": 270
-                    },
-                    {
-                      "start": 283,
-                      "end": 284
-                    },
-                    {
-                      "start": 302,
-                      "end": 303
-                    }
-                  ]
-                },
-                "end": {
-                  "line": 8,
-                  "column": 31
-                }
-              },
-              "prop": "--table-border-color",
-              "value": "green"
-            }
-          ],
-          "source": {
-            "start": {
-              "line": 7,
-              "column": 2
-            },
-            "input": {
-              "file": "lit-css.mjs",
-              "quasis": [
-                {
-                  "start": 169,
-                  "end": 251
-                },
-                {
-                  "start": 269,
-                  "end": 270
-                },
-                {
-                  "start": 283,
-                  "end": 284
-                },
-                {
-                  "start": 302,
-                  "end": 303
-                }
-              ]
-            },
-            "end": {
-              "line": 9,
-              "column": 2
-            }
-          },
-          "selector": ":host"
-        },
-        {
-          "raws": {
-            "before": "\n "
-          },
-          "text": "${customPropStyle}",
-          "type": "literal",
-          "source": {
-            "start": {
-              "line": 10,
-              "column": 2
-            },
-            "input": {
-              "file": "lit-css.mjs",
-              "quasis": [
-                {
-                  "start": 169,
-                  "end": 251
-                },
-                {
-                  "start": 269,
-                  "end": 270
-                },
-                {
-                  "start": 283,
-                  "end": 284
-                },
-                {
-                  "start": 302,
-                  "end": 303
-                }
-              ]
-            }
-          }
-        },
-        {
-          "raws": {
-            "before": " "
-          },
-          "text": "${tableStyle}",
-          "type": "literal",
-          "source": {
-            "start": {
-              "line": 10,
-              "column": 21
-            },
-            "input": {
-              "file": "lit-css.mjs",
-              "quasis": [
-                {
-                  "start": 169,
-                  "end": 251
-                },
-                {
-                  "start": 269,
-                  "end": 270
-                },
-                {
-                  "start": 283,
-                  "end": 284
-                },
-                {
-                  "start": 302,
-                  "end": 303
-                }
-              ]
-            }
-          }
-        },
-        {
-          "raws": {
-            "before": " "
-          },
-          "text": "${fancyTableStyle}",
-          "type": "literal",
-          "source": {
-            "start": {
-              "line": 10,
-              "column": 35
-            },
-            "input": {
-              "file": "lit-css.mjs",
-              "quasis": [
-                {
-                  "start": 169,
-                  "end": 251
-                },
-                {
-                  "start": 269,
-                  "end": 270
-                },
-                {
-                  "start": 283,
-                  "end": 284
-                },
-                {
-                  "start": 302,
-                  "end": 303
-                }
-              ]
-            }
-          }
-        }
-      ],
-      "source": {
-        "input": {
-          "file": "lit-css.mjs",
-          "quasis": [
-            {
-              "start": 169,
-              "end": 251
-            },
-            {
-              "start": 269,
-              "end": 270
-            },
-            {
-              "start": 283,
-              "end": 284
-            },
-            {
-              "start": 302,
-              "end": 303
-            }
-          ]
-        },
-        "start": {
-          "line": 5,
-          "column": 20
-        },
-        "inline": false,
-        "lang": "template-literal",
-        "syntax": {}
-      }
-    }
-  ],
-  "source": {
-    "input": {
-      "file": "lit-css.mjs"
-    },
-    "start": {
-      "line": 1,
-      "column": 1
-    },
-    "lang": "jsx"
-  }
+	"raws": {},
+	"type": "root",
+	"nodes": [
+		{
+			"raws": {
+				"semicolon": false,
+				"after": "\n"
+			},
+			"type": "root",
+			"nodes": [
+				{
+					"raws": {
+						"before": "\n\t",
+						"left": " ",
+						"right": " "
+					},
+					"type": "comment",
+					"source": {
+						"start": {
+							"line": 6,
+							"column": 2
+						},
+						"input": {
+							"file": "lit-css.mjs",
+							"quasis": [
+								{
+									"start": 169,
+									"end": 250
+								},
+								{
+									"start": 268,
+									"end": 269
+								},
+								{
+									"start": 282,
+									"end": 283
+								},
+								{
+									"start": 301,
+									"end": 302
+								}
+							]
+						},
+						"end": {
+							"line": 6,
+							"column": 35
+						}
+					},
+					"text": "@define --table-border-color"
+				},
+				{
+					"raws": {
+						"before": "\n\t",
+						"between": " ",
+						"semicolon": true,
+						"after": "\n\t"
+					},
+					"type": "rule",
+					"nodes": [
+						{
+							"raws": {
+								"before": "\n\t\t",
+								"between": ": "
+							},
+							"type": "decl",
+							"source": {
+								"start": {
+									"line": 8,
+									"column": 3
+								},
+								"input": {
+									"file": "lit-css.mjs",
+									"quasis": [
+										{
+											"start": 169,
+											"end": 250
+										},
+										{
+											"start": 268,
+											"end": 269
+										},
+										{
+											"start": 282,
+											"end": 283
+										},
+										{
+											"start": 301,
+											"end": 302
+										}
+									]
+								},
+								"end": {
+									"line": 8,
+									"column": 30
+								}
+							},
+							"prop": "--table-border-color",
+							"value": "green"
+						}
+					],
+					"source": {
+						"start": {
+							"line": 7,
+							"column": 2
+						},
+						"input": {
+							"file": "lit-css.mjs",
+							"quasis": [
+								{
+									"start": 169,
+									"end": 250
+								},
+								{
+									"start": 268,
+									"end": 269
+								},
+								{
+									"start": 282,
+									"end": 283
+								},
+								{
+									"start": 301,
+									"end": 302
+								}
+							]
+						},
+						"end": {
+							"line": 9,
+							"column": 2
+						}
+					},
+					"selector": ":host"
+				},
+				{
+					"raws": {
+						"before": "\n\t"
+					},
+					"text": "${customPropStyle}",
+					"type": "literal",
+					"source": {
+						"start": {
+							"line": 10,
+							"column": 2
+						},
+						"input": {
+							"file": "lit-css.mjs",
+							"quasis": [
+								{
+									"start": 169,
+									"end": 250
+								},
+								{
+									"start": 268,
+									"end": 269
+								},
+								{
+									"start": 282,
+									"end": 283
+								},
+								{
+									"start": 301,
+									"end": 302
+								}
+							]
+						}
+					}
+				},
+				{
+					"raws": {
+						"before": " "
+					},
+					"text": "${tableStyle}",
+					"type": "literal",
+					"source": {
+						"start": {
+							"line": 10,
+							"column": 21
+						},
+						"input": {
+							"file": "lit-css.mjs",
+							"quasis": [
+								{
+									"start": 169,
+									"end": 250
+								},
+								{
+									"start": 268,
+									"end": 269
+								},
+								{
+									"start": 282,
+									"end": 283
+								},
+								{
+									"start": 301,
+									"end": 302
+								}
+							]
+						}
+					}
+				},
+				{
+					"raws": {
+						"before": " "
+					},
+					"text": "${fancyTableStyle}",
+					"type": "literal",
+					"source": {
+						"start": {
+							"line": 10,
+							"column": 35
+						},
+						"input": {
+							"file": "lit-css.mjs",
+							"quasis": [
+								{
+									"start": 169,
+									"end": 250
+								},
+								{
+									"start": 268,
+									"end": 269
+								},
+								{
+									"start": 282,
+									"end": 283
+								},
+								{
+									"start": 301,
+									"end": 302
+								}
+							]
+						}
+					}
+				}
+			],
+			"source": {
+				"input": {
+					"file": "lit-css.mjs",
+					"quasis": [
+						{
+							"start": 169,
+							"end": 250
+						},
+						{
+							"start": 268,
+							"end": 269
+						},
+						{
+							"start": 282,
+							"end": 283
+						},
+						{
+							"start": 301,
+							"end": 302
+						}
+					]
+				},
+				"start": {
+					"line": 5,
+					"column": 20
+				},
+				"inline": false,
+				"lang": "template-literal",
+				"syntax": {}
+			}
+		}
+	],
+	"source": {
+		"input": {
+			"file": "lit-css.mjs"
+		},
+		"start": {
+			"line": 1,
+			"column": 1
+		},
+		"lang": "jsx"
+	}
 }

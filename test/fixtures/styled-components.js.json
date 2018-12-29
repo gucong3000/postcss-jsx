@@ -1,339 +1,339 @@
 {
-  "raws": {},
-  "type": "root",
-  "nodes": [
-    {
-      "raws": {
-        "semicolon": true,
-        "after": "\n"
-      },
-      "type": "root",
-      "nodes": [
-        {
-          "raws": {
-            "before": "\n",
-            "left": " ",
-            "right": " "
-          },
-          "type": "comment",
-          "source": {
-            "start": {
-              "line": 4,
-              "column": 1
-            },
-            "input": {
-              "file": "styled-components.js",
-              "quasis": [
-                {
-                  "start": 88,
-                  "end": 147
-                },
-                {
-                  "start": 200,
-                  "end": 209
-                },
-                {
-                  "start": 262,
-                  "end": 368
-                }
-              ]
-            },
-            "end": {
-              "line": 4,
-              "column": 45
-            }
-          },
-          "text": "Adapt the colours based on primary prop"
-        },
-        {
-          "raws": {
-            "before": "\n",
-            "between": ": "
-          },
-          "type": "decl",
-          "source": {
-            "start": {
-              "line": 5,
-              "column": 1
-            },
-            "input": {
-              "file": "styled-components.js",
-              "quasis": [
-                {
-                  "start": 88,
-                  "end": 147
-                },
-                {
-                  "start": 200,
-                  "end": 209
-                },
-                {
-                  "start": 262,
-                  "end": 368
-                }
-              ]
-            },
-            "end": {
-              "line": 5,
-              "column": 66
-            }
-          },
-          "prop": "background",
-          "value": "${props => props.primary ? \"palevioletred\" : \"white\"}"
-        },
-        {
-          "raws": {
-            "before": "\n",
-            "between": ": "
-          },
-          "type": "decl",
-          "source": {
-            "start": {
-              "line": 6,
-              "column": 1
-            },
-            "input": {
-              "file": "styled-components.js",
-              "quasis": [
-                {
-                  "start": 88,
-                  "end": 147
-                },
-                {
-                  "start": 200,
-                  "end": 209
-                },
-                {
-                  "start": 262,
-                  "end": 368
-                }
-              ]
-            },
-            "end": {
-              "line": 6,
-              "column": 61
-            }
-          },
-          "prop": "color",
-          "value": "${props => props.primary ? \"white\" : \"palevioletred\"}"
-        },
-        {
-          "raws": {
-            "before": "\n\n",
-            "between": ": "
-          },
-          "type": "decl",
-          "source": {
-            "start": {
-              "line": 8,
-              "column": 1
-            },
-            "input": {
-              "file": "styled-components.js",
-              "quasis": [
-                {
-                  "start": 88,
-                  "end": 147
-                },
-                {
-                  "start": 200,
-                  "end": 209
-                },
-                {
-                  "start": 262,
-                  "end": 368
-                }
-              ]
-            },
-            "end": {
-              "line": 8,
-              "column": 15
-            }
-          },
-          "prop": "font-size",
-          "value": "1em"
-        },
-        {
-          "raws": {
-            "before": "\n",
-            "between": ": "
-          },
-          "type": "decl",
-          "source": {
-            "start": {
-              "line": 9,
-              "column": 1
-            },
-            "input": {
-              "file": "styled-components.js",
-              "quasis": [
-                {
-                  "start": 88,
-                  "end": 147
-                },
-                {
-                  "start": 200,
-                  "end": 209
-                },
-                {
-                  "start": 262,
-                  "end": 368
-                }
-              ]
-            },
-            "end": {
-              "line": 9,
-              "column": 12
-            }
-          },
-          "prop": "margin",
-          "value": "1em"
-        },
-        {
-          "raws": {
-            "before": "\n",
-            "between": ": "
-          },
-          "type": "decl",
-          "source": {
-            "start": {
-              "line": 10,
-              "column": 1
-            },
-            "input": {
-              "file": "styled-components.js",
-              "quasis": [
-                {
-                  "start": 88,
-                  "end": 147
-                },
-                {
-                  "start": 200,
-                  "end": 209
-                },
-                {
-                  "start": 262,
-                  "end": 368
-                }
-              ]
-            },
-            "end": {
-              "line": 10,
-              "column": 20
-            }
-          },
-          "prop": "padding",
-          "value": "0.25em 1em"
-        },
-        {
-          "raws": {
-            "before": "\n",
-            "between": ": "
-          },
-          "type": "decl",
-          "source": {
-            "start": {
-              "line": 11,
-              "column": 1
-            },
-            "input": {
-              "file": "styled-components.js",
-              "quasis": [
-                {
-                  "start": 88,
-                  "end": 147
-                },
-                {
-                  "start": 200,
-                  "end": 209
-                },
-                {
-                  "start": 262,
-                  "end": 368
-                }
-              ]
-            },
-            "end": {
-              "line": 11,
-              "column": 32
-            }
-          },
-          "prop": "border",
-          "value": "2px solid palevioletred"
-        },
-        {
-          "raws": {
-            "before": "\n",
-            "between": ": "
-          },
-          "type": "decl",
-          "source": {
-            "start": {
-              "line": 12,
-              "column": 1
-            },
-            "input": {
-              "file": "styled-components.js",
-              "quasis": [
-                {
-                  "start": 88,
-                  "end": 147
-                },
-                {
-                  "start": 200,
-                  "end": 209
-                },
-                {
-                  "start": 262,
-                  "end": 368
-                }
-              ]
-            },
-            "end": {
-              "line": 12,
-              "column": 19
-            }
-          },
-          "prop": "border-radius",
-          "value": "3px"
-        }
-      ],
-      "source": {
-        "input": {
-          "file": "styled-components.js",
-          "quasis": [
-            {
-              "start": 88,
-              "end": 147
-            },
-            {
-              "start": 200,
-              "end": 209
-            },
-            {
-              "start": 262,
-              "end": 368
-            }
-          ]
-        },
-        "start": {
-          "line": 3,
-          "column": 30
-        },
-        "inline": false,
-        "lang": "template-literal",
-        "syntax": {}
-      }
-    }
-  ],
-  "source": {
-    "input": {
-      "file": "styled-components.js"
-    },
-    "start": {
-      "line": 1,
-      "column": 1
-    },
-    "lang": "jsx"
-  }
+	"raws": {},
+	"type": "root",
+	"nodes": [
+		{
+			"raws": {
+				"semicolon": true,
+				"after": "\n"
+			},
+			"type": "root",
+			"nodes": [
+				{
+					"raws": {
+						"before": "\n",
+						"left": " ",
+						"right": " "
+					},
+					"type": "comment",
+					"source": {
+						"start": {
+							"line": 4,
+							"column": 1
+						},
+						"input": {
+							"file": "styled-components.js",
+							"quasis": [
+								{
+									"start": 88,
+									"end": 147
+								},
+								{
+									"start": 200,
+									"end": 209
+								},
+								{
+									"start": 262,
+									"end": 368
+								}
+							]
+						},
+						"end": {
+							"line": 4,
+							"column": 45
+						}
+					},
+					"text": "Adapt the colours based on primary prop"
+				},
+				{
+					"raws": {
+						"before": "\n",
+						"between": ": "
+					},
+					"type": "decl",
+					"source": {
+						"start": {
+							"line": 5,
+							"column": 1
+						},
+						"input": {
+							"file": "styled-components.js",
+							"quasis": [
+								{
+									"start": 88,
+									"end": 147
+								},
+								{
+									"start": 200,
+									"end": 209
+								},
+								{
+									"start": 262,
+									"end": 368
+								}
+							]
+						},
+						"end": {
+							"line": 5,
+							"column": 66
+						}
+					},
+					"prop": "background",
+					"value": "${props => props.primary ? \"palevioletred\" : \"white\"}"
+				},
+				{
+					"raws": {
+						"before": "\n",
+						"between": ": "
+					},
+					"type": "decl",
+					"source": {
+						"start": {
+							"line": 6,
+							"column": 1
+						},
+						"input": {
+							"file": "styled-components.js",
+							"quasis": [
+								{
+									"start": 88,
+									"end": 147
+								},
+								{
+									"start": 200,
+									"end": 209
+								},
+								{
+									"start": 262,
+									"end": 368
+								}
+							]
+						},
+						"end": {
+							"line": 6,
+							"column": 61
+						}
+					},
+					"prop": "color",
+					"value": "${props => props.primary ? \"white\" : \"palevioletred\"}"
+				},
+				{
+					"raws": {
+						"before": "\n\n",
+						"between": ": "
+					},
+					"type": "decl",
+					"source": {
+						"start": {
+							"line": 8,
+							"column": 1
+						},
+						"input": {
+							"file": "styled-components.js",
+							"quasis": [
+								{
+									"start": 88,
+									"end": 147
+								},
+								{
+									"start": 200,
+									"end": 209
+								},
+								{
+									"start": 262,
+									"end": 368
+								}
+							]
+						},
+						"end": {
+							"line": 8,
+							"column": 15
+						}
+					},
+					"prop": "font-size",
+					"value": "1em"
+				},
+				{
+					"raws": {
+						"before": "\n",
+						"between": ": "
+					},
+					"type": "decl",
+					"source": {
+						"start": {
+							"line": 9,
+							"column": 1
+						},
+						"input": {
+							"file": "styled-components.js",
+							"quasis": [
+								{
+									"start": 88,
+									"end": 147
+								},
+								{
+									"start": 200,
+									"end": 209
+								},
+								{
+									"start": 262,
+									"end": 368
+								}
+							]
+						},
+						"end": {
+							"line": 9,
+							"column": 12
+						}
+					},
+					"prop": "margin",
+					"value": "1em"
+				},
+				{
+					"raws": {
+						"before": "\n",
+						"between": ": "
+					},
+					"type": "decl",
+					"source": {
+						"start": {
+							"line": 10,
+							"column": 1
+						},
+						"input": {
+							"file": "styled-components.js",
+							"quasis": [
+								{
+									"start": 88,
+									"end": 147
+								},
+								{
+									"start": 200,
+									"end": 209
+								},
+								{
+									"start": 262,
+									"end": 368
+								}
+							]
+						},
+						"end": {
+							"line": 10,
+							"column": 20
+						}
+					},
+					"prop": "padding",
+					"value": "0.25em 1em"
+				},
+				{
+					"raws": {
+						"before": "\n",
+						"between": ": "
+					},
+					"type": "decl",
+					"source": {
+						"start": {
+							"line": 11,
+							"column": 1
+						},
+						"input": {
+							"file": "styled-components.js",
+							"quasis": [
+								{
+									"start": 88,
+									"end": 147
+								},
+								{
+									"start": 200,
+									"end": 209
+								},
+								{
+									"start": 262,
+									"end": 368
+								}
+							]
+						},
+						"end": {
+							"line": 11,
+							"column": 32
+						}
+					},
+					"prop": "border",
+					"value": "2px solid palevioletred"
+				},
+				{
+					"raws": {
+						"before": "\n",
+						"between": ": "
+					},
+					"type": "decl",
+					"source": {
+						"start": {
+							"line": 12,
+							"column": 1
+						},
+						"input": {
+							"file": "styled-components.js",
+							"quasis": [
+								{
+									"start": 88,
+									"end": 147
+								},
+								{
+									"start": 200,
+									"end": 209
+								},
+								{
+									"start": 262,
+									"end": 368
+								}
+							]
+						},
+						"end": {
+							"line": 12,
+							"column": 19
+						}
+					},
+					"prop": "border-radius",
+					"value": "3px"
+				}
+			],
+			"source": {
+				"input": {
+					"file": "styled-components.js",
+					"quasis": [
+						{
+							"start": 88,
+							"end": 147
+						},
+						{
+							"start": 200,
+							"end": 209
+						},
+						{
+							"start": 262,
+							"end": 368
+						}
+					]
+				},
+				"start": {
+					"line": 3,
+					"column": 30
+				},
+				"inline": false,
+				"lang": "template-literal",
+				"syntax": {}
+			}
+		}
+	],
+	"source": {
+		"input": {
+			"file": "styled-components.js"
+		},
+		"start": {
+			"line": 1,
+			"column": 1
+		},
+		"lang": "jsx"
+	}
 }

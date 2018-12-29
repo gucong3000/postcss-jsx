@@ -2,8 +2,8 @@
 
 import styled, { css } from "react-emotion";
 const SomeComponent = styled("div")`
-  display: flex;
-  background-color: ${props => props.color};
+	display: flex;
+	background-color: ${props => props.color};
 `;
 
 const AnotherComponent = styled("h1")(
@@ -16,13 +16,13 @@ const AnotherComponent = styled("h1")(
 render(
 	<SomeComponent color="#DA70D6">
 		<AnotherComponent flex={1}>
-      Some text.
+			Some text.
 		</AnotherComponent>
 	</SomeComponent>
 );
 const app = document.getElementById("root");
 const myStyle = css`
-  color: rebeccapurple;
+	color: rebeccapurple;
 `;
 app.classList.add(myStyle);
 

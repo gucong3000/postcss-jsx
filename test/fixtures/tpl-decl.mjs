@@ -5,30 +5,30 @@ const value = "value";
 
 export const Row = styled.div`
 prop {
-  ${prop}: value
+	${prop}: value
 }
 prop prefix {
-  prefix-${prop}: value
+	prefix-${prop}: value
 }
 prop suffix {
-  ${prop}-suffix: value
+	${prop}-suffix: value
 }
 value {
-  prop: ${value}
+	prop: ${value}
 }
 value prefix {
-  prop: prefix-${value}
+	prop: prefix-${value}
 }
 value suffix {
-  prop: ${value}-suffix
+	prop: ${value}-suffix
 }
 value semicolon {
-  prop: ${value};
+	prop: ${value};
 }
 value prefix semicolon {
-  prop: prefix-${value};
+	prop: prefix-${value};
 }
 value suffix semicolon {
-  prop: ${value}-suffix;
+	prop: ${value}-suffix;
 }
 `;

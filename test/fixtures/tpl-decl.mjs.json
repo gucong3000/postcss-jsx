@@ -1,1258 +1,1258 @@
 {
-  "raws": {},
-  "type": "root",
-  "nodes": [
-    {
-      "raws": {
-        "semicolon": false,
-        "after": "\n"
-      },
-      "type": "root",
-      "nodes": [
-        {
-          "raws": {
-            "before": "\n",
-            "between": " ",
-            "semicolon": false,
-            "after": "\n"
-          },
-          "type": "rule",
-          "nodes": [
-            {
-              "raws": {
-                "before": "\n  ",
-                "between": ": "
-              },
-              "type": "decl",
-              "source": {
-                "start": {
-                  "line": 8,
-                  "column": 3
-                },
-                "input": {
-                  "file": "tpl-decl.mjs",
-                  "quasis": [
-                    {
-                      "start": 116,
-                      "end": 126
-                    },
-                    {
-                      "start": 133,
-                      "end": 166
-                    },
-                    {
-                      "start": 173,
-                      "end": 199
-                    },
-                    {
-                      "start": 206,
-                      "end": 239
-                    },
-                    {
-                      "start": 247,
-                      "end": 280
-                    },
-                    {
-                      "start": 288,
-                      "end": 314
-                    },
-                    {
-                      "start": 322,
-                      "end": 358
-                    },
-                    {
-                      "start": 366,
-                      "end": 410
-                    },
-                    {
-                      "start": 418,
-                      "end": 455
-                    },
-                    {
-                      "start": 463,
-                      "end": 474
-                    }
-                  ]
-                },
-                "end": {
-                  "line": 8,
-                  "column": 16
-                }
-              },
-              "prop": "${prop}",
-              "value": "value"
-            }
-          ],
-          "source": {
-            "start": {
-              "line": 7,
-              "column": 1
-            },
-            "input": {
-              "file": "tpl-decl.mjs",
-              "quasis": [
-                {
-                  "start": 116,
-                  "end": 126
-                },
-                {
-                  "start": 133,
-                  "end": 166
-                },
-                {
-                  "start": 173,
-                  "end": 199
-                },
-                {
-                  "start": 206,
-                  "end": 239
-                },
-                {
-                  "start": 247,
-                  "end": 280
-                },
-                {
-                  "start": 288,
-                  "end": 314
-                },
-                {
-                  "start": 322,
-                  "end": 358
-                },
-                {
-                  "start": 366,
-                  "end": 410
-                },
-                {
-                  "start": 418,
-                  "end": 455
-                },
-                {
-                  "start": 463,
-                  "end": 474
-                }
-              ]
-            },
-            "end": {
-              "line": 9,
-              "column": 1
-            }
-          },
-          "selector": "prop"
-        },
-        {
-          "raws": {
-            "before": "\n",
-            "between": " ",
-            "semicolon": false,
-            "after": "\n"
-          },
-          "type": "rule",
-          "nodes": [
-            {
-              "raws": {
-                "before": "\n  ",
-                "between": ": "
-              },
-              "type": "decl",
-              "source": {
-                "start": {
-                  "line": 11,
-                  "column": 3
-                },
-                "input": {
-                  "file": "tpl-decl.mjs",
-                  "quasis": [
-                    {
-                      "start": 116,
-                      "end": 126
-                    },
-                    {
-                      "start": 133,
-                      "end": 166
-                    },
-                    {
-                      "start": 173,
-                      "end": 199
-                    },
-                    {
-                      "start": 206,
-                      "end": 239
-                    },
-                    {
-                      "start": 247,
-                      "end": 280
-                    },
-                    {
-                      "start": 288,
-                      "end": 314
-                    },
-                    {
-                      "start": 322,
-                      "end": 358
-                    },
-                    {
-                      "start": 366,
-                      "end": 410
-                    },
-                    {
-                      "start": 418,
-                      "end": 455
-                    },
-                    {
-                      "start": 463,
-                      "end": 474
-                    }
-                  ]
-                },
-                "end": {
-                  "line": 11,
-                  "column": 23
-                }
-              },
-              "prop": "prefix-${prop}",
-              "value": "value"
-            }
-          ],
-          "source": {
-            "start": {
-              "line": 10,
-              "column": 1
-            },
-            "input": {
-              "file": "tpl-decl.mjs",
-              "quasis": [
-                {
-                  "start": 116,
-                  "end": 126
-                },
-                {
-                  "start": 133,
-                  "end": 166
-                },
-                {
-                  "start": 173,
-                  "end": 199
-                },
-                {
-                  "start": 206,
-                  "end": 239
-                },
-                {
-                  "start": 247,
-                  "end": 280
-                },
-                {
-                  "start": 288,
-                  "end": 314
-                },
-                {
-                  "start": 322,
-                  "end": 358
-                },
-                {
-                  "start": 366,
-                  "end": 410
-                },
-                {
-                  "start": 418,
-                  "end": 455
-                },
-                {
-                  "start": 463,
-                  "end": 474
-                }
-              ]
-            },
-            "end": {
-              "line": 12,
-              "column": 1
-            }
-          },
-          "selector": "prop prefix"
-        },
-        {
-          "raws": {
-            "before": "\n",
-            "between": " ",
-            "semicolon": false,
-            "after": "\n"
-          },
-          "type": "rule",
-          "nodes": [
-            {
-              "raws": {
-                "before": "\n  ",
-                "between": ": "
-              },
-              "type": "decl",
-              "source": {
-                "start": {
-                  "line": 14,
-                  "column": 3
-                },
-                "input": {
-                  "file": "tpl-decl.mjs",
-                  "quasis": [
-                    {
-                      "start": 116,
-                      "end": 126
-                    },
-                    {
-                      "start": 133,
-                      "end": 166
-                    },
-                    {
-                      "start": 173,
-                      "end": 199
-                    },
-                    {
-                      "start": 206,
-                      "end": 239
-                    },
-                    {
-                      "start": 247,
-                      "end": 280
-                    },
-                    {
-                      "start": 288,
-                      "end": 314
-                    },
-                    {
-                      "start": 322,
-                      "end": 358
-                    },
-                    {
-                      "start": 366,
-                      "end": 410
-                    },
-                    {
-                      "start": 418,
-                      "end": 455
-                    },
-                    {
-                      "start": 463,
-                      "end": 474
-                    }
-                  ]
-                },
-                "end": {
-                  "line": 14,
-                  "column": 23
-                }
-              },
-              "prop": "${prop}-suffix",
-              "value": "value"
-            }
-          ],
-          "source": {
-            "start": {
-              "line": 13,
-              "column": 1
-            },
-            "input": {
-              "file": "tpl-decl.mjs",
-              "quasis": [
-                {
-                  "start": 116,
-                  "end": 126
-                },
-                {
-                  "start": 133,
-                  "end": 166
-                },
-                {
-                  "start": 173,
-                  "end": 199
-                },
-                {
-                  "start": 206,
-                  "end": 239
-                },
-                {
-                  "start": 247,
-                  "end": 280
-                },
-                {
-                  "start": 288,
-                  "end": 314
-                },
-                {
-                  "start": 322,
-                  "end": 358
-                },
-                {
-                  "start": 366,
-                  "end": 410
-                },
-                {
-                  "start": 418,
-                  "end": 455
-                },
-                {
-                  "start": 463,
-                  "end": 474
-                }
-              ]
-            },
-            "end": {
-              "line": 15,
-              "column": 1
-            }
-          },
-          "selector": "prop suffix"
-        },
-        {
-          "raws": {
-            "before": "\n",
-            "between": " ",
-            "semicolon": false,
-            "after": "\n"
-          },
-          "type": "rule",
-          "nodes": [
-            {
-              "raws": {
-                "before": "\n  ",
-                "between": ": "
-              },
-              "type": "decl",
-              "source": {
-                "start": {
-                  "line": 17,
-                  "column": 3
-                },
-                "input": {
-                  "file": "tpl-decl.mjs",
-                  "quasis": [
-                    {
-                      "start": 116,
-                      "end": 126
-                    },
-                    {
-                      "start": 133,
-                      "end": 166
-                    },
-                    {
-                      "start": 173,
-                      "end": 199
-                    },
-                    {
-                      "start": 206,
-                      "end": 239
-                    },
-                    {
-                      "start": 247,
-                      "end": 280
-                    },
-                    {
-                      "start": 288,
-                      "end": 314
-                    },
-                    {
-                      "start": 322,
-                      "end": 358
-                    },
-                    {
-                      "start": 366,
-                      "end": 410
-                    },
-                    {
-                      "start": 418,
-                      "end": 455
-                    },
-                    {
-                      "start": 463,
-                      "end": 474
-                    }
-                  ]
-                },
-                "end": {
-                  "line": 17,
-                  "column": 16
-                }
-              },
-              "prop": "prop",
-              "value": "${value}"
-            }
-          ],
-          "source": {
-            "start": {
-              "line": 16,
-              "column": 1
-            },
-            "input": {
-              "file": "tpl-decl.mjs",
-              "quasis": [
-                {
-                  "start": 116,
-                  "end": 126
-                },
-                {
-                  "start": 133,
-                  "end": 166
-                },
-                {
-                  "start": 173,
-                  "end": 199
-                },
-                {
-                  "start": 206,
-                  "end": 239
-                },
-                {
-                  "start": 247,
-                  "end": 280
-                },
-                {
-                  "start": 288,
-                  "end": 314
-                },
-                {
-                  "start": 322,
-                  "end": 358
-                },
-                {
-                  "start": 366,
-                  "end": 410
-                },
-                {
-                  "start": 418,
-                  "end": 455
-                },
-                {
-                  "start": 463,
-                  "end": 474
-                }
-              ]
-            },
-            "end": {
-              "line": 18,
-              "column": 1
-            }
-          },
-          "selector": "value"
-        },
-        {
-          "raws": {
-            "before": "\n",
-            "between": " ",
-            "semicolon": false,
-            "after": "\n"
-          },
-          "type": "rule",
-          "nodes": [
-            {
-              "raws": {
-                "before": "\n  ",
-                "between": ": "
-              },
-              "type": "decl",
-              "source": {
-                "start": {
-                  "line": 20,
-                  "column": 3
-                },
-                "input": {
-                  "file": "tpl-decl.mjs",
-                  "quasis": [
-                    {
-                      "start": 116,
-                      "end": 126
-                    },
-                    {
-                      "start": 133,
-                      "end": 166
-                    },
-                    {
-                      "start": 173,
-                      "end": 199
-                    },
-                    {
-                      "start": 206,
-                      "end": 239
-                    },
-                    {
-                      "start": 247,
-                      "end": 280
-                    },
-                    {
-                      "start": 288,
-                      "end": 314
-                    },
-                    {
-                      "start": 322,
-                      "end": 358
-                    },
-                    {
-                      "start": 366,
-                      "end": 410
-                    },
-                    {
-                      "start": 418,
-                      "end": 455
-                    },
-                    {
-                      "start": 463,
-                      "end": 474
-                    }
-                  ]
-                },
-                "end": {
-                  "line": 20,
-                  "column": 23
-                }
-              },
-              "prop": "prop",
-              "value": "prefix-${value}"
-            }
-          ],
-          "source": {
-            "start": {
-              "line": 19,
-              "column": 1
-            },
-            "input": {
-              "file": "tpl-decl.mjs",
-              "quasis": [
-                {
-                  "start": 116,
-                  "end": 126
-                },
-                {
-                  "start": 133,
-                  "end": 166
-                },
-                {
-                  "start": 173,
-                  "end": 199
-                },
-                {
-                  "start": 206,
-                  "end": 239
-                },
-                {
-                  "start": 247,
-                  "end": 280
-                },
-                {
-                  "start": 288,
-                  "end": 314
-                },
-                {
-                  "start": 322,
-                  "end": 358
-                },
-                {
-                  "start": 366,
-                  "end": 410
-                },
-                {
-                  "start": 418,
-                  "end": 455
-                },
-                {
-                  "start": 463,
-                  "end": 474
-                }
-              ]
-            },
-            "end": {
-              "line": 21,
-              "column": 1
-            }
-          },
-          "selector": "value prefix"
-        },
-        {
-          "raws": {
-            "before": "\n",
-            "between": " ",
-            "semicolon": false,
-            "after": "\n"
-          },
-          "type": "rule",
-          "nodes": [
-            {
-              "raws": {
-                "before": "\n  ",
-                "between": ": "
-              },
-              "type": "decl",
-              "source": {
-                "start": {
-                  "line": 23,
-                  "column": 3
-                },
-                "input": {
-                  "file": "tpl-decl.mjs",
-                  "quasis": [
-                    {
-                      "start": 116,
-                      "end": 126
-                    },
-                    {
-                      "start": 133,
-                      "end": 166
-                    },
-                    {
-                      "start": 173,
-                      "end": 199
-                    },
-                    {
-                      "start": 206,
-                      "end": 239
-                    },
-                    {
-                      "start": 247,
-                      "end": 280
-                    },
-                    {
-                      "start": 288,
-                      "end": 314
-                    },
-                    {
-                      "start": 322,
-                      "end": 358
-                    },
-                    {
-                      "start": 366,
-                      "end": 410
-                    },
-                    {
-                      "start": 418,
-                      "end": 455
-                    },
-                    {
-                      "start": 463,
-                      "end": 474
-                    }
-                  ]
-                },
-                "end": {
-                  "line": 23,
-                  "column": 23
-                }
-              },
-              "prop": "prop",
-              "value": "${value}-suffix"
-            }
-          ],
-          "source": {
-            "start": {
-              "line": 22,
-              "column": 1
-            },
-            "input": {
-              "file": "tpl-decl.mjs",
-              "quasis": [
-                {
-                  "start": 116,
-                  "end": 126
-                },
-                {
-                  "start": 133,
-                  "end": 166
-                },
-                {
-                  "start": 173,
-                  "end": 199
-                },
-                {
-                  "start": 206,
-                  "end": 239
-                },
-                {
-                  "start": 247,
-                  "end": 280
-                },
-                {
-                  "start": 288,
-                  "end": 314
-                },
-                {
-                  "start": 322,
-                  "end": 358
-                },
-                {
-                  "start": 366,
-                  "end": 410
-                },
-                {
-                  "start": 418,
-                  "end": 455
-                },
-                {
-                  "start": 463,
-                  "end": 474
-                }
-              ]
-            },
-            "end": {
-              "line": 24,
-              "column": 1
-            }
-          },
-          "selector": "value suffix"
-        },
-        {
-          "raws": {
-            "before": "\n",
-            "between": " ",
-            "semicolon": true,
-            "after": "\n"
-          },
-          "type": "rule",
-          "nodes": [
-            {
-              "raws": {
-                "before": "\n  ",
-                "between": ": "
-              },
-              "type": "decl",
-              "source": {
-                "start": {
-                  "line": 26,
-                  "column": 3
-                },
-                "input": {
-                  "file": "tpl-decl.mjs",
-                  "quasis": [
-                    {
-                      "start": 116,
-                      "end": 126
-                    },
-                    {
-                      "start": 133,
-                      "end": 166
-                    },
-                    {
-                      "start": 173,
-                      "end": 199
-                    },
-                    {
-                      "start": 206,
-                      "end": 239
-                    },
-                    {
-                      "start": 247,
-                      "end": 280
-                    },
-                    {
-                      "start": 288,
-                      "end": 314
-                    },
-                    {
-                      "start": 322,
-                      "end": 358
-                    },
-                    {
-                      "start": 366,
-                      "end": 410
-                    },
-                    {
-                      "start": 418,
-                      "end": 455
-                    },
-                    {
-                      "start": 463,
-                      "end": 474
-                    }
-                  ]
-                },
-                "end": {
-                  "line": 26,
-                  "column": 17
-                }
-              },
-              "prop": "prop",
-              "value": "${value}"
-            }
-          ],
-          "source": {
-            "start": {
-              "line": 25,
-              "column": 1
-            },
-            "input": {
-              "file": "tpl-decl.mjs",
-              "quasis": [
-                {
-                  "start": 116,
-                  "end": 126
-                },
-                {
-                  "start": 133,
-                  "end": 166
-                },
-                {
-                  "start": 173,
-                  "end": 199
-                },
-                {
-                  "start": 206,
-                  "end": 239
-                },
-                {
-                  "start": 247,
-                  "end": 280
-                },
-                {
-                  "start": 288,
-                  "end": 314
-                },
-                {
-                  "start": 322,
-                  "end": 358
-                },
-                {
-                  "start": 366,
-                  "end": 410
-                },
-                {
-                  "start": 418,
-                  "end": 455
-                },
-                {
-                  "start": 463,
-                  "end": 474
-                }
-              ]
-            },
-            "end": {
-              "line": 27,
-              "column": 1
-            }
-          },
-          "selector": "value semicolon"
-        },
-        {
-          "raws": {
-            "before": "\n",
-            "between": " ",
-            "semicolon": true,
-            "after": "\n"
-          },
-          "type": "rule",
-          "nodes": [
-            {
-              "raws": {
-                "before": "\n  ",
-                "between": ": "
-              },
-              "type": "decl",
-              "source": {
-                "start": {
-                  "line": 29,
-                  "column": 3
-                },
-                "input": {
-                  "file": "tpl-decl.mjs",
-                  "quasis": [
-                    {
-                      "start": 116,
-                      "end": 126
-                    },
-                    {
-                      "start": 133,
-                      "end": 166
-                    },
-                    {
-                      "start": 173,
-                      "end": 199
-                    },
-                    {
-                      "start": 206,
-                      "end": 239
-                    },
-                    {
-                      "start": 247,
-                      "end": 280
-                    },
-                    {
-                      "start": 288,
-                      "end": 314
-                    },
-                    {
-                      "start": 322,
-                      "end": 358
-                    },
-                    {
-                      "start": 366,
-                      "end": 410
-                    },
-                    {
-                      "start": 418,
-                      "end": 455
-                    },
-                    {
-                      "start": 463,
-                      "end": 474
-                    }
-                  ]
-                },
-                "end": {
-                  "line": 29,
-                  "column": 24
-                }
-              },
-              "prop": "prop",
-              "value": "prefix-${value}"
-            }
-          ],
-          "source": {
-            "start": {
-              "line": 28,
-              "column": 1
-            },
-            "input": {
-              "file": "tpl-decl.mjs",
-              "quasis": [
-                {
-                  "start": 116,
-                  "end": 126
-                },
-                {
-                  "start": 133,
-                  "end": 166
-                },
-                {
-                  "start": 173,
-                  "end": 199
-                },
-                {
-                  "start": 206,
-                  "end": 239
-                },
-                {
-                  "start": 247,
-                  "end": 280
-                },
-                {
-                  "start": 288,
-                  "end": 314
-                },
-                {
-                  "start": 322,
-                  "end": 358
-                },
-                {
-                  "start": 366,
-                  "end": 410
-                },
-                {
-                  "start": 418,
-                  "end": 455
-                },
-                {
-                  "start": 463,
-                  "end": 474
-                }
-              ]
-            },
-            "end": {
-              "line": 30,
-              "column": 1
-            }
-          },
-          "selector": "value prefix semicolon"
-        },
-        {
-          "raws": {
-            "before": "\n",
-            "between": " ",
-            "semicolon": true,
-            "after": "\n"
-          },
-          "type": "rule",
-          "nodes": [
-            {
-              "raws": {
-                "before": "\n  ",
-                "between": ": "
-              },
-              "type": "decl",
-              "source": {
-                "start": {
-                  "line": 32,
-                  "column": 3
-                },
-                "input": {
-                  "file": "tpl-decl.mjs",
-                  "quasis": [
-                    {
-                      "start": 116,
-                      "end": 126
-                    },
-                    {
-                      "start": 133,
-                      "end": 166
-                    },
-                    {
-                      "start": 173,
-                      "end": 199
-                    },
-                    {
-                      "start": 206,
-                      "end": 239
-                    },
-                    {
-                      "start": 247,
-                      "end": 280
-                    },
-                    {
-                      "start": 288,
-                      "end": 314
-                    },
-                    {
-                      "start": 322,
-                      "end": 358
-                    },
-                    {
-                      "start": 366,
-                      "end": 410
-                    },
-                    {
-                      "start": 418,
-                      "end": 455
-                    },
-                    {
-                      "start": 463,
-                      "end": 474
-                    }
-                  ]
-                },
-                "end": {
-                  "line": 32,
-                  "column": 24
-                }
-              },
-              "prop": "prop",
-              "value": "${value}-suffix"
-            }
-          ],
-          "source": {
-            "start": {
-              "line": 31,
-              "column": 1
-            },
-            "input": {
-              "file": "tpl-decl.mjs",
-              "quasis": [
-                {
-                  "start": 116,
-                  "end": 126
-                },
-                {
-                  "start": 133,
-                  "end": 166
-                },
-                {
-                  "start": 173,
-                  "end": 199
-                },
-                {
-                  "start": 206,
-                  "end": 239
-                },
-                {
-                  "start": 247,
-                  "end": 280
-                },
-                {
-                  "start": 288,
-                  "end": 314
-                },
-                {
-                  "start": 322,
-                  "end": 358
-                },
-                {
-                  "start": 366,
-                  "end": 410
-                },
-                {
-                  "start": 418,
-                  "end": 455
-                },
-                {
-                  "start": 463,
-                  "end": 474
-                }
-              ]
-            },
-            "end": {
-              "line": 33,
-              "column": 1
-            }
-          },
-          "selector": "value suffix semicolon"
-        }
-      ],
-      "source": {
-        "input": {
-          "file": "tpl-decl.mjs",
-          "quasis": [
-            {
-              "start": 116,
-              "end": 126
-            },
-            {
-              "start": 133,
-              "end": 166
-            },
-            {
-              "start": 173,
-              "end": 199
-            },
-            {
-              "start": 206,
-              "end": 239
-            },
-            {
-              "start": 247,
-              "end": 280
-            },
-            {
-              "start": 288,
-              "end": 314
-            },
-            {
-              "start": 322,
-              "end": 358
-            },
-            {
-              "start": 366,
-              "end": 410
-            },
-            {
-              "start": 418,
-              "end": 455
-            },
-            {
-              "start": 463,
-              "end": 474
-            }
-          ]
-        },
-        "start": {
-          "line": 6,
-          "column": 31
-        },
-        "inline": false,
-        "lang": "template-literal",
-        "syntax": {}
-      }
-    }
-  ],
-  "source": {
-    "input": {
-      "file": "tpl-decl.mjs"
-    },
-    "start": {
-      "line": 1,
-      "column": 1
-    },
-    "lang": "jsx"
-  }
+	"raws": {},
+	"type": "root",
+	"nodes": [
+		{
+			"raws": {
+				"semicolon": false,
+				"after": "\n"
+			},
+			"type": "root",
+			"nodes": [
+				{
+					"raws": {
+						"before": "\n",
+						"between": " ",
+						"semicolon": false,
+						"after": "\n"
+					},
+					"type": "rule",
+					"nodes": [
+						{
+							"raws": {
+								"before": "\n\t",
+								"between": ": "
+							},
+							"type": "decl",
+							"source": {
+								"start": {
+									"line": 8,
+									"column": 2
+								},
+								"input": {
+									"file": "tpl-decl.mjs",
+									"quasis": [
+										{
+											"start": 116,
+											"end": 125
+										},
+										{
+											"start": 132,
+											"end": 164
+										},
+										{
+											"start": 171,
+											"end": 196
+										},
+										{
+											"start": 203,
+											"end": 235
+										},
+										{
+											"start": 243,
+											"end": 275
+										},
+										{
+											"start": 283,
+											"end": 308
+										},
+										{
+											"start": 316,
+											"end": 351
+										},
+										{
+											"start": 359,
+											"end": 402
+										},
+										{
+											"start": 410,
+											"end": 446
+										},
+										{
+											"start": 454,
+											"end": 465
+										}
+									]
+								},
+								"end": {
+									"line": 8,
+									"column": 15
+								}
+							},
+							"prop": "${prop}",
+							"value": "value"
+						}
+					],
+					"source": {
+						"start": {
+							"line": 7,
+							"column": 1
+						},
+						"input": {
+							"file": "tpl-decl.mjs",
+							"quasis": [
+								{
+									"start": 116,
+									"end": 125
+								},
+								{
+									"start": 132,
+									"end": 164
+								},
+								{
+									"start": 171,
+									"end": 196
+								},
+								{
+									"start": 203,
+									"end": 235
+								},
+								{
+									"start": 243,
+									"end": 275
+								},
+								{
+									"start": 283,
+									"end": 308
+								},
+								{
+									"start": 316,
+									"end": 351
+								},
+								{
+									"start": 359,
+									"end": 402
+								},
+								{
+									"start": 410,
+									"end": 446
+								},
+								{
+									"start": 454,
+									"end": 465
+								}
+							]
+						},
+						"end": {
+							"line": 9,
+							"column": 1
+						}
+					},
+					"selector": "prop"
+				},
+				{
+					"raws": {
+						"before": "\n",
+						"between": " ",
+						"semicolon": false,
+						"after": "\n"
+					},
+					"type": "rule",
+					"nodes": [
+						{
+							"raws": {
+								"before": "\n\t",
+								"between": ": "
+							},
+							"type": "decl",
+							"source": {
+								"start": {
+									"line": 11,
+									"column": 2
+								},
+								"input": {
+									"file": "tpl-decl.mjs",
+									"quasis": [
+										{
+											"start": 116,
+											"end": 125
+										},
+										{
+											"start": 132,
+											"end": 164
+										},
+										{
+											"start": 171,
+											"end": 196
+										},
+										{
+											"start": 203,
+											"end": 235
+										},
+										{
+											"start": 243,
+											"end": 275
+										},
+										{
+											"start": 283,
+											"end": 308
+										},
+										{
+											"start": 316,
+											"end": 351
+										},
+										{
+											"start": 359,
+											"end": 402
+										},
+										{
+											"start": 410,
+											"end": 446
+										},
+										{
+											"start": 454,
+											"end": 465
+										}
+									]
+								},
+								"end": {
+									"line": 11,
+									"column": 22
+								}
+							},
+							"prop": "prefix-${prop}",
+							"value": "value"
+						}
+					],
+					"source": {
+						"start": {
+							"line": 10,
+							"column": 1
+						},
+						"input": {
+							"file": "tpl-decl.mjs",
+							"quasis": [
+								{
+									"start": 116,
+									"end": 125
+								},
+								{
+									"start": 132,
+									"end": 164
+								},
+								{
+									"start": 171,
+									"end": 196
+								},
+								{
+									"start": 203,
+									"end": 235
+								},
+								{
+									"start": 243,
+									"end": 275
+								},
+								{
+									"start": 283,
+									"end": 308
+								},
+								{
+									"start": 316,
+									"end": 351
+								},
+								{
+									"start": 359,
+									"end": 402
+								},
+								{
+									"start": 410,
+									"end": 446
+								},
+								{
+									"start": 454,
+									"end": 465
+								}
+							]
+						},
+						"end": {
+							"line": 12,
+							"column": 1
+						}
+					},
+					"selector": "prop prefix"
+				},
+				{
+					"raws": {
+						"before": "\n",
+						"between": " ",
+						"semicolon": false,
+						"after": "\n"
+					},
+					"type": "rule",
+					"nodes": [
+						{
+							"raws": {
+								"before": "\n\t",
+								"between": ": "
+							},
+							"type": "decl",
+							"source": {
+								"start": {
+									"line": 14,
+									"column": 2
+								},
+								"input": {
+									"file": "tpl-decl.mjs",
+									"quasis": [
+										{
+											"start": 116,
+											"end": 125
+										},
+										{
+											"start": 132,
+											"end": 164
+										},
+										{
+											"start": 171,
+											"end": 196
+										},
+										{
+											"start": 203,
+											"end": 235
+										},
+										{
+											"start": 243,
+											"end": 275
+										},
+										{
+											"start": 283,
+											"end": 308
+										},
+										{
+											"start": 316,
+											"end": 351
+										},
+										{
+											"start": 359,
+											"end": 402
+										},
+										{
+											"start": 410,
+											"end": 446
+										},
+										{
+											"start": 454,
+											"end": 465
+										}
+									]
+								},
+								"end": {
+									"line": 14,
+									"column": 22
+								}
+							},
+							"prop": "${prop}-suffix",
+							"value": "value"
+						}
+					],
+					"source": {
+						"start": {
+							"line": 13,
+							"column": 1
+						},
+						"input": {
+							"file": "tpl-decl.mjs",
+							"quasis": [
+								{
+									"start": 116,
+									"end": 125
+								},
+								{
+									"start": 132,
+									"end": 164
+								},
+								{
+									"start": 171,
+									"end": 196
+								},
+								{
+									"start": 203,
+									"end": 235
+								},
+								{
+									"start": 243,
+									"end": 275
+								},
+								{
+									"start": 283,
+									"end": 308
+								},
+								{
+									"start": 316,
+									"end": 351
+								},
+								{
+									"start": 359,
+									"end": 402
+								},
+								{
+									"start": 410,
+									"end": 446
+								},
+								{
+									"start": 454,
+									"end": 465
+								}
+							]
+						},
+						"end": {
+							"line": 15,
+							"column": 1
+						}
+					},
+					"selector": "prop suffix"
+				},
+				{
+					"raws": {
+						"before": "\n",
+						"between": " ",
+						"semicolon": false,
+						"after": "\n"
+					},
+					"type": "rule",
+					"nodes": [
+						{
+							"raws": {
+								"before": "\n\t",
+								"between": ": "
+							},
+							"type": "decl",
+							"source": {
+								"start": {
+									"line": 17,
+									"column": 2
+								},
+								"input": {
+									"file": "tpl-decl.mjs",
+									"quasis": [
+										{
+											"start": 116,
+											"end": 125
+										},
+										{
+											"start": 132,
+											"end": 164
+										},
+										{
+											"start": 171,
+											"end": 196
+										},
+										{
+											"start": 203,
+											"end": 235
+										},
+										{
+											"start": 243,
+											"end": 275
+										},
+										{
+											"start": 283,
+											"end": 308
+										},
+										{
+											"start": 316,
+											"end": 351
+										},
+										{
+											"start": 359,
+											"end": 402
+										},
+										{
+											"start": 410,
+											"end": 446
+										},
+										{
+											"start": 454,
+											"end": 465
+										}
+									]
+								},
+								"end": {
+									"line": 17,
+									"column": 15
+								}
+							},
+							"prop": "prop",
+							"value": "${value}"
+						}
+					],
+					"source": {
+						"start": {
+							"line": 16,
+							"column": 1
+						},
+						"input": {
+							"file": "tpl-decl.mjs",
+							"quasis": [
+								{
+									"start": 116,
+									"end": 125
+								},
+								{
+									"start": 132,
+									"end": 164
+								},
+								{
+									"start": 171,
+									"end": 196
+								},
+								{
+									"start": 203,
+									"end": 235
+								},
+								{
+									"start": 243,
+									"end": 275
+								},
+								{
+									"start": 283,
+									"end": 308
+								},
+								{
+									"start": 316,
+									"end": 351
+								},
+								{
+									"start": 359,
+									"end": 402
+								},
+								{
+									"start": 410,
+									"end": 446
+								},
+								{
+									"start": 454,
+									"end": 465
+								}
+							]
+						},
+						"end": {
+							"line": 18,
+							"column": 1
+						}
+					},
+					"selector": "value"
+				},
+				{
+					"raws": {
+						"before": "\n",
+						"between": " ",
+						"semicolon": false,
+						"after": "\n"
+					},
+					"type": "rule",
+					"nodes": [
+						{
+							"raws": {
+								"before": "\n\t",
+								"between": ": "
+							},
+							"type": "decl",
+							"source": {
+								"start": {
+									"line": 20,
+									"column": 2
+								},
+								"input": {
+									"file": "tpl-decl.mjs",
+									"quasis": [
+										{
+											"start": 116,
+											"end": 125
+										},
+										{
+											"start": 132,
+											"end": 164
+										},
+										{
+											"start": 171,
+											"end": 196
+										},
+										{
+											"start": 203,
+											"end": 235
+										},
+										{
+											"start": 243,
+											"end": 275
+										},
+										{
+											"start": 283,
+											"end": 308
+										},
+										{
+											"start": 316,
+											"end": 351
+										},
+										{
+											"start": 359,
+											"end": 402
+										},
+										{
+											"start": 410,
+											"end": 446
+										},
+										{
+											"start": 454,
+											"end": 465
+										}
+									]
+								},
+								"end": {
+									"line": 20,
+									"column": 22
+								}
+							},
+							"prop": "prop",
+							"value": "prefix-${value}"
+						}
+					],
+					"source": {
+						"start": {
+							"line": 19,
+							"column": 1
+						},
+						"input": {
+							"file": "tpl-decl.mjs",
+							"quasis": [
+								{
+									"start": 116,
+									"end": 125
+								},
+								{
+									"start": 132,
+									"end": 164
+								},
+								{
+									"start": 171,
+									"end": 196
+								},
+								{
+									"start": 203,
+									"end": 235
+								},
+								{
+									"start": 243,
+									"end": 275
+								},
+								{
+									"start": 283,
+									"end": 308
+								},
+								{
+									"start": 316,
+									"end": 351
+								},
+								{
+									"start": 359,
+									"end": 402
+								},
+								{
+									"start": 410,
+									"end": 446
+								},
+								{
+									"start": 454,
+									"end": 465
+								}
+							]
+						},
+						"end": {
+							"line": 21,
+							"column": 1
+						}
+					},
+					"selector": "value prefix"
+				},
+				{
+					"raws": {
+						"before": "\n",
+						"between": " ",
+						"semicolon": false,
+						"after": "\n"
+					},
+					"type": "rule",
+					"nodes": [
+						{
+							"raws": {
+								"before": "\n\t",
+								"between": ": "
+							},
+							"type": "decl",
+							"source": {
+								"start": {
+									"line": 23,
+									"column": 2
+								},
+								"input": {
+									"file": "tpl-decl.mjs",
+									"quasis": [
+										{
+											"start": 116,
+											"end": 125
+										},
+										{
+											"start": 132,
+											"end": 164
+										},
+										{
+											"start": 171,
+											"end": 196
+										},
+										{
+											"start": 203,
+											"end": 235
+										},
+										{
+											"start": 243,
+											"end": 275
+										},
+										{
+											"start": 283,
+											"end": 308
+										},
+										{
+											"start": 316,
+											"end": 351
+										},
+										{
+											"start": 359,
+											"end": 402
+										},
+										{
+											"start": 410,
+											"end": 446
+										},
+										{
+											"start": 454,
+											"end": 465
+										}
+									]
+								},
+								"end": {
+									"line": 23,
+									"column": 22
+								}
+							},
+							"prop": "prop",
+							"value": "${value}-suffix"
+						}
+					],
+					"source": {
+						"start": {
+							"line": 22,
+							"column": 1
+						},
+						"input": {
+							"file": "tpl-decl.mjs",
+							"quasis": [
+								{
+									"start": 116,
+									"end": 125
+								},
+								{
+									"start": 132,
+									"end": 164
+								},
+								{
+									"start": 171,
+									"end": 196
+								},
+								{
+									"start": 203,
+									"end": 235
+								},
+								{
+									"start": 243,
+									"end": 275
+								},
+								{
+									"start": 283,
+									"end": 308
+								},
+								{
+									"start": 316,
+									"end": 351
+								},
+								{
+									"start": 359,
+									"end": 402
+								},
+								{
+									"start": 410,
+									"end": 446
+								},
+								{
+									"start": 454,
+									"end": 465
+								}
+							]
+						},
+						"end": {
+							"line": 24,
+							"column": 1
+						}
+					},
+					"selector": "value suffix"
+				},
+				{
+					"raws": {
+						"before": "\n",
+						"between": " ",
+						"semicolon": true,
+						"after": "\n"
+					},
+					"type": "rule",
+					"nodes": [
+						{
+							"raws": {
+								"before": "\n\t",
+								"between": ": "
+							},
+							"type": "decl",
+							"source": {
+								"start": {
+									"line": 26,
+									"column": 2
+								},
+								"input": {
+									"file": "tpl-decl.mjs",
+									"quasis": [
+										{
+											"start": 116,
+											"end": 125
+										},
+										{
+											"start": 132,
+											"end": 164
+										},
+										{
+											"start": 171,
+											"end": 196
+										},
+										{
+											"start": 203,
+											"end": 235
+										},
+										{
+											"start": 243,
+											"end": 275
+										},
+										{
+											"start": 283,
+											"end": 308
+										},
+										{
+											"start": 316,
+											"end": 351
+										},
+										{
+											"start": 359,
+											"end": 402
+										},
+										{
+											"start": 410,
+											"end": 446
+										},
+										{
+											"start": 454,
+											"end": 465
+										}
+									]
+								},
+								"end": {
+									"line": 26,
+									"column": 16
+								}
+							},
+							"prop": "prop",
+							"value": "${value}"
+						}
+					],
+					"source": {
+						"start": {
+							"line": 25,
+							"column": 1
+						},
+						"input": {
+							"file": "tpl-decl.mjs",
+							"quasis": [
+								{
+									"start": 116,
+									"end": 125
+								},
+								{
+									"start": 132,
+									"end": 164
+								},
+								{
+									"start": 171,
+									"end": 196
+								},
+								{
+									"start": 203,
+									"end": 235
+								},
+								{
+									"start": 243,
+									"end": 275
+								},
+								{
+									"start": 283,
+									"end": 308
+								},
+								{
+									"start": 316,
+									"end": 351
+								},
+								{
+									"start": 359,
+									"end": 402
+								},
+								{
+									"start": 410,
+									"end": 446
+								},
+								{
+									"start": 454,
+									"end": 465
+								}
+							]
+						},
+						"end": {
+							"line": 27,
+							"column": 1
+						}
+					},
+					"selector": "value semicolon"
+				},
+				{
+					"raws": {
+						"before": "\n",
+						"between": " ",
+						"semicolon": true,
+						"after": "\n"
+					},
+					"type": "rule",
+					"nodes": [
+						{
+							"raws": {
+								"before": "\n\t",
+								"between": ": "
+							},
+							"type": "decl",
+							"source": {
+								"start": {
+									"line": 29,
+									"column": 2
+								},
+								"input": {
+									"file": "tpl-decl.mjs",
+									"quasis": [
+										{
+											"start": 116,
+											"end": 125
+										},
+										{
+											"start": 132,
+											"end": 164
+										},
+										{
+											"start": 171,
+											"end": 196
+										},
+										{
+											"start": 203,
+											"end": 235
+										},
+										{
+											"start": 243,
+											"end": 275
+										},
+										{
+											"start": 283,
+											"end": 308
+										},
+										{
+											"start": 316,
+											"end": 351
+										},
+										{
+											"start": 359,
+											"end": 402
+										},
+										{
+											"start": 410,
+											"end": 446
+										},
+										{
+											"start": 454,
+											"end": 465
+										}
+									]
+								},
+								"end": {
+									"line": 29,
+									"column": 23
+								}
+							},
+							"prop": "prop",
+							"value": "prefix-${value}"
+						}
+					],
+					"source": {
+						"start": {
+							"line": 28,
+							"column": 1
+						},
+						"input": {
+							"file": "tpl-decl.mjs",
+							"quasis": [
+								{
+									"start": 116,
+									"end": 125
+								},
+								{
+									"start": 132,
+									"end": 164
+								},
+								{
+									"start": 171,
+									"end": 196
+								},
+								{
+									"start": 203,
+									"end": 235
+								},
+								{
+									"start": 243,
+									"end": 275
+								},
+								{
+									"start": 283,
+									"end": 308
+								},
+								{
+									"start": 316,
+									"end": 351
+								},
+								{
+									"start": 359,
+									"end": 402
+								},
+								{
+									"start": 410,
+									"end": 446
+								},
+								{
+									"start": 454,
+									"end": 465
+								}
+							]
+						},
+						"end": {
+							"line": 30,
+							"column": 1
+						}
+					},
+					"selector": "value prefix semicolon"
+				},
+				{
+					"raws": {
+						"before": "\n",
+						"between": " ",
+						"semicolon": true,
+						"after": "\n"
+					},
+					"type": "rule",
+					"nodes": [
+						{
+							"raws": {
+								"before": "\n\t",
+								"between": ": "
+							},
+							"type": "decl",
+							"source": {
+								"start": {
+									"line": 32,
+									"column": 2
+								},
+								"input": {
+									"file": "tpl-decl.mjs",
+									"quasis": [
+										{
+											"start": 116,
+											"end": 125
+										},
+										{
+											"start": 132,
+											"end": 164
+										},
+										{
+											"start": 171,
+											"end": 196
+										},
+										{
+											"start": 203,
+											"end": 235
+										},
+										{
+											"start": 243,
+											"end": 275
+										},
+										{
+											"start": 283,
+											"end": 308
+										},
+										{
+											"start": 316,
+											"end": 351
+										},
+										{
+											"start": 359,
+											"end": 402
+										},
+										{
+											"start": 410,
+											"end": 446
+										},
+										{
+											"start": 454,
+											"end": 465
+										}
+									]
+								},
+								"end": {
+									"line": 32,
+									"column": 23
+								}
+							},
+							"prop": "prop",
+							"value": "${value}-suffix"
+						}
+					],
+					"source": {
+						"start": {
+							"line": 31,
+							"column": 1
+						},
+						"input": {
+							"file": "tpl-decl.mjs",
+							"quasis": [
+								{
+									"start": 116,
+									"end": 125
+								},
+								{
+									"start": 132,
+									"end": 164
+								},
+								{
+									"start": 171,
+									"end": 196
+								},
+								{
+									"start": 203,
+									"end": 235
+								},
+								{
+									"start": 243,
+									"end": 275
+								},
+								{
+									"start": 283,
+									"end": 308
+								},
+								{
+									"start": 316,
+									"end": 351
+								},
+								{
+									"start": 359,
+									"end": 402
+								},
+								{
+									"start": 410,
+									"end": 446
+								},
+								{
+									"start": 454,
+									"end": 465
+								}
+							]
+						},
+						"end": {
+							"line": 33,
+							"column": 1
+						}
+					},
+					"selector": "value suffix semicolon"
+				}
+			],
+			"source": {
+				"input": {
+					"file": "tpl-decl.mjs",
+					"quasis": [
+						{
+							"start": 116,
+							"end": 125
+						},
+						{
+							"start": 132,
+							"end": 164
+						},
+						{
+							"start": 171,
+							"end": 196
+						},
+						{
+							"start": 203,
+							"end": 235
+						},
+						{
+							"start": 243,
+							"end": 275
+						},
+						{
+							"start": 283,
+							"end": 308
+						},
+						{
+							"start": 316,
+							"end": 351
+						},
+						{
+							"start": 359,
+							"end": 402
+						},
+						{
+							"start": 410,
+							"end": 446
+						},
+						{
+							"start": 454,
+							"end": 465
+						}
+					]
+				},
+				"start": {
+					"line": 6,
+					"column": 31
+				},
+				"inline": false,
+				"lang": "template-literal",
+				"syntax": {}
+			}
+		}
+	],
+	"source": {
+		"input": {
+			"file": "tpl-decl.mjs"
+		},
+		"start": {
+			"line": 1,
+			"column": 1
+		},
+		"lang": "jsx"
+	}
 }

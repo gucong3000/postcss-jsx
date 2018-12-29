@@ -1,79 +1,79 @@
 {
-  "raws": {},
-  "type": "root",
-  "nodes": [
-    {
-      "raws": {
-        "semicolon": true,
-        "after": "\n"
-      },
-      "type": "root",
-      "nodes": [
-        {
-          "raws": {
-            "before": "\n  ",
-            "between": ": "
-          },
-          "type": "decl",
-          "source": {
-            "start": {
-              "line": 6,
-              "column": 3
-            },
-            "input": {
-              "file": "tpl-in-tpl.mjs",
-              "quasis": [
-                {
-                  "start": 94,
-                  "end": 112
-                },
-                {
-                  "start": 169,
-                  "end": 171
-                }
-              ]
-            },
-            "end": {
-              "line": 6,
-              "column": 75
-            }
-          },
-          "prop": "border-bottom",
-          "value": "${(props) => (props.border ? `1px solid ${color}` : \"0\")}"
-        }
-      ],
-      "source": {
-        "input": {
-          "file": "tpl-in-tpl.mjs",
-          "quasis": [
-            {
-              "start": 94,
-              "end": 112
-            },
-            {
-              "start": 169,
-              "end": 171
-            }
-          ]
-        },
-        "start": {
-          "line": 5,
-          "column": 31
-        },
-        "inline": false,
-        "lang": "template-literal",
-        "syntax": {}
-      }
-    }
-  ],
-  "source": {
-    "input": {
-      "file": "tpl-in-tpl.mjs"
-    },
-    "start": {
-      "line": 1,
-      "column": 1
-    },
-    "lang": "jsx"
-  }
+	"raws": {},
+	"type": "root",
+	"nodes": [
+		{
+			"raws": {
+				"semicolon": true,
+				"after": "\n"
+			},
+			"type": "root",
+			"nodes": [
+				{
+					"raws": {
+						"before": "\n\t",
+						"between": ": "
+					},
+					"type": "decl",
+					"source": {
+						"start": {
+							"line": 6,
+							"column": 2
+						},
+						"input": {
+							"file": "tpl-in-tpl.mjs",
+							"quasis": [
+								{
+									"start": 94,
+									"end": 111
+								},
+								{
+									"start": 168,
+									"end": 170
+								}
+							]
+						},
+						"end": {
+							"line": 6,
+							"column": 74
+						}
+					},
+					"prop": "border-bottom",
+					"value": "${(props) => (props.border ? `1px solid ${color}` : \"0\")}"
+				}
+			],
+			"source": {
+				"input": {
+					"file": "tpl-in-tpl.mjs",
+					"quasis": [
+						{
+							"start": 94,
+							"end": 111
+						},
+						{
+							"start": 168,
+							"end": 170
+						}
+					]
+				},
+				"start": {
+					"line": 5,
+					"column": 31
+				},
+				"inline": false,
+				"lang": "template-literal",
+				"syntax": {}
+			}
+		}
+	],
+	"source": {
+		"input": {
+			"file": "tpl-in-tpl.mjs"
+		},
+		"start": {
+			"line": 1,
+			"column": 1
+		},
+		"lang": "jsx"
+	}
 }

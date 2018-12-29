@@ -1,583 +1,583 @@
 {
-  "raws": {},
-  "type": "root",
-  "nodes": [
-    {
-      "raws": {},
-      "source": {
-        "input": {
-          "file": "jsx.jsx"
-        },
-        "start": {
-          "line": 5,
-          "column": 18
-        },
-        "inline": false,
-        "lang": "object-literal",
-        "syntax": {}
-      },
-      "type": "root",
-      "nodes": [
-        {
-          "raws": {
-            "after": "\n",
-            "semicolon": false,
-            "before": ""
-          },
-          "type": "object",
-          "nodes": [
-            {
-              "raws": {
-                "prop": {
-                  "prefix": "",
-                  "suffix": "",
-                  "raw": "color",
-                  "value": "color"
-                },
-                "value": {
-                  "prefix": "\"",
-                  "suffix": "\"",
-                  "raw": "blue",
-                  "value": "blue"
-                },
-                "between": ": ",
-                "before": "\n\t"
-              },
-              "prop": "color",
-              "value": "blue",
-              "type": "decl",
-              "source": {
-                "input": {
-                  "file": "jsx.jsx"
-                },
-                "start": {
-                  "line": 6,
-                  "column": 1
-                },
-                "end": {
-                  "line": 6,
-                  "column": 14
-                }
-              }
-            }
-          ],
-          "source": {
-            "input": {
-              "file": "jsx.jsx"
-            },
-            "start": {
-              "line": 5,
-              "column": 18
-            },
-            "end": {
-              "line": 7,
-              "column": 1
-            }
-          }
-        }
-      ]
-    },
-    {
-      "raws": {},
-      "source": {
-        "input": {
-          "file": "jsx.jsx"
-        },
-        "start": {
-          "line": 12,
-          "column": 12
-        },
-        "inline": false,
-        "lang": "object-literal",
-        "syntax": {}
-      },
-      "type": "root",
-      "nodes": [
-        {
-          "raws": {
-            "after": "\n\t",
-            "semicolon": false,
-            "before": ""
-          },
-          "type": "object",
-          "nodes": [
-            {
-              "raws": {
-                "prop": {
-                  "prefix": "",
-                  "suffix": "",
-                  "raw": "backgroundImage",
-                  "value": "background-image"
-                },
-                "value": {
-                  "prefix": "`",
-                  "suffix": "`",
-                  "raw": "url(${imgUrl})",
-                  "value": "url(${imgUrl})"
-                },
-                "between": ": ",
-                "before": "\n\t\t"
-              },
-              "prop": "background-image",
-              "value": "url(${imgUrl})",
-              "type": "decl",
-              "source": {
-                "input": {
-                  "file": "jsx.jsx"
-                },
-                "start": {
-                  "line": 13,
-                  "column": 2
-                },
-                "end": {
-                  "line": 13,
-                  "column": 35
-                }
-              }
-            },
-            {
-              "raws": {
-                "before": "\n\t\t"
-              },
-              "text": "...baseStyle",
-              "type": "literal",
-              "source": {
-                "input": {
-                  "file": "jsx.jsx"
-                },
-                "start": {
-                  "line": 14,
-                  "column": 2
-                },
-                "end": {
-                  "line": 14,
-                  "column": 14
-                }
-              }
-            }
-          ],
-          "source": {
-            "input": {
-              "file": "jsx.jsx"
-            },
-            "start": {
-              "line": 12,
-              "column": 12
-            },
-            "end": {
-              "line": 15,
-              "column": 2
-            }
-          }
-        }
-      ]
-    },
-    {
-      "raws": {},
-      "source": {
-        "input": {
-          "file": "jsx.jsx"
-        },
-        "start": {
-          "line": 22,
-          "column": 11
-        },
-        "inline": false,
-        "lang": "object-literal",
-        "syntax": {}
-      },
-      "type": "root",
-      "nodes": [
-        {
-          "raws": {
-            "after": "\n",
-            "semicolon": false,
-            "before": ""
-          },
-          "type": "object",
-          "nodes": [
-            {
-              "raws": {
-                "prop": {
-                  "prefix": "",
-                  "suffix": "",
-                  "raw": "backgroundImage",
-                  "value": "background-image"
-                },
-                "value": {
-                  "prefix": "`",
-                  "suffix": "`",
-                  "raw": "url(${imgUrl})",
-                  "value": "url(${imgUrl})"
-                },
-                "between": ": ",
-                "before": "\n\t"
-              },
-              "prop": "background-image",
-              "value": "url(${imgUrl})",
-              "type": "decl",
-              "source": {
-                "input": {
-                  "file": "jsx.jsx"
-                },
-                "start": {
-                  "line": 23,
-                  "column": 1
-                },
-                "end": {
-                  "line": 23,
-                  "column": 34
-                }
-              }
-            }
-          ],
-          "source": {
-            "input": {
-              "file": "jsx.jsx"
-            },
-            "start": {
-              "line": 22,
-              "column": 11
-            },
-            "end": {
-              "line": 24,
-              "column": 1
-            }
-          }
-        }
-      ]
-    },
-    {
-      "raws": {},
-      "source": {
-        "input": {
-          "file": "jsx.jsx"
-        },
-        "start": {
-          "line": 31,
-          "column": 7
-        },
-        "inline": false,
-        "lang": "object-literal",
-        "syntax": {}
-      },
-      "type": "root",
-      "nodes": [
-        {
-          "raws": {
-            "after": "\n\t\t",
-            "semicolon": false,
-            "before": ""
-          },
-          "type": "object",
-          "nodes": [
-            {
-              "raws": {
-                "prop": {
-                  "prefix": "",
-                  "suffix": "",
-                  "raw": "display",
-                  "value": "display"
-                },
-                "value": {
-                  "prefix": "\"",
-                  "suffix": "\"",
-                  "raw": "flex",
-                  "value": "flex"
-                },
-                "between": ": ",
-                "before": "\n\t\t\t"
-              },
-              "prop": "display",
-              "value": "flex",
-              "type": "decl",
-              "source": {
-                "input": {
-                  "file": "jsx.jsx"
-                },
-                "start": {
-                  "line": 32,
-                  "column": 3
-                },
-                "end": {
-                  "line": 32,
-                  "column": 18
-                }
-              }
-            },
-            {
-              "raws": {
-                "prop": {
-                  "prefix": "",
-                  "suffix": "",
-                  "raw": "paddingTop",
-                  "value": "padding-top"
-                },
-                "value": {
-                  "prefix": "",
-                  "suffix": "",
-                  "raw": "6",
-                  "value": "6"
-                },
-                "between": ": ",
-                "before": "\n\t\t\t"
-              },
-              "prop": "padding-top",
-              "value": "6",
-              "type": "decl",
-              "source": {
-                "input": {
-                  "file": "jsx.jsx"
-                },
-                "start": {
-                  "line": 33,
-                  "column": 3
-                },
-                "end": {
-                  "line": 33,
-                  "column": 16
-                }
-              }
-            },
-            {
-              "raws": {
-                "prop": {
-                  "prefix": "",
-                  "suffix": "",
-                  "raw": "padding",
-                  "value": "padding"
-                },
-                "value": {
-                  "prefix": "\"",
-                  "suffix": "\"",
-                  "raw": "8px 12px",
-                  "value": "8px 12px"
-                },
-                "between": ": ",
-                "before": "\n\t\t\t"
-              },
-              "prop": "padding",
-              "value": "8px 12px",
-              "type": "decl",
-              "source": {
-                "input": {
-                  "file": "jsx.jsx"
-                },
-                "start": {
-                  "line": 34,
-                  "column": 3
-                },
-                "end": {
-                  "line": 34,
-                  "column": 22
-                }
-              }
-            },
-            {
-              "raws": {
-                "left": " ",
-                "right": "",
-                "inline": true,
-                "before": " "
-              },
-              "text": "shorthand prop override",
-              "type": "comment",
-              "source": {
-                "input": {
-                  "file": "jsx.jsx"
-                },
-                "start": {
-                  "line": 34,
-                  "column": 24
-                },
-                "end": {
-                  "line": 34,
-                  "column": 50
-                }
-              }
-            },
-            {
-              "raws": {
-                "selector": {
-                  "prefix": "\"",
-                  "suffix": "\"",
-                  "raw": ":hover",
-                  "value": ":hover"
-                },
-                "between": ": ",
-                "after": "\n\t\t\t",
-                "semicolon": false,
-                "before": "\n\t\t\t"
-              },
-              "selector": ":hover",
-              "type": "rule",
-              "nodes": [
-                {
-                  "raws": {
-                    "prop": {
-                      "prefix": "",
-                      "suffix": "",
-                      "raw": "flexDirectionn",
-                      "value": "flex-directionn"
-                    },
-                    "value": {
-                      "prefix": "\"",
-                      "suffix": "\"",
-                      "raw": "row",
-                      "value": "row"
-                    },
-                    "between": ": ",
-                    "before": "\n\t\t\t\t"
-                  },
-                  "prop": "flex-directionn",
-                  "value": "row",
-                  "type": "decl",
-                  "source": {
-                    "input": {
-                      "file": "jsx.jsx"
-                    },
-                    "start": {
-                      "line": 36,
-                      "column": 4
-                    },
-                    "end": {
-                      "line": 36,
-                      "column": 25
-                    }
-                  }
-                },
-                {
-                  "raws": {
-                    "left": " ",
-                    "right": "",
-                    "inline": true,
-                    "before": " "
-                  },
-                  "text": "prop error",
-                  "type": "comment",
-                  "source": {
-                    "input": {
-                      "file": "jsx.jsx"
-                    },
-                    "start": {
-                      "line": 36,
-                      "column": 27
-                    },
-                    "end": {
-                      "line": 36,
-                      "column": 40
-                    }
-                  }
-                },
-                {
-                  "raws": {
-                    "prop": {
-                      "prefix": "",
-                      "suffix": "",
-                      "raw": "color",
-                      "value": "color"
-                    },
-                    "value": {
-                      "prefix": "",
-                      "suffix": "",
-                      "raw": "props.color",
-                      "value": "props.color"
-                    },
-                    "between": ": ",
-                    "before": "\n\t\t\t\t"
-                  },
-                  "prop": "color",
-                  "value": "props.color",
-                  "type": "decl",
-                  "source": {
-                    "input": {
-                      "file": "jsx.jsx"
-                    },
-                    "start": {
-                      "line": 37,
-                      "column": 4
-                    },
-                    "end": {
-                      "line": 37,
-                      "column": 22
-                    }
-                  }
-                },
-                {
-                  "raws": {
-                    "prop": {
-                      "prefix": "",
-                      "suffix": "",
-                      "raw": "backgroundColor",
-                      "value": "background-color"
-                    },
-                    "value": {
-                      "prefix": "",
-                      "suffix": "",
-                      "raw": "props.big ? \"#fff\" : \"#000x\"",
-                      "value": "props.big ? \"#fff\" : \"#000x\""
-                    },
-                    "between": ": ",
-                    "before": "\n\t\t\t\t"
-                  },
-                  "prop": "background-color",
-                  "value": "props.big ? \"#fff\" : \"#000x\"",
-                  "type": "decl",
-                  "source": {
-                    "input": {
-                      "file": "jsx.jsx"
-                    },
-                    "start": {
-                      "line": 38,
-                      "column": 4
-                    },
-                    "end": {
-                      "line": 38,
-                      "column": 49
-                    }
-                  }
-                }
-              ],
-              "source": {
-                "input": {
-                  "file": "jsx.jsx"
-                },
-                "start": {
-                  "line": 35,
-                  "column": 3
-                },
-                "end": {
-                  "line": 39,
-                  "column": 4
-                }
-              }
-            }
-          ],
-          "source": {
-            "input": {
-              "file": "jsx.jsx"
-            },
-            "start": {
-              "line": 31,
-              "column": 7
-            },
-            "end": {
-              "line": 40,
-              "column": 3
-            }
-          }
-        }
-      ]
-    }
-  ],
-  "source": {
-    "input": {
-      "file": "jsx.jsx"
-    },
-    "start": {
-      "line": 1,
-      "column": 1
-    },
-    "lang": "jsx"
-  }
+	"raws": {},
+	"type": "root",
+	"nodes": [
+		{
+			"raws": {},
+			"source": {
+				"input": {
+					"file": "jsx.jsx"
+				},
+				"start": {
+					"line": 5,
+					"column": 18
+				},
+				"inline": false,
+				"lang": "object-literal",
+				"syntax": {}
+			},
+			"type": "root",
+			"nodes": [
+				{
+					"raws": {
+						"after": "\n",
+						"semicolon": false,
+						"before": ""
+					},
+					"type": "object",
+					"nodes": [
+						{
+							"raws": {
+								"prop": {
+									"prefix": "",
+									"suffix": "",
+									"raw": "color",
+									"value": "color"
+								},
+								"value": {
+									"prefix": "\"",
+									"suffix": "\"",
+									"raw": "blue",
+									"value": "blue"
+								},
+								"between": ": ",
+								"before": "\n\t"
+							},
+							"prop": "color",
+							"value": "blue",
+							"type": "decl",
+							"source": {
+								"input": {
+									"file": "jsx.jsx"
+								},
+								"start": {
+									"line": 6,
+									"column": 1
+								},
+								"end": {
+									"line": 6,
+									"column": 14
+								}
+							}
+						}
+					],
+					"source": {
+						"input": {
+							"file": "jsx.jsx"
+						},
+						"start": {
+							"line": 5,
+							"column": 18
+						},
+						"end": {
+							"line": 7,
+							"column": 1
+						}
+					}
+				}
+			]
+		},
+		{
+			"raws": {},
+			"source": {
+				"input": {
+					"file": "jsx.jsx"
+				},
+				"start": {
+					"line": 12,
+					"column": 12
+				},
+				"inline": false,
+				"lang": "object-literal",
+				"syntax": {}
+			},
+			"type": "root",
+			"nodes": [
+				{
+					"raws": {
+						"after": "\n\t",
+						"semicolon": false,
+						"before": ""
+					},
+					"type": "object",
+					"nodes": [
+						{
+							"raws": {
+								"prop": {
+									"prefix": "",
+									"suffix": "",
+									"raw": "backgroundImage",
+									"value": "background-image"
+								},
+								"value": {
+									"prefix": "`",
+									"suffix": "`",
+									"raw": "url(${imgUrl})",
+									"value": "url(${imgUrl})"
+								},
+								"between": ": ",
+								"before": "\n\t\t"
+							},
+							"prop": "background-image",
+							"value": "url(${imgUrl})",
+							"type": "decl",
+							"source": {
+								"input": {
+									"file": "jsx.jsx"
+								},
+								"start": {
+									"line": 13,
+									"column": 2
+								},
+								"end": {
+									"line": 13,
+									"column": 35
+								}
+							}
+						},
+						{
+							"raws": {
+								"before": "\n\t\t"
+							},
+							"text": "...baseStyle",
+							"type": "literal",
+							"source": {
+								"input": {
+									"file": "jsx.jsx"
+								},
+								"start": {
+									"line": 14,
+									"column": 2
+								},
+								"end": {
+									"line": 14,
+									"column": 14
+								}
+							}
+						}
+					],
+					"source": {
+						"input": {
+							"file": "jsx.jsx"
+						},
+						"start": {
+							"line": 12,
+							"column": 12
+						},
+						"end": {
+							"line": 15,
+							"column": 2
+						}
+					}
+				}
+			]
+		},
+		{
+			"raws": {},
+			"source": {
+				"input": {
+					"file": "jsx.jsx"
+				},
+				"start": {
+					"line": 22,
+					"column": 11
+				},
+				"inline": false,
+				"lang": "object-literal",
+				"syntax": {}
+			},
+			"type": "root",
+			"nodes": [
+				{
+					"raws": {
+						"after": "\n",
+						"semicolon": false,
+						"before": ""
+					},
+					"type": "object",
+					"nodes": [
+						{
+							"raws": {
+								"prop": {
+									"prefix": "",
+									"suffix": "",
+									"raw": "backgroundImage",
+									"value": "background-image"
+								},
+								"value": {
+									"prefix": "`",
+									"suffix": "`",
+									"raw": "url(${imgUrl})",
+									"value": "url(${imgUrl})"
+								},
+								"between": ": ",
+								"before": "\n\t"
+							},
+							"prop": "background-image",
+							"value": "url(${imgUrl})",
+							"type": "decl",
+							"source": {
+								"input": {
+									"file": "jsx.jsx"
+								},
+								"start": {
+									"line": 23,
+									"column": 1
+								},
+								"end": {
+									"line": 23,
+									"column": 34
+								}
+							}
+						}
+					],
+					"source": {
+						"input": {
+							"file": "jsx.jsx"
+						},
+						"start": {
+							"line": 22,
+							"column": 11
+						},
+						"end": {
+							"line": 24,
+							"column": 1
+						}
+					}
+				}
+			]
+		},
+		{
+			"raws": {},
+			"source": {
+				"input": {
+					"file": "jsx.jsx"
+				},
+				"start": {
+					"line": 31,
+					"column": 7
+				},
+				"inline": false,
+				"lang": "object-literal",
+				"syntax": {}
+			},
+			"type": "root",
+			"nodes": [
+				{
+					"raws": {
+						"after": "\n\t\t",
+						"semicolon": false,
+						"before": ""
+					},
+					"type": "object",
+					"nodes": [
+						{
+							"raws": {
+								"prop": {
+									"prefix": "",
+									"suffix": "",
+									"raw": "display",
+									"value": "display"
+								},
+								"value": {
+									"prefix": "\"",
+									"suffix": "\"",
+									"raw": "flex",
+									"value": "flex"
+								},
+								"between": ": ",
+								"before": "\n\t\t\t"
+							},
+							"prop": "display",
+							"value": "flex",
+							"type": "decl",
+							"source": {
+								"input": {
+									"file": "jsx.jsx"
+								},
+								"start": {
+									"line": 32,
+									"column": 3
+								},
+								"end": {
+									"line": 32,
+									"column": 18
+								}
+							}
+						},
+						{
+							"raws": {
+								"prop": {
+									"prefix": "",
+									"suffix": "",
+									"raw": "paddingTop",
+									"value": "padding-top"
+								},
+								"value": {
+									"prefix": "",
+									"suffix": "",
+									"raw": "6",
+									"value": "6"
+								},
+								"between": ": ",
+								"before": "\n\t\t\t"
+							},
+							"prop": "padding-top",
+							"value": "6",
+							"type": "decl",
+							"source": {
+								"input": {
+									"file": "jsx.jsx"
+								},
+								"start": {
+									"line": 33,
+									"column": 3
+								},
+								"end": {
+									"line": 33,
+									"column": 16
+								}
+							}
+						},
+						{
+							"raws": {
+								"prop": {
+									"prefix": "",
+									"suffix": "",
+									"raw": "padding",
+									"value": "padding"
+								},
+								"value": {
+									"prefix": "\"",
+									"suffix": "\"",
+									"raw": "8px 12px",
+									"value": "8px 12px"
+								},
+								"between": ": ",
+								"before": "\n\t\t\t"
+							},
+							"prop": "padding",
+							"value": "8px 12px",
+							"type": "decl",
+							"source": {
+								"input": {
+									"file": "jsx.jsx"
+								},
+								"start": {
+									"line": 34,
+									"column": 3
+								},
+								"end": {
+									"line": 34,
+									"column": 22
+								}
+							}
+						},
+						{
+							"raws": {
+								"left": " ",
+								"right": "",
+								"inline": true,
+								"before": " "
+							},
+							"text": "shorthand prop override",
+							"type": "comment",
+							"source": {
+								"input": {
+									"file": "jsx.jsx"
+								},
+								"start": {
+									"line": 34,
+									"column": 24
+								},
+								"end": {
+									"line": 34,
+									"column": 50
+								}
+							}
+						},
+						{
+							"raws": {
+								"selector": {
+									"prefix": "\"",
+									"suffix": "\"",
+									"raw": ":hover",
+									"value": ":hover"
+								},
+								"between": ": ",
+								"after": "\n\t\t\t",
+								"semicolon": false,
+								"before": "\n\t\t\t"
+							},
+							"selector": ":hover",
+							"type": "rule",
+							"nodes": [
+								{
+									"raws": {
+										"prop": {
+											"prefix": "",
+											"suffix": "",
+											"raw": "flexDirectionn",
+											"value": "flex-directionn"
+										},
+										"value": {
+											"prefix": "\"",
+											"suffix": "\"",
+											"raw": "row",
+											"value": "row"
+										},
+										"between": ": ",
+										"before": "\n\t\t\t\t"
+									},
+									"prop": "flex-directionn",
+									"value": "row",
+									"type": "decl",
+									"source": {
+										"input": {
+											"file": "jsx.jsx"
+										},
+										"start": {
+											"line": 36,
+											"column": 4
+										},
+										"end": {
+											"line": 36,
+											"column": 25
+										}
+									}
+								},
+								{
+									"raws": {
+										"left": " ",
+										"right": "",
+										"inline": true,
+										"before": " "
+									},
+									"text": "prop error",
+									"type": "comment",
+									"source": {
+										"input": {
+											"file": "jsx.jsx"
+										},
+										"start": {
+											"line": 36,
+											"column": 27
+										},
+										"end": {
+											"line": 36,
+											"column": 40
+										}
+									}
+								},
+								{
+									"raws": {
+										"prop": {
+											"prefix": "",
+											"suffix": "",
+											"raw": "color",
+											"value": "color"
+										},
+										"value": {
+											"prefix": "",
+											"suffix": "",
+											"raw": "props.color",
+											"value": "props.color"
+										},
+										"between": ": ",
+										"before": "\n\t\t\t\t"
+									},
+									"prop": "color",
+									"value": "props.color",
+									"type": "decl",
+									"source": {
+										"input": {
+											"file": "jsx.jsx"
+										},
+										"start": {
+											"line": 37,
+											"column": 4
+										},
+										"end": {
+											"line": 37,
+											"column": 22
+										}
+									}
+								},
+								{
+									"raws": {
+										"prop": {
+											"prefix": "",
+											"suffix": "",
+											"raw": "backgroundColor",
+											"value": "background-color"
+										},
+										"value": {
+											"prefix": "",
+											"suffix": "",
+											"raw": "props.big ? \"#fff\" : \"#000x\"",
+											"value": "props.big ? \"#fff\" : \"#000x\""
+										},
+										"between": ": ",
+										"before": "\n\t\t\t\t"
+									},
+									"prop": "background-color",
+									"value": "props.big ? \"#fff\" : \"#000x\"",
+									"type": "decl",
+									"source": {
+										"input": {
+											"file": "jsx.jsx"
+										},
+										"start": {
+											"line": 38,
+											"column": 4
+										},
+										"end": {
+											"line": 38,
+											"column": 49
+										}
+									}
+								}
+							],
+							"source": {
+								"input": {
+									"file": "jsx.jsx"
+								},
+								"start": {
+									"line": 35,
+									"column": 3
+								},
+								"end": {
+									"line": 39,
+									"column": 4
+								}
+							}
+						}
+					],
+					"source": {
+						"input": {
+							"file": "jsx.jsx"
+						},
+						"start": {
+							"line": 31,
+							"column": 7
+						},
+						"end": {
+							"line": 40,
+							"column": 3
+						}
+					}
+				}
+			]
+		}
+	],
+	"source": {
+		"input": {
+			"file": "jsx.jsx"
+		},
+		"start": {
+			"line": 1,
+			"column": 1
+		},
+		"lang": "jsx"
+	}
 }

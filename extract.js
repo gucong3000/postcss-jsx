@@ -8,53 +8,79 @@ const {
 const getTemplate = require("./get-template");
 const loadSyntax = require("postcss-syntax/load-syntax");
 
+const isStyleSheetCreate = expectAdjacentSibling(["create"]);
 const supports = {
-	// https://github.com/Khan/aphrodite
-	// https://github.com/necolas/react-native-web
-	StyleSheet: true,
-
-	// https://github.com/emotion-js/emotion
 	// import styled from '@emotion/styled'
-	// https://github.com/threepointone/glamor
 	// import { styled } from 'glamor/styled'
-	// https://github.com/rtsao/styletron
 	// import { styled } from "styletron-react";
+	// import { styled } from 'linaria/react';
 	styled: true,
 
-	// https://github.com/typestyle/typestyle
 	// import { style } from "typestyle";
 	style: true,
 
-	// https://github.com/4Catalyzer/astroturf
-	// import { css } from 'astroturf';
-	// https://github.com/bashmish/lit-css
+	// import { StyleSheet, css } from 'aphrodite';
+	// import styled, { css } from 'astroturf';
 	// import { css } from 'lit-css';
-	// https://github.com/threepointone/glamor
 	// import { css } from 'glamor'
+	// require('css-light').css({color: 'red'});
+	// import { css } from 'linaria';
 	css: true,
 
-	// https://github.com/emotion-js/emotion
+	// import { StyleSheet, css } from 'aphrodite';
+	// import { AppRegistry, StyleSheet, Text, View } from 'react-native';
+	StyleSheet: isStyleSheetCreate,
+
+	// import styled, { css } from 'astroturf';
+	astroturf: true,
+
+	// require('csjs')`css`;
+	csjs: true,
+
+	// require('cssobj')({color: 'red'})
+	cssobj: true,
+
+	// require('electron-css')({color: 'red'})
+	"electron-css": true,
+
 	// import styled from "react-emotion";
-	emotion: true,
 	"react-emotion": true,
+
+	// import styled from 'preact-emotion'
 	"preact-emotion": true,
+
+	// https://github.com/streamich/freestyler
+	freestyler: true,
 
 	// https://github.com/paypal/glamorous
 	glamorous: true,
 
-	// https://github.com/js-next/react-style
-	"react-style": true,
+	// https://github.com/irom-io/i-css
+	// "i-css": (i, nameSpace) => nameSpace[i + 1] === "addStyles" && nameSpace[i + 2] === "wrapper",
 
-	// https://github.com/casesandberg/reactcss
+	// https://github.com/j2css/j2c
+	j2c: expectAdjacentSibling(["inline", "sheet"]),
+
+	// var styles = StyleSheet.create({color: 'red'})
+	"react-inline": isStyleSheetCreate,
+	"react-style": isStyleSheetCreate,
+
+	// import reactCSS from 'reactcss'
 	reactcss: true,
 
-	// https://github.com/styled-components/styled-components
+	// const StyledButton = injectSheet(styles)(Button)
+	"react-jss": true,
+
+	// import styled from 'styled-components';
 	"styled-components": true,
 
-	// https://github.com/rtsao/styletron
-	// import {styled} from "styletron-react";
 	// import {withStyle} from "styletron-react";
-	"styletron-react": true,
+	"styletron-react": expectAdjacentSibling(["withStyle"]),
+
+	"styling": true,
+
+	// const rule = superstyle({ color: 'blue' })
+	"superstyle": true,
 };
 
 const plugins = [
@@ -71,38 +97,45 @@ const plugins = [
 	"optionalCatchBinding",
 ];
 
-function getSourceType (filename) {
-	if (filename && /\.m[tj]sx?$/.test(filename)) {
-		return "module";
-	}
-	try {
-		return loadOptions({
-			filename,
-		}).sourceType;
-	} catch (ex) {
-		//
-	}
+function expectAdjacentSibling (names) {
+	return (i, nameSpace) => (
+		names.some(name => nameSpace[i + 1] === name)
+	);
 }
 
-function getOptions (opts) {
+function loadBabelOpts (opts) {
 	const filename = opts.from && opts.from.replace(/\?.*$/, "");
-
-	return {
+	opts = {
 		sourceFilename: filename,
-		sourceType: getSourceType(filename) || "unambiguous",
+		sourceType: filename && /\.m[tj]sx?$/.test(filename) ? "module" : "unambiguous",
 		plugins,
 		allowImportExportEverywhere: true,
 		allowAwaitOutsideFunction: true,
 		allowReturnOutsideFunction: true,
 		allowSuperOutsideMethod: true,
 	};
+	let fileOpts;
+	try {
+		fileOpts = filename && loadOptions({
+			filename,
+		});
+	} catch (ex) {
+		//
+	}
+	for (const key in fileOpts) {
+		if (Array.isArray(fileOpts[key]) && !fileOpts[key].length) {
+			continue;
+		}
+		opts[key] = fileOpts[key];
+	}
+	return opts;
 }
 
 function literalParser (source, opts, styles) {
 	let ast;
 	try {
 		ast = parse(source, {
-			parserOpts: getOptions(opts),
+			parserOpts: loadBabelOpts(opts),
 		});
 	} catch (ex) {
 		// console.error(ex);
@@ -113,6 +146,7 @@ function literalParser (source, opts, styles) {
 	const variableDeclarator = new Map();
 	let objLiteral = new Set();
 	let tplLiteral = new Set();
+	const tplCallee = new Set();
 	const jobs = [];
 
 	function addObjectJob (path) {
@@ -200,7 +234,18 @@ function literalParser (source, opts, styles) {
 	}
 
 	function isStylePath (path) {
-		return getNameSpace(path, []).some(name => name && supports[name]);
+		return getNameSpace(path, []).some(function (name) {
+			let result = name && ((supports.hasOwnProperty(name) && supports[name]) || (opts.syntax.config.hasOwnProperty(name) && opts.syntax.config[name]));
+			switch (typeof result) {
+				case "function": {
+					result = result.apply(this, Array.prototype.slice.call(arguments, 1));
+				}
+				// eslint-disable-next-line no-fallthrough
+				case "boolean": {
+					return result;
+				}
+			}
+		});
 	}
 
 	const visitor = {
@@ -215,7 +260,7 @@ function literalParser (source, opts, styles) {
 			});
 		},
 		JSXAttribute: (path) => {
-			if (supports[path.node.name.name]) {
+			if (/^(?:css|style)$/.test(path.node.name.name)) {
 				addObjectJob(path.get("value.expression"));
 			}
 		},
@@ -259,7 +304,7 @@ function literalParser (source, opts, styles) {
 						break;
 					} while (currPath);
 				});
-			} else if (isStylePath(path.get("callee"))) {
+			} else if (!tplCallee.has(callee) && isStylePath(path.get("callee"))) {
 				path.get("arguments").forEach((arg) => {
 					addObjectJob(arg.isFunction() ? arg.get("body") : arg);
 				});
@@ -268,6 +313,9 @@ function literalParser (source, opts, styles) {
 		TaggedTemplateExpression: (path) => {
 			if (isStylePath(path.get("tag"))) {
 				tplLiteral.add(path.node.quasi);
+				if (path.node.tag.callee) {
+					tplCallee.add(path.node.tag.callee);
+				}
 			}
 		},
 	};

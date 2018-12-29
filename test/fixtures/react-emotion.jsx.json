@@ -1,0 +1,304 @@
+{
+  "raws": {},
+  "type": "root",
+  "nodes": [
+    {
+      "raws": {
+        "semicolon": true,
+        "after": "\n"
+      },
+      "type": "root",
+      "nodes": [
+        {
+          "raws": {
+            "before": "\n  ",
+            "between": ": "
+          },
+          "type": "decl",
+          "source": {
+            "start": {
+              "line": 5,
+              "column": 3
+            },
+            "input": {
+              "file": "react-emotion.jsx",
+              "quasis": [
+                {
+                  "start": 102,
+                  "end": 140
+                },
+                {
+                  "start": 163,
+                  "end": 165
+                }
+              ]
+            },
+            "end": {
+              "line": 5,
+              "column": 16
+            }
+          },
+          "prop": "display",
+          "value": "flex"
+        },
+        {
+          "raws": {
+            "before": "\n  ",
+            "between": ": "
+          },
+          "type": "decl",
+          "source": {
+            "start": {
+              "line": 6,
+              "column": 3
+            },
+            "input": {
+              "file": "react-emotion.jsx",
+              "quasis": [
+                {
+                  "start": 102,
+                  "end": 140
+                },
+                {
+                  "start": 163,
+                  "end": 165
+                }
+              ]
+            },
+            "end": {
+              "line": 6,
+              "column": 44
+            }
+          },
+          "prop": "background-color",
+          "value": "${props => props.color}"
+        }
+      ],
+      "source": {
+        "input": {
+          "file": "react-emotion.jsx",
+          "quasis": [
+            {
+              "start": 102,
+              "end": 140
+            },
+            {
+              "start": 163,
+              "end": 165
+            }
+          ]
+        },
+        "start": {
+          "line": 4,
+          "column": 37
+        },
+        "inline": false,
+        "lang": "template-literal",
+        "syntax": {}
+      }
+    },
+    {
+      "raws": {},
+      "source": {
+        "input": {
+          "file": "react-emotion.jsx"
+        },
+        "start": {
+          "line": 10,
+          "column": 1
+        },
+        "inline": false,
+        "lang": "object-literal",
+        "syntax": {}
+      },
+      "type": "root",
+      "nodes": [
+        {
+          "raws": {
+            "after": "\n\t",
+            "semicolon": true,
+            "before": "\t"
+          },
+          "type": "object",
+          "nodes": [
+            {
+              "raws": {
+                "prop": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "color",
+                  "value": "color"
+                },
+                "value": {
+                  "prefix": "\"",
+                  "suffix": "\"",
+                  "raw": "hotpink",
+                  "value": "hotpink"
+                },
+                "between": ": ",
+                "before": "\n\t\t"
+              },
+              "prop": "color",
+              "value": "hotpink",
+              "type": "decl",
+              "source": {
+                "input": {
+                  "file": "react-emotion.jsx"
+                },
+                "start": {
+                  "line": 11,
+                  "column": 2
+                },
+                "end": {
+                  "line": 11,
+                  "column": 18
+                }
+              }
+            }
+          ],
+          "source": {
+            "input": {
+              "file": "react-emotion.jsx"
+            },
+            "start": {
+              "line": 10,
+              "column": 1
+            },
+            "end": {
+              "line": 12,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "raws": {},
+      "source": {
+        "input": {
+          "file": "react-emotion.jsx"
+        },
+        "start": {
+          "line": 13,
+          "column": 11
+        },
+        "inline": false,
+        "lang": "object-literal",
+        "syntax": {}
+      },
+      "type": "root",
+      "nodes": [
+        {
+          "raws": {
+            "after": " ",
+            "semicolon": false,
+            "before": ""
+          },
+          "type": "object",
+          "nodes": [
+            {
+              "raws": {
+                "prop": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "flex",
+                  "value": "flex"
+                },
+                "value": {
+                  "prefix": "",
+                  "suffix": "",
+                  "raw": "props.flex",
+                  "value": "props.flex"
+                },
+                "between": ": ",
+                "before": " "
+              },
+              "prop": "flex",
+              "value": "props.flex",
+              "type": "decl",
+              "source": {
+                "input": {
+                  "file": "react-emotion.jsx"
+                },
+                "start": {
+                  "line": 13,
+                  "column": 13
+                },
+                "end": {
+                  "line": 13,
+                  "column": 29
+                }
+              }
+            }
+          ],
+          "source": {
+            "input": {
+              "file": "react-emotion.jsx"
+            },
+            "start": {
+              "line": 13,
+              "column": 11
+            },
+            "end": {
+              "line": 13,
+              "column": 31
+            }
+          }
+        }
+      ]
+    },
+    {
+      "raws": {
+        "semicolon": true,
+        "after": "\n"
+      },
+      "type": "root",
+      "nodes": [
+        {
+          "raws": {
+            "before": "\n  ",
+            "between": ": "
+          },
+          "type": "decl",
+          "source": {
+            "start": {
+              "line": 25,
+              "column": 3
+            },
+            "input": {
+              "file": "react-emotion.jsx"
+            },
+            "end": {
+              "line": 25,
+              "column": 23
+            }
+          },
+          "prop": "color",
+          "value": "rebeccapurple"
+        }
+      ],
+      "source": {
+        "input": {
+          "file": "react-emotion.jsx"
+        },
+        "start": {
+          "line": 24,
+          "column": 21
+        },
+        "inline": false,
+        "lang": "css",
+        "syntax": {}
+      }
+    }
+  ],
+  "source": {
+    "input": {
+      "file": "react-emotion.jsx"
+    },
+    "start": {
+      "line": 1,
+      "column": 1
+    },
+    "lang": "jsx"
+  }
+}

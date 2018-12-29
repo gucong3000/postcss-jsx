@@ -5,7 +5,7 @@ const Input = require("postcss/lib/input");
 
 function templateSafeParse (css, opts) {
 	const input = new Input(css, opts);
-	input.node = opts.node;
+	input.quasis = opts.quasis;
 	const parser = new TemplateSafeParser(input);
 	parser.parse();
 

@@ -249,7 +249,7 @@ class objectParser {
 
 		const value = this.getNodeValue(node.value, rawValue);
 
-		if (key.value.startsWith("@")) {
+		if (key.value[0] === "@") {
 			const atRule = postcss.atRule({
 				name: unCamelCase(key.value),
 				params: value.value,

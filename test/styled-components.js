@@ -5,7 +5,7 @@ const fs = require("fs");
 
 describe("styled-components", () => {
 	it("basic", () => {
-		const file = require.resolve("./fixtures/styled");
+		const file = require.resolve("./fixtures/styled-components");
 		let code = fs.readFileSync(file);
 
 		const document = syntax.parse(code, {

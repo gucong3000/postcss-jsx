@@ -37,6 +37,7 @@ describe("should support for each CSS in JS package", () => {
 		"react-native.mjs",
 		"styled-components.js",
 		"styled-opts.mjs",
+		"styled-props.jsx",
 		"tpl-decl.mjs",
 		"tpl-in-tpl.mjs",
 		"tpl-selector.mjs",

@@ -1,6 +1,6 @@
 "use strict";
 const Literal = require("./literal");
-const isLiteral = token => token[0] === "word" && /^\$\{.*\}$/.test(token[1]);
+const isLiteral = token => token[0] === "word" && /^\$\{[\s\S]*\}$/.test(token[1]);
 function literal (start) {
 	if (!isLiteral(start)) {
 		return;

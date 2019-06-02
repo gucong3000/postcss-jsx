@@ -141,6 +141,7 @@ describe("CSS in JS", () => {
 	describe("objectify for css", () => {
 		cases.each((name, css) => {
 			if (name === "bom.css") return;
+			if (name === "custom-properties.css") return;
 
 			it("objectStringifier " + name, () => {
 				const root = postcss.parse(css);

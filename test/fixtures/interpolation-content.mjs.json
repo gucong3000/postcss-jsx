@@ -402,6 +402,364 @@
 				"lang": "template-literal",
 				"syntax": {}
 			}
+		},
+		{
+			"raws": {
+				"semicolon": true,
+				"after": "\n"
+			},
+			"type": "root",
+			"nodes": [
+				{
+					"raws": {
+						"before": "\n\t"
+					},
+					"text": "${buttonStyles\n\t}",
+					"type": "literal",
+					"source": {
+						"start": {
+							"line": 30,
+							"column": 2
+						},
+						"input": {
+							"file": "interpolation-content.mjs",
+							"quasis": [
+								{
+									"start": 472,
+									"end": 474
+								},
+								{
+									"start": 491,
+									"end": 505
+								}
+							]
+						}
+					}
+				},
+				{
+					"raws": {
+						"before": "\n\t",
+						"between": ": "
+					},
+					"type": "decl",
+					"source": {
+						"start": {
+							"line": 32,
+							"column": 2
+						},
+						"input": {
+							"file": "interpolation-content.mjs",
+							"quasis": [
+								{
+									"start": 472,
+									"end": 474
+								},
+								{
+									"start": 491,
+									"end": 505
+								}
+							]
+						},
+						"end": {
+							"line": 32,
+							"column": 12
+						}
+					},
+					"prop": "color",
+					"value": "red"
+				}
+			],
+			"source": {
+				"input": {
+					"file": "interpolation-content.mjs",
+					"quasis": [
+						{
+							"start": 472,
+							"end": 474
+						},
+						{
+							"start": 491,
+							"end": 505
+						}
+					]
+				},
+				"start": {
+					"line": 29,
+					"column": 44
+				},
+				"inline": false,
+				"lang": "template-literal",
+				"syntax": {}
+			}
+		},
+		{
+			"raws": {
+				"semicolon": true,
+				"after": "\n"
+			},
+			"type": "root",
+			"nodes": [
+				{
+					"raws": {
+						"before": "\n\t",
+						"ownSemicolon": ";"
+					},
+					"text": "${buttonStyles\n\t}",
+					"type": "literal",
+					"source": {
+						"start": {
+							"line": 36,
+							"column": 2
+						},
+						"input": {
+							"file": "interpolation-content.mjs",
+							"quasis": [
+								{
+									"start": 552,
+									"end": 554
+								},
+								{
+									"start": 571,
+									"end": 586
+								}
+							]
+						}
+					}
+				},
+				{
+					"raws": {
+						"before": "\n\t",
+						"between": ": "
+					},
+					"type": "decl",
+					"source": {
+						"start": {
+							"line": 38,
+							"column": 2
+						},
+						"input": {
+							"file": "interpolation-content.mjs",
+							"quasis": [
+								{
+									"start": 552,
+									"end": 554
+								},
+								{
+									"start": 571,
+									"end": 586
+								}
+							]
+						},
+						"end": {
+							"line": 38,
+							"column": 12
+						}
+					},
+					"prop": "color",
+					"value": "red"
+				}
+			],
+			"source": {
+				"input": {
+					"file": "interpolation-content.mjs",
+					"quasis": [
+						{
+							"start": 552,
+							"end": 554
+						},
+						{
+							"start": 571,
+							"end": 586
+						}
+					]
+				},
+				"start": {
+					"line": 35,
+					"column": 44
+				},
+				"inline": false,
+				"lang": "template-literal",
+				"syntax": {}
+			}
+		},
+		{
+			"raws": {
+				"semicolon": false,
+				"after": "\n"
+			},
+			"type": "root",
+			"nodes": [
+				{
+					"raws": {
+						"before": "\n;\n\t",
+						"between": ": "
+					},
+					"type": "decl",
+					"source": {
+						"start": {
+							"line": 43,
+							"column": 2
+						},
+						"input": {
+							"file": "interpolation-content.mjs",
+							"quasis": [
+								{
+									"start": 633,
+									"end": 650
+								},
+								{
+									"start": 667,
+									"end": 668
+								}
+							]
+						},
+						"end": {
+							"line": 43,
+							"column": 12
+						}
+					},
+					"prop": "color",
+					"value": "red"
+				},
+				{
+					"raws": {
+						"before": "\n\t"
+					},
+					"text": "${buttonStyles\n\t}",
+					"type": "literal",
+					"source": {
+						"start": {
+							"line": 44,
+							"column": 2
+						},
+						"input": {
+							"file": "interpolation-content.mjs",
+							"quasis": [
+								{
+									"start": 633,
+									"end": 650
+								},
+								{
+									"start": 667,
+									"end": 668
+								}
+							]
+						}
+					}
+				}
+			],
+			"source": {
+				"input": {
+					"file": "interpolation-content.mjs",
+					"quasis": [
+						{
+							"start": 633,
+							"end": 650
+						},
+						{
+							"start": 667,
+							"end": 668
+						}
+					]
+				},
+				"start": {
+					"line": 41,
+					"column": 44
+				},
+				"inline": false,
+				"lang": "template-literal",
+				"syntax": {}
+			}
+		},
+		{
+			"raws": {
+				"semicolon": false,
+				"after": "\n"
+			},
+			"type": "root",
+			"nodes": [
+				{
+					"raws": {
+						"before": "\n;\n\t",
+						"between": ": "
+					},
+					"type": "decl",
+					"source": {
+						"start": {
+							"line": 50,
+							"column": 2
+						},
+						"input": {
+							"file": "interpolation-content.mjs",
+							"quasis": [
+								{
+									"start": 715,
+									"end": 732
+								},
+								{
+									"start": 749,
+									"end": 751
+								}
+							]
+						},
+						"end": {
+							"line": 50,
+							"column": 12
+						}
+					},
+					"prop": "color",
+					"value": "red"
+				},
+				{
+					"raws": {
+						"before": "\n\t",
+						"ownSemicolon": ";"
+					},
+					"text": "${buttonStyles\n\t}",
+					"type": "literal",
+					"source": {
+						"start": {
+							"line": 51,
+							"column": 2
+						},
+						"input": {
+							"file": "interpolation-content.mjs",
+							"quasis": [
+								{
+									"start": 715,
+									"end": 732
+								},
+								{
+									"start": 749,
+									"end": 751
+								}
+							]
+						}
+					}
+				}
+			],
+			"source": {
+				"input": {
+					"file": "interpolation-content.mjs",
+					"quasis": [
+						{
+							"start": 715,
+							"end": 732
+						},
+						{
+							"start": 749,
+							"end": 751
+						}
+					]
+				},
+				"start": {
+					"line": 48,
+					"column": 44
+				},
+				"inline": false,
+				"lang": "template-literal",
+				"syntax": {}
+			}
 		}
 	],
 	"source": {

@@ -37,7 +37,7 @@ describe("CSS in JS", () => {
 		`;
 		return postcss([
 			autoprefixer({
-				browsers: ["Chrome > 10"],
+				overrideBrowserslist: ["Chrome > 10"],
 			}),
 		]).process(
 			code,

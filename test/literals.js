@@ -67,7 +67,7 @@ describe("template literals", () => {
 		expect(document.toString()).to.equal(code);
 		expect(document.source).to.haveOwnProperty("lang", "jsx");
 
-		expect(document.nodes).to.have.lengthOf(5);
+		expect(document.nodes).to.have.lengthOf(9);
 		document.nodes.forEach((root, i) => {
 			switch (i) {
 				case 0: {

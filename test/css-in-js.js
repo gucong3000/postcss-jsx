@@ -37,7 +37,7 @@ describe("CSS in JS", () => {
 		`;
 		return postcss([
 			autoprefixer({
-				browsers: ["Chrome > 10"],
+				overrideBrowserslist: ["Chrome > 10"],
 			}),
 		]).process(
 			code,
@@ -141,6 +141,7 @@ describe("CSS in JS", () => {
 	describe("objectify for css", () => {
 		cases.each((name, css) => {
 			if (name === "bom.css") return;
+			if (name === "custom-properties.css") return;
 
 			it("objectStringifier " + name, () => {
 				const root = postcss.parse(css);

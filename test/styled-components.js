@@ -30,6 +30,50 @@ describe("styled-components", () => {
 		});
 	});
 
+	it("interpolation with css template literal", () => {
+		const code = [
+			"import styled, { css } from 'styled-components';",
+
+			"const Message = styled.p`",
+			"	padding: 10px;",
+
+			"	${css`",
+			"		color: #b02d00;",
+			"	`}",
+			"`;",
+		].join("\n");
+		const document = syntax.parse(code, {
+			from: undefined,
+		});
+		expect(document.toString()).to.equal(code);
+		expect(document.source).to.haveOwnProperty("lang", "jsx");
+		expect(document.nodes).to.have.lengthOf(2);
+	});
+
+	it.only("interpolation with two css template literals", () => {
+		const code = [
+			"import styled, { css } from 'styled-components';",
+
+			"const Message = styled.p`",
+			"	padding: 10px;",
+
+			"	${(props) => css`",
+			"		color: #b02d00;",
+			"	`}",
+
+			"	${(props2) => css`",
+			"		border-color: red;",
+			"	`}",
+			"`;",
+		].join("\n");
+		const document = syntax.parse(code, {
+			from: undefined,
+		});
+		expect(document.toString()).to.equal(code);
+		expect(document.source).to.haveOwnProperty("lang", "jsx");
+		expect(document.nodes).to.have.lengthOf(3);
+	});
+
 	it("empty template literal", () => {
 		const code = [
 			"function test() {",

@@ -106,13 +106,16 @@ function expectAdjacentSibling (names) {
 function loadBabelOpts (opts) {
 	const filename = opts.from && opts.from.replace(/\?.*$/, "");
 	opts = {
-		sourceFilename: filename,
-		sourceType: filename && /\.m[tj]sx?$/.test(filename) ? "module" : "unambiguous",
-		plugins,
-		allowImportExportEverywhere: true,
-		allowAwaitOutsideFunction: true,
-		allowReturnOutsideFunction: true,
-		allowSuperOutsideMethod: true,
+		filename,
+		parserOpts: {
+			plugins,
+			sourceFilename: filename,
+			sourceType: filename && /\.m[tj]sx?$/.test(filename) ? "module" : "unambiguous",
+			allowImportExportEverywhere: true,
+			allowAwaitOutsideFunction: true,
+			allowReturnOutsideFunction: true,
+			allowSuperOutsideMethod: true,
+		},
 	};
 	let fileOpts;
 	try {
@@ -126,7 +129,9 @@ function loadBabelOpts (opts) {
 		if (Array.isArray(fileOpts[key]) && !fileOpts[key].length) {
 			continue;
 		}
+		// because some options need to be passed to parser also
 		opts[key] = fileOpts[key];
+		opts.parserOpts[key] = fileOpts[key];
 	}
 	return opts;
 }
@@ -134,9 +139,7 @@ function loadBabelOpts (opts) {
 function literalParser (source, opts, styles) {
 	let ast;
 	try {
-		ast = parse(source, {
-			parserOpts: loadBabelOpts(opts),
-		});
+		ast = parse(source, loadBabelOpts(opts));
 	} catch (ex) {
 		// console.error(ex);
 		return styles || [];

@@ -17,6 +17,8 @@ const data = {
 	webkitApp: "-webkit-app",
 	onChange: "on-change",
 	OnChange: "-on-change",
+	overflowWrap: "overflow-wrap",
+	overflowX: "overflow-x",
 	zIndex: "z-index",
 	"::selection": "::selection",
 	"::mozSelection": "::-moz-selection",

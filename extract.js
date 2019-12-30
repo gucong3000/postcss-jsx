@@ -14,6 +14,7 @@ const supports = {
 	// import { styled } from 'glamor/styled'
 	// import { styled } from "styletron-react";
 	// import { styled } from 'linaria/react';
+	// import { styled } from '@material-ui/styles'
 	styled: true,
 
 	// import { style } from "typestyle";
@@ -81,6 +82,9 @@ const supports = {
 
 	// const rule = superstyle({ color: 'blue' })
 	"superstyle": true,
+
+	// import { makeStyles } from '@material-ui/styles'
+	'styles': expectAdjacentSibling(["makeStyles"]),
 };
 
 const plugins = [

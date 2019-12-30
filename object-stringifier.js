@@ -25,9 +25,14 @@ class ObjectStringifier extends Stringifier {
 		if (prop === "float") {
 			prop = "cssFloat";
 		}
-		const between = this.raw(node, "between", "colon");
-		const value = this.rawValue(node, "value");
-		let string = prop + between + value;
+		let string = prop;
+
+		const isObjectShorthand = node.raws.node && node.raws.node.shorthand;
+		if (!isObjectShorthand) {
+			const between = this.raw(node, "between", "colon");
+			const value = this.rawValue(node, "value");
+			string += between + value;
+		} 
 
 		if (semicolon) string += ",";
 		this.builder(string, node);

@@ -41,8 +41,13 @@ const App = props => (
 	/>
 );
 
+function ObjectShorthandComponent({color}) {
+	return <div style={{color}}/>
+}
+
 export default {
 	HelloWorldComponent,
 	React,
-	App
+	App,
+	ObjectShorthandComponent
 };

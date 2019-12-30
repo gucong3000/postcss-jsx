@@ -568,6 +568,81 @@
 					}
 				}
 			]
+		},
+		{
+			"raws": {},
+			"source": {
+				"input": {
+					"file": "jsx.jsx"
+				},
+				"start": {
+					"line": 45,
+					"column": 20
+				},
+				"inline": false,
+				"lang": "object-literal",
+				"syntax": {}
+			},
+			"type": "root",
+			"nodes": [
+				{
+					"raws": {
+						"after": "",
+						"semicolon": false,
+						"before": ""
+					},
+					"type": "object",
+					"nodes": [
+						{
+							"raws": {
+								"prop": {
+									"prefix": "",
+									"suffix": "",
+									"raw": "color",
+									"value": "color"
+								},
+								"value": {
+									"prefix": "",
+									"suffix": "",
+									"raw": "color",
+									"value": "color"
+								},
+								"between": "",
+								"before": ""
+							},
+							"prop": "color",
+							"value": "color",
+							"type": "decl",
+							"source": {
+								"input": {
+									"file": "jsx.jsx"
+								},
+								"start": {
+									"line": 45,
+									"column": 21
+								},
+								"end": {
+									"line": 45,
+									"column": 26
+								}
+							}
+						}
+					],
+					"source": {
+						"input": {
+							"file": "jsx.jsx"
+						},
+						"start": {
+							"line": 45,
+							"column": 20
+						},
+						"end": {
+							"line": 45,
+							"column": 27
+						}
+					}
+				}
+			]
 		}
 	],
 	"source": {

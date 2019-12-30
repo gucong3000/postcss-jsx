@@ -13,7 +13,7 @@ describe("not throw error for non-style js file", () => {
 				from: file,
 			});
 			expect(document.source).to.haveOwnProperty("lang", "jsx");
-			expect(document.toString(), code.toString());
+			expect(document.toString()).to.equal(code.toString());
 		});
 	});
 });

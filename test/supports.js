@@ -51,7 +51,7 @@ describe("should support for each CSS in JS package", () => {
 				from: file,
 			});
 			expect(document.source).to.haveOwnProperty("lang", "jsx");
-			expect(document.toString(), code.toString());
+			expect(document.toString()).to.equal(code.toString());
 			expect(document.nodes.length).to.greaterThan(0);
 			const parsed = JSON.stringify(clean(document), 0, "\t");
 			// fs.writeFileSync(file + ".json", parsed + "\n");
